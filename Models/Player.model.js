@@ -22,6 +22,13 @@ const playerSchema = mongoose.Schema({
     required: [true, "La contraseña es requerida"],
     match: [PASSWORD_PATTERN, "La contraseña debe contener al menos 8 dígitos"],
   },
+  active: {
+    type: Boolean,
+    default: false
+  },
+  googleID: {
+    type: String
+  },
   city: {
     type: String,
     required: [true, "Por favor introduce tu ciudad"],

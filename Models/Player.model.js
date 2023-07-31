@@ -1,12 +1,13 @@
 const mongoose = require("mongoose");
 const bcrypt = require("bcryptjs");
+const Schema = mongoose.Schema;
 
 const EMAIL_PATTERN =
   /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
 const PASSWORD_PATTERN = /^.{8,}$/i;
 const SALT_ROUNDS = 10;
 
-const playerSchema = mongoose.Schema({
+const playerSchema = new Schema({
   name: {
     type: String,
     required: [true, "El nombre es requerido"],
@@ -57,8 +58,8 @@ playerSchema.pre("save", function (next) {
   }
 });
 
-playerSchema.methods.checkPassword = function(password) {
-    return bcrypt.compare(password, this.password);
+playerSchema.methods.checkPassword = function (password) {
+  return bcrypt.compare(password, this.password);
 };
 
 const Player = mongoose.model('Player', playerSchema);

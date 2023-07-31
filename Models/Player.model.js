@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const Schema = mongoose.Schema;
 const bcrypt = require("bcryptjs");
 const Schema = mongoose.Schema;
 
@@ -41,6 +42,10 @@ const playerSchema = new Schema({
   birthday: {
     type: Date
   },
+  type: {
+    type: String,
+    default: "Player"
+  }
 });
 
 playerSchema.pre("save", function (next) {

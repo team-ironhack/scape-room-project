@@ -1,0 +1,182 @@
+[
+    {
+        "companyName": "Mayto Kingdom",
+        "province": "País Vasco",
+        "city": "Vitoria",
+        "locationData": {
+            "type": "Point",
+            "coordinates": [
+                -2.649202492596582,
+                42.873723308888515
+            ]
+        },
+        "website": "https://maytokingdom.es/",
+        "phone": "666 666 666",
+        "email": "maytokingdom@company.es",
+        "password": "123456789",
+        "active": true,
+        "avatar": "https://maytokingdom.es/wp-content/uploads/2021/01/MAYTO-LOGO.jpg"
+    },
+    {
+        "companyName": "Shock",
+        "province": "Madrid",
+        "city": "Rivas",
+        "locationData": {
+            "type": "Point",
+            "coordinates": [
+                -3.5331358248960667,
+                40.342938316270896
+            ]
+        },
+        "website": "https://www.shockescaperoom.com/",
+        "phone": "666 666 666",
+        "email": "shock@company.es",
+        "password": "123456789",
+        "active": true,
+        "avatar": "https://www.shockescaperoom.com/wp-content/uploads/2018/09/banner-header-color-1.png"
+    },
+    {
+        "companyName": "Outline Escape Room",
+        "province": "Barcelona",
+        "city": "Cornellá",
+        "locationData": {
+            "type": "Point",
+            "coordinates": [
+                2.083262891562174,
+                41.35589746132715
+            ]
+        },
+        "website": "https://outlineescaperoom.es/",
+        "phone": "666 666 666",
+        "email": "outlineScapeRoom@company.es",
+        "password": "123456789",
+        "active": true,
+        "avatar": "https://outlineescaperoom.es/wp-content/uploads/2022/12/logo-sin-fondo-outline-escape-room.png"
+    },
+    {
+        "companyName": "Insomnia",
+        "province": "Barcelona",
+        "city": "Berga",
+        "locationData": {
+            "type": "Point",
+            "coordinates": [
+                1.8423556110285735,
+                42.10765983253773
+            ]
+        },
+        "website": "https://www.insomniacorp.com/",
+        "phone": "666 666 666",
+        "email": "insomnia@company.es",
+        "password": "123456789",
+        "active": true,
+        "avatar": "https://www.insomniacorp.com/static/media/logo.f100b3bb7be609992e47.png"
+    },
+    {
+        "companyName": "Hangar 18",
+        "province": "Asturias",
+        "city": "Gijón",
+        "locationData": {
+            "type": "Point",
+            "coordinates": [
+                -5.688818332298965,
+                43.50644842753361
+            ]
+        },
+        "website": "https://www.hangar18.es/",
+        "phone": "666 666 666",
+        "email": "hangar18@company.es",
+        "password": "123456789",
+        "active": true,
+        "avatar": "https://www.hangar18.es/images/logo-dh.png"
+    },
+    {
+        "companyName": "Escape Barcelona",
+        "province": "Barcelona",
+        "city": "Sta. Coloma",
+        "locationData": {
+            "type": "Point",
+            "coordinates": [
+                2.2093980445567203,
+                41.44940390107661
+            ]
+        },
+        "website": "https://www.escapebarcelona.com/",
+        "phone": "666 666 666",
+        "email": "escapebarcelona@company.es",
+        "password": "123456789",
+        "active": true,
+        "avatar": "https://www.escapebarcelona.com/Nextgen_files/LogoSmall.webp"
+    },
+    {
+        "companyName": "Golden Pop",
+        "province": "Barcelona",
+        "city": "Barcelona",
+        "locationData": {
+            "type": "Point",
+            "coordinates": [
+                2.174447226001827,
+                41.39798215165559
+            ]
+        },
+        "website": "https://goldenpop.es/",
+        "phone": "666 666 666",
+        "email": "goldenpop@company.es",
+        "password": "123456789",
+        "active": true,
+        "avatar": "https://goldenpop.es/wp-content/uploads/2021/11/GoldenPop.png"
+    },
+    {
+        "companyName": "Krematorium",
+        "province": "Barcelona",
+        "city": "Hospitalet",
+        "locationData": {
+            "type": "Point",
+            "coordinates": [
+                2.108741030684589,
+                41.35691521017427
+            ]
+        },
+        "website": "https://krematoriumescaperoom.es/",
+        "phone": "666 666 666",
+        "email": "krematorium@company.es",
+        "password": "123456789",
+        "active": true,
+        "avatar": "https://krematoriumescaperoom.es/wp-content/uploads/2021/03/KEMATORIUM-LOGO-PNG-1-1536x362.png"
+    },
+    {
+        "companyName": "Silent Town",
+        "province": "País Vasco",
+        "city": "Basauri",
+        "locationData": {
+            "type": "Point",
+            "coordinates": [
+                -2.8922648920537664,
+                43.23787945553562
+            ]
+        },
+        "website": "https://www.silenttownbasauri.com/",
+        "phone": "666 666 666",
+        "email": "silenttown@company.es",
+        "password": "123456789",
+        "active": true,
+        "avatar": "https://www.silenttownbasauri.com/img/silent_logo.png"
+    },
+    {
+        "companyName": "Bite the fly",
+        "province": "Madrid",
+        "city": "Madrid",
+        "locationData": {
+            "type": "Point",
+            "coordinates": [
+                -3.629179053422945,
+                40.380029726541146
+            ]
+        },
+        "website": "https://bitethefly.com/",
+        "phone": "666 666 666",
+        "email": "bitethefly@company.es",
+        "password": "123456789",
+        "active": true,
+        "avatar": "https://bitethefly.com/wp-content/uploads/2020/10/logoAlargadoParaWeb-1.png"
+    }
+]

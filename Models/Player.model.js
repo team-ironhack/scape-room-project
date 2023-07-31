@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const Schema = mongoose.Schema;
 const bcrypt = require("bcryptjs");
 
 const EMAIL_PATTERN =
@@ -6,7 +7,7 @@ const EMAIL_PATTERN =
 const PASSWORD_PATTERN = /^.{8,}$/i;
 const SALT_ROUNDS = 10;
 
-const playerSchema = mongoose.Schema({
+const playerSchema = new Schema({
   name: {
     type: String,
     required: [true, "El nombre es requerido"],
@@ -40,6 +41,10 @@ const playerSchema = mongoose.Schema({
   birthday: {
     type: Date
   },
+  type: {
+    type: String,
+    default: "Player"
+  }
 });
 
 playerSchema.pre("save", function (next) {

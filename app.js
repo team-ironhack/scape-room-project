@@ -5,6 +5,7 @@ const express = require('express');
 const logger = require('morgan');
 const path = require('path');
 const passport = require('passport');
+const hbs = require('hbs')
 
 /** Configurations */
 require('./config/hbs.config');
@@ -17,6 +18,8 @@ const app = express();
 /** View engine setup */
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
+
+hbs.registerPartials(path.join(__dirname, '/views/partials'));
 
 /** Middlewares */
 app.use(express.urlencoded({ extended: false }));

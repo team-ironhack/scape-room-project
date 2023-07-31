@@ -1,423 +1,423 @@
 [
-  {
-    "companyName": "Mayto Kingdom",
-    "province": "País Vasco",
-    "city": "Vitoria",
-    "locationData": {
-      "type": "Point",
-      "coordinates": [
-        "-2.649202492596582",
-        "42.873723308888515"
-      ]
+    {
+        "companyName": "Mayto Kingdom",
+        "province": "País Vasco",
+        "city": "Vitoria",
+        "locationData": {
+            "type": "Point",
+            "coordinates": [
+                "-2.649202492596582",
+                "42.873723308888515"
+            ]
+        },
+        "website": "https://maytokingdom.es/",
+        "phone": "666 666 666",
+        "email": "maytokingdom@company.es",
+        "avatar": "https://maytokingdom.es/wp-content/uploads/2021/01/MAYTO-LOGO.jpg",
+        "type": "company",
+        "rooms": [
+            {
+                "name": "Tú también soñarás",
+                "players": "2-6",
+                "minAge": "18",
+                "price": "220",
+                "difficulty": "Alta",
+                "duration": "120",
+                "terrorLevel": "Pánico",
+                "synopsis": "Como investigadores de lo paranormal retirados, estáis hartos de tantos casos sobre casas embrujadas, que resultan ser un fraude. Ahora, un extraño caso ha llamado vuestra atención, muchos niños están desapareciendo en el condado de Derry. Las pistas os han llevado hasta las inmediaciones de “la casa del pozo”. Un lugar en el que bajo ningún concepto se debe entrar. “Aquí dentro todos flotamos…”",
+                "image": "https://maytokingdom.es/wp-content/uploads/2022/08/PORTADA-TU-TAMBIEN-FLOTARAS-NUEVA-2-WEB-NUEVA.jpg"
+            },
+            {
+                "name": "La cámara del espíritu y el tiempo",
+                "players": "2-5",
+                "minAge": "10",
+                "price": "170",
+                "difficulty": "Media",
+                "duration": "90",
+                "terrorLevel": "No",
+                "synopsis": "Todo el mundo conoce la historia de aquel muchacho que cayó hace años en la tierra y vivió todo tipo de aventuras que giran en torno a unas poderosas bolas de cristal. La leyenda cuenta que si logras reunir las 7 bolas mágicas, un poderoso dragón aparecerá y te concederá un deseo. Ahora tenéis la oportunidad de vivirlas. Acabáis de recibir una invitación para formar parte del Torneo Mundial de Artes Marciales! Un torneo en el que anualmente se enfrentan los guerreros más poderosos del planeta. Faltan escasos días para que se celebre y sabéis que ya no os dará tiempo a entrenar lo suficiente, por fortuna, sabéis de un místico lugar…muy por encima de una interminable torre, flotando en el cielo, se alza el imponente Palacio de Kamisama, allí se encuentra 'La Cámara del Espíritu y el Tiempo' , un lugar muy especial, ya que dentro un día terrestre, equivale a un año entero, usando esta cámara para entrenar os dará el tiempo suficiente para ir preparados al Gran Torneo... y es aquí donde comienza vuestra increíble aventura… ¿Preparados para sentir el poder de un Saiyan?",
+                "image": "https://maytokingdom.es/wp-content/uploads/2022/08/CAMARA-1.jpg"
+            },
+            {
+                "name": "Una aventura de leyenda",
+                "players": "2-6",
+                "minAge": "12",
+                "price": "220",
+                "difficulty": "Baja",
+                "duration": "120",
+                "terrorLevel": "No",
+                "synopsis": "Un reconocido equipo de arqueólogos, ha descubierto la localización del mayor tesoro jamás contado. Todo indica que se halla en el sudeste asiático. Por desgracia, parece que no son los únicos que lo están buscando. Debéis evitar que caiga en manos equivocadas y adelantaros, o se desatará la mayor de las catástrofes. Esta vez vamos a necesitar al mejor equipo. ¡La aventura va a ser movidita!",
+                "image": "https://maytokingdom.es/wp-content/uploads/2022/08/Aventura-de-Leyenda-FINAL-SUPREMA.jpg"
+            },
+            {
+                "name": "Una aventura mágica",
+                "players": "2-6",
+                "minAge": "6",
+                "price": "120",
+                "difficulty": "Baja",
+                "duration": "75",
+                "terrorLevel": "No",
+                "synopsis": "La criatura encargada de custodiar la guarida mágica más famosa de todos los tiempos, ha desaparecido.  El consejo de magos, ha solicitado la ayuda de pequeños y valientes aprendices, capaces de resolver el misterio de su paradero y rescatarla. Los mejores magos del lugar, os están esperando para iniciar un largo viaje, que os llevará a una inolvidable aventura». ¿Estáis preparados pequeños magos?",
+                "image": "https://maytokingdom.es/wp-content/uploads/2022/07/AVENTURA-MAGICA-WEB-2.jpg"
+            }
+        ]
     },
-    "website": "https://maytokingdom.es/",
-    "phone": "666 666 666",
-    "email": "maytokingdom@company.es",
-    "avatar": "https://maytokingdom.es/wp-content/uploads/2021/01/MAYTO-LOGO.jpg",
-    "type": "company",
-    "rooms": [
-      {
-        "name": "Tú también soñarás",
-        "players": "2-6",
-        "minAge": "18",
-        "price": "220",
-        "difficulty": "Alta",
-        "duration": "120",
-        "terrorLevel": "Pánico",
-        "synopsis": "Como investigadores de lo paranormal retirados, estáis hartos de tantos casos sobre casas embrujadas, que resultan ser un fraude. Ahora, un extraño caso ha llamado vuestra atención, muchos niños están desapareciendo en el condado de Derry. Las pistas os han llevado hasta las inmediaciones de “la casa del pozo”. Un lugar en el que bajo ningún concepto se debe entrar. “Aquí dentro todos flotamos…”",
-        "image": "https://maytokingdom.es/wp-content/uploads/2022/08/PORTADA-TU-TAMBIEN-FLOTARAS-NUEVA-2-WEB-NUEVA.jpg"
-      },
-      {
-        "name": "La cámara del espíritu y el tiempo",
-        "players": "2-5",
-        "minAge": "10",
-        "price": "170",
-        "difficulty": "Media",
-        "duration": "90",
-        "terrorLevel": "No",
-        "synopsis": "Todo el mundo conoce la historia de aquel muchacho que cayó hace años en la tierra y vivió todo tipo de aventuras que giran en torno a unas poderosas bolas de cristal. La leyenda cuenta que si logras reunir las 7 bolas mágicas, un poderoso dragón aparecerá y te concederá un deseo. Ahora tenéis la oportunidad de vivirlas. Acabáis de recibir una invitación para formar parte del Torneo Mundial de Artes Marciales! Un torneo en el que anualmente se enfrentan los guerreros más poderosos del planeta. Faltan escasos días para que se celebre y sabéis que ya no os dará tiempo a entrenar lo suficiente, por fortuna, sabéis de un místico lugar…muy por encima de una interminable torre, flotando en el cielo, se alza el imponente Palacio de Kamisama, allí se encuentra "La Cámara del Espíritu y el Tiempo" , un lugar muy especial, ya que dentro un día terrestre, equivale a un año entero, usando esta cámara para entrenar os dará el tiempo suficiente para ir preparados al Gran Torneo... y es aquí donde comienza vuestra increíble aventura… ¿Preparados para sentir el poder de un Saiyan?",
-        "image": "https://maytokingdom.es/wp-content/uploads/2022/08/CAMARA-1.jpg"
-      },
-      {
-        "name": "Una aventura de leyenda",
-        "players": "2-6",
-        "minAge": "12",
-        "price": "220",
-        "difficulty": "Baja",
-        "duration": "120",
-        "terrorLevel": "No",
-        "synopsis": "Un reconocido equipo de arqueólogos, ha descubierto la localización del mayor tesoro jamás contado. Todo indica que se halla en el sudeste asiático. Por desgracia, parece que no son los únicos que lo están buscando. Debéis evitar que caiga en manos equivocadas y adelantaros, o se desatará la mayor de las catástrofes. Esta vez vamos a necesitar al mejor equipo. ¡La aventura va a ser movidita!",
-        "image": "https://maytokingdom.es/wp-content/uploads/2022/08/Aventura-de-Leyenda-FINAL-SUPREMA.jpg"
-      },
-      {
-        "name": "Una aventura mágica",
-        "players": "2-6",
-        "minAge": "6",
-        "price": "120",
-        "difficulty": "Baja",
-        "duration": "75",
-        "terrorLevel": "No",
-        "synopsis": "La criatura encargada de custodiar la guarida mágica más famosa de todos los tiempos, ha desaparecido.  El consejo de magos, ha solicitado la ayuda de pequeños y valientes aprendices, capaces de resolver el misterio de su paradero y rescatarla. Los mejores magos del lugar, os están esperando para iniciar un largo viaje, que os llevará a una inolvidable aventura». ¿Estáis preparados pequeños magos?",
-        "image": "https://maytokingdom.es/wp-content/uploads/2022/07/AVENTURA-MAGICA-WEB-2.jpg"
-      }
-    ]
-  },
-  {
-    "companyName": "Shock",
-    "province": "Madrid",
-    "city": "Rivas",
-    "locationData": {
-      "type": "Point",
-      "coordinates": [
-        "-3.5331358248960667",
-        "40.342938316270896"
-      ]
+    {
+        "companyName": "Shock",
+        "province": "Madrid",
+        "city": "Rivas",
+        "locationData": {
+            "type": "Point",
+            "coordinates": [
+                "-3.5331358248960667",
+                "40.342938316270896"
+            ]
+        },
+        "website": "https://www.shockescaperoom.com/",
+        "phone": "666 666 666",
+        "email": "shock@company.es",
+        "avatar": "https://www.shockescaperoom.com/wp-content/uploads/2018/09/banner-header-color-1.png",
+        "type": "company",
+        "rooms": [
+            {
+                "name": "La Santa",
+                "players": "2-6",
+                "minAge": "18",
+                "price": "180",
+                "difficulty": "Media",
+                "duration": "90",
+                "terrorLevel": "Horror",
+                "synopsis": "La historia nos habla de la hermana Clara, que habita junto con las demás hermanas en la Abadía. Una serie de sucesos extraños llevan a la hermana a informar a la Iglesia sobre lo acontecido allí. Un demonio tiene atemorizado al clero. La Iglesia se pone en contacto con el Padre Eusebio, un experto demonólogo, que sin demora contacta con las hermanas.",
+                "image": "https://www.gibaescape.com/images/2022/12/21/la-santa-escape-room-shock-madrid-opinion__1080x1920.jpg"
+            },
+            {
+                "name": "Abduction 3: The Exam",
+                "players": "2-6",
+                "minAge": "7",
+                "price": "114",
+                "difficulty": "Media",
+                "duration": "60",
+                "terrorLevel": "Miedo",
+                "synopsis": "Un test real creado por Abduction que os pondrá a prueba física y mentalmente.",
+                "image": "https://www.escaperadar.com/img/salas/1528/room/1528.jpg?vc=20220621101533"
+            },
+            {
+                "name": "Crisys: Crime Investigation System",
+                "players": "2-6",
+                "minAge": "12",
+                "price": "120",
+                "difficulty": "Media",
+                "duration": "60",
+                "terrorLevel": "Temor",
+                "synopsis": "Podréis protagonizar una investigación en la misma escena del crimen, justo antes del levantamiento del cadáver. El objetivo es encontrar al asesino de entre numerosos sospechosos. Tendréis que colaborar entre vosotros, pero no olvidéis nunca que los primeros son los mejores.",
+                "image": "https://www.escaperadar.com/img/salas/2272/room/2272.jpg?vc=20220614084254"
+            }
+        ]
     },
-    "website": "https://www.shockescaperoom.com/",
-    "phone": "666 666 666",
-    "email": "shock@company.es",
-    "avatar": "https://www.shockescaperoom.com/wp-content/uploads/2018/09/banner-header-color-1.png",
-    "type": "company",
-    "rooms": [
-      {
-        "name": "La Santa",
-        "players": "2-6",
-        "minAge": "18",
-        "price": "180",
-        "difficulty": "Media",
-        "duration": "90",
-        "terrorLevel": "Horror",
-        "synopsis": "La historia nos habla de la hermana Clara, que habita junto con las demás hermanas en la Abadía. Una serie de sucesos extraños llevan a la hermana a informar a la Iglesia sobre lo acontecido allí. Un demonio tiene atemorizado al clero. La Iglesia se pone en contacto con el Padre Eusebio, un experto demonólogo, que sin demora contacta con las hermanas.",
-        "image": "https://www.gibaescape.com/images/2022/12/21/la-santa-escape-room-shock-madrid-opinion__1080x1920.jpg"
-      },
-      {
-        "name": "Abduction 3: The Exam",
-        "players": "2-6",
-        "minAge": "7",
-        "price": "114",
-        "difficulty": "Media",
-        "duration": "60",
-        "terrorLevel": "Miedo",
-        "synopsis": "Un test real creado por Abduction que os pondrá a prueba física y mentalmente.",
-        "image": "https://www.escaperadar.com/img/salas/1528/room/1528.jpg?vc=20220621101533"
-      },
-      {
-        "name": "Crisys: Crime Investigation System",
-        "players": "2-6",
-        "minAge": "12",
-        "price": "120",
-        "difficulty": "Media",
-        "duration": "60",
-        "terrorLevel": "Temor",
-        "synopsis": "Podréis protagonizar una investigación en la misma escena del crimen, justo antes del levantamiento del cadáver. El objetivo es encontrar al asesino de entre numerosos sospechosos. Tendréis que colaborar entre vosotros, pero no olvidéis nunca que los primeros son los mejores.",
-        "image": "https://www.escaperadar.com/img/salas/2272/room/2272.jpg?vc=20220614084254"
-      }
-    ]
-  },
-  {
-    "companyName": "Outline Escape Room",
-    "province": "Barcelona",
-    "city": "Cornellá",
-    "locationData": {
-      "type": "Point",
-      "coordinates": [
-        "2.083262891562174",
-        "41.35589746132715"
-      ]
+    {
+        "companyName": "Outline Escape Room",
+        "province": "Barcelona",
+        "city": "Cornellá",
+        "locationData": {
+            "type": "Point",
+            "coordinates": [
+                "2.083262891562174",
+                "41.35589746132715"
+            ]
+        },
+        "website": "https://outlineescaperoom.es/",
+        "phone": "666 666 666",
+        "email": "outlineScapeRoom@company.es",
+        "avatar": "https://outlineescaperoom.es/wp-content/uploads/2022/12/logo-sin-fondo-outline-escape-room.png",
+        "type": "company",
+        "rooms": [
+            {
+                "name": "Outline",
+                "players": "2-6",
+                "minAge": "15",
+                "price": "165",
+                "difficulty": "Alta",
+                "duration": "120",
+                "terrorLevel": "Terror",
+                "synopsis": "En Cornellà se haya Outline, una vieja fábrica abandonada propiedad del desaparecido Sr. Morgan. Este adoptó a un niño un tanto peculiar al que llamó James, cuyos padres habían muerto en un trágico accidente dentro de la fábrica. Se decía que el Sr. Morgan practicaba el ocultismo dentro de las instalaciones, estaba obsesionado con todo lo esotérico y contactar con el más allá, y esa obsesión le acabó costando la vida. James sigue custodiando la vieja fábrica, incluso a veces se escuchan voces en su interior, pero nadie sabe qué ocurre tras esa valla, las personas de alrededor viven aterrorizados, pues se dice que el cuerpo del Sr. Morgan vaga por los alrededores de la fábrica, y todo aquel que se adentra en la zona desaparece para siempre. Hace unos días, recibimos un video mensaje de auxilio del desaparecido Markus Smith, quien parece ser un reportero local que decidió investigar la zona. Alguien anónimo os ha contratado para rescatarlo y averiguar lo que allí sucede. La remuneración es muy jugosa como para no aceptar el caso. ¿Seréis capaces?",
+                "image": "https://www.gibaescape.com/images/2022/08/17/outline-escape-room-cornella-barcelona-opiniones__1080x1920.jpg"
+            }
+        ]
     },
-    "website": "https://outlineescaperoom.es/",
-    "phone": "666 666 666",
-    "email": "outlineScapeRoom@company.es",
-    "avatar": "https://outlineescaperoom.es/wp-content/uploads/2022/12/logo-sin-fondo-outline-escape-room.png",
-    "type": "company",
-    "rooms": [
-      {
-        "name": "Outline",
-        "players": "2-6",
-        "minAge": "15",
-        "price": "165",
-        "difficulty": "Alta",
-        "duration": "120",
-        "terrorLevel": "Terror",
-        "synopsis": "En Cornellà se haya Outline, una vieja fábrica abandonada propiedad del desaparecido Sr. Morgan. Este adoptó a un niño un tanto peculiar al que llamó James, cuyos padres habían muerto en un trágico accidente dentro de la fábrica. Se decía que el Sr. Morgan practicaba el ocultismo dentro de las instalaciones, estaba obsesionado con todo lo esotérico y contactar con el más allá, y esa obsesión le acabó costando la vida. James sigue custodiando la vieja fábrica, incluso a veces se escuchan voces en su interior, pero nadie sabe qué ocurre tras esa valla, las personas de alrededor viven aterrorizados, pues se dice que el cuerpo del Sr. Morgan vaga por los alrededores de la fábrica, y todo aquel que se adentra en la zona desaparece para siempre. Hace unos días, recibimos un video mensaje de auxilio del desaparecido Markus Smith, quien parece ser un reportero local que decidió investigar la zona. Alguien anónimo os ha contratado para rescatarlo y averiguar lo que allí sucede. La remuneración es muy jugosa como para no aceptar el caso. ¿Seréis capaces?",
-        "image": "https://www.gibaescape.com/images/2022/08/17/outline-escape-room-cornella-barcelona-opiniones__1080x1920.jpg"
-      }
-    ]
-  },
-  {
-    "companyName": "Insomnia",
-    "province": "Barcelona",
-    "city": "Berga",
-    "locationData": {
-      "type": "Point",
-      "coordinates": [
-        "1.8423556110285735",
-        "42.10765983253773"
-      ]
+    {
+        "companyName": "Insomnia",
+        "province": "Barcelona",
+        "city": "Berga",
+        "locationData": {
+            "type": "Point",
+            "coordinates": [
+                "1.8423556110285735",
+                "42.10765983253773"
+            ]
+        },
+        "website": "https://www.insomniacorp.com/",
+        "phone": "666 666 666",
+        "email": "insomnia@company.es",
+        "avatar": "https://www.insomniacorp.com/static/media/logo.f100b3bb7be609992e47.png",
+        "type": "company",
+        "rooms": [
+            {
+                "name": "La Casa",
+                "players": "2-6",
+                "minAge": "18",
+                "price": "150",
+                "difficulty": "Alta",
+                "duration": "70",
+                "terrorLevel": "Terror",
+                "synopsis": "Ven a disfrutar de un entorno rural fantástico. Nuestra Casa de turismo rural, se encuentra en mitad del bosque y sin vecinos a 4 kilómetros. Un sitio perfecto dónde podréis relajaros y desconectar de todo. Además, después del grave incidente en ese pozo, hace ya más de 40 años, el propietario, ha reformado por completo la Casa. Hoy en día, es una de las mejores Casas de “turismo rural” de la comarca.",
+                "image": "https://www.insomniacorp.com/static/media/escape-casa.46c1d0439856973cbe72.jpg"
+            },
+            {
+                "name": "El cóctel del doctor",
+                "players": "2-6",
+                "minAge": "18",
+                "price": "150",
+                "difficulty": "Media",
+                "duration": "60",
+                "terrorLevel": "Horror",
+                "synopsis": " El Doctor les invitará a tomar su cóctel preferido, después, deberán coger su vehículo e ir hasta su casa. Los ayudantes del Doctor les están esperando para realizarles unas pruebas médicas. Si todo va bien, al finalizar conocerán al Doctor de la familia Krugger. Si el mismo día tienen reserva para “La Casa”, el finalizar su visita con el Doctor, tendrán una pequeña sorpresa…",
+                "image": "https://www.insomniacorp.com/static/media/escape-coctel.8df43e57c58144d815e7.jpg"
+            }
+        ]
     },
-    "website": "https://www.insomniacorp.com/",
-    "phone": "666 666 666",
-    "email": "insomnia@company.es",
-    "avatar": "https://www.insomniacorp.com/static/media/logo.f100b3bb7be609992e47.png",
-    "type": "company",
-    "rooms": [
-      {
-        "name": "La Casa",
-        "players": "2-6",
-        "minAge": "18",
-        "price": "150",
-        "difficulty": "Alta",
-        "duration": "70",
-        "terrorLevel": "Terror",
-        "synopsis": "Ven a disfrutar de un entorno rural fantástico. Nuestra Casa de turismo rural, se encuentra en mitad del bosque y sin vecinos a 4 kilómetros. Un sitio perfecto dónde podréis relajaros y desconectar de todo. Además, después del grave incidente en ese pozo, hace ya más de 40 años, el propietario, ha reformado por completo la Casa. Hoy en día, es una de las mejores Casas de “turismo rural” de la comarca.",
-        "image": "https://www.insomniacorp.com/static/media/escape-casa.46c1d0439856973cbe72.jpg"
-      },
-      {
-        "name": "El cóctel del doctor",
-        "players": "2-6",
-        "minAge": "18",
-        "price": "150",
-        "difficulty": "Media",
-        "duration": "60",
-        "terrorLevel": "Horror",
-        "synopsis": " El Doctor les invitará a tomar su cóctel preferido, después, deberán coger su vehículo e ir hasta su casa. Los ayudantes del Doctor les están esperando para realizarles unas pruebas médicas. Si todo va bien, al finalizar conocerán al Doctor de la familia Krugger. Si el mismo día tienen reserva para “La Casa”, el finalizar su visita con el Doctor, tendrán una pequeña sorpresa…",
-        "image": "https://www.insomniacorp.com/static/media/escape-coctel.8df43e57c58144d815e7.jpg"
-      }
-    ]
-  },
-  {
-    "companyName": "Hangar 18",
-    "province": "Asturias",
-    "city": "Gijón",
-    "locationData": {
-      "type": "Point",
-      "coordinates": [
-        "-5.688818332298965",
-        "43.50644842753361"
-      ]
+    {
+        "companyName": "Hangar 18",
+        "province": "Asturias",
+        "city": "Gijón",
+        "locationData": {
+            "type": "Point",
+            "coordinates": [
+                "-5.688818332298965",
+                "43.50644842753361"
+            ]
+        },
+        "website": "https://www.hangar18.es/",
+        "phone": "666 666 666",
+        "email": "hangar18@company.es",
+        "avatar": "https://www.hangar18.es/images/logo-dh.png",
+        "type": "company",
+        "rooms": [
+            {
+                "name": "Blackout: Cydonia Project",
+                "players": "2-6",
+                "minAge": "18",
+                "price": "192",
+                "difficulty": "Media",
+                "duration": "120",
+                "terrorLevel": "Terror",
+                "synopsis": "La información secreta obtenida por el Hangar 18 y el escuadrón GIBA revela que en el nivel 7 de la base Ares se han estado realizando experimentos con humanos. Las anomalías de carácter paranormal detectadas indican un cese de actividad en toda la base. Se están enviando unidades especiales de exploración al nivel 7 con el fin de obtener información. Nombre en clave de la misión: BLACKOUT",
+                "image": "https://www.gibaescape.com/images/2023/05/09/hangar-18-blackout-cydonia-project-asturias-gijon-escape-room__1080x1920.jpg"
+            }
+        ]
     },
-    "website": "https://www.hangar18.es/",
-    "phone": "666 666 666",
-    "email": "hangar18@company.es",
-    "avatar": "https://www.hangar18.es/images/logo-dh.png",
-    "type": "company",
-    "rooms": [
-      {
-        "name": "Blackout: Cydonia Project",
-        "players": "2-6",
-        "minAge": "18",
-        "price": "192",
-        "difficulty": "Media",
-        "duration": "120",
-        "terrorLevel": "Terror",
-        "synopsis": "La información secreta obtenida por el Hangar 18 y el escuadrón GIBA revela que en el nivel 7 de la base Ares se han estado realizando experimentos con humanos. Las anomalías de carácter paranormal detectadas indican un cese de actividad en toda la base. Se están enviando unidades especiales de exploración al nivel 7 con el fin de obtener información. Nombre en clave de la misión: BLACKOUT",
-        "image": "https://www.gibaescape.com/images/2023/05/09/hangar-18-blackout-cydonia-project-asturias-gijon-escape-room__1080x1920.jpg"
-      }
-    ]
-  },
-  {
-    "companyName": "Escape Barcelona",
-    "province": "Barcelona",
-    "city": "Sta. Coloma",
-    "locationData": {
-      "type": "Point",
-      "coordinates": [
-        2.2093980445567203,
-        41.44940390107661
-      ]
+    {
+        "companyName": "Escape Barcelona",
+        "province": "Barcelona",
+        "city": "Sta. Coloma",
+        "locationData": {
+            "type": "Point",
+            "coordinates": [
+                2.2093980445567203,
+                41.44940390107661
+            ]
+        },
+        "website": "https://www.escapebarcelona.com/",
+        "phone": "666 666 666",
+        "email": "escapebarcelona@company.es",
+        "avatar": "https://www.escapebarcelona.com/Nextgen_files/LogoSmall.webp",
+        "type": "company",
+        "rooms": [
+            {
+                "name": "Cibercity 2049",
+                "players": "2-6",
+                "minAge": "16",
+                "price": "180",
+                "difficulty": "Media",
+                "duration": "90",
+                "terrorLevel": "Temor",
+                "synopsis": "Cyber City 2049: Inspirado en un estilo CyberPunk y basado en películas como Matrix, Blade Runner y Terminator. Sumérgete en un mundo decadente, corrompido y sin escrúpulos. Tus decisiones serán más importantes que nunca.",
+                "image": "https://www.escapebarcelona.com/Carteles/CartelCyberCity2049Optimizado.jpg"
+            },
+            {
+                "name": "Tomb Hunter: 'La leyenda de Akasha'",
+                "players": "2-6",
+                "minAge": "16",
+                "price": "150",
+                "difficulty": "Media",
+                "duration": "80",
+                "terrorLevel": "No",
+                "synopsis": "Habéis sido convocados para informaros de un hallazgo de magnitud inigualable. Vuestra invitación es única e intransferible.",
+                "image": "https://www.gibaescape.com/images/2020/05/02/tomb-hunter-la-leyenda-de-akasha-escape-barcelona__1080x1080.jpg"
+            },
+            {
+                "name": "Alien 'El origen'",
+                "players": "2-6",
+                "minAge": "16",
+                "price": "250",
+                "difficulty": "Alta",
+                "duration": "80",
+                "terrorLevel": "Miedo",
+                "synopsis": "Perdidos en un planeta desconocido, tras un viaje de 200 años. Vuestra misión es regresar vivos.",
+                "image": "https://www.escapebarcelona.com/Carteles/CartelAlienOptimizado.jpg"
+            }
+        ]
     },
-    "website": "https://www.escapebarcelona.com/",
-    "phone": "666 666 666",
-    "email": "escapebarcelona@company.es",
-    "avatar": "https://www.escapebarcelona.com/Nextgen_files/LogoSmall.webp",
-    "type": "company",
-    "rooms": [
-      {
-        "name": "Cibercity 2049",
-        "players": "2-6",
-        "minAge": "16",
-        "price": "180",
-        "difficulty": "Media",
-        "duration": "90",
-        "terrorLevel": "Temor",
-        "synopsis": "Cyber City 2049: Inspirado en un estilo CyberPunk y basado en películas como Matrix, Blade Runner y Terminator. Sumérgete en un mundo decadente, corrompido y sin escrúpulos. Tus decisiones serán más importantes que nunca.",
-        "image": "https://www.escapebarcelona.com/Carteles/CartelCyberCity2049Optimizado.jpg"
-      },
-      {
-        "name": "Tomb Hunter: 'La leyenda de Akasha'",
-        "players": "2-6",
-        "minAge": "16",
-        "price": "150",
-        "difficulty": "Media",
-        "duration": "80",
-        "terrorLevel": "No",
-        "synopsis": "Habéis sido convocados para informaros de un hallazgo de magnitud inigualable. Vuestra invitación es única e intransferible.",
-        "image": "https://www.gibaescape.com/images/2020/05/02/tomb-hunter-la-leyenda-de-akasha-escape-barcelona__1080x1080.jpg"
-      },
-      {
-        "name": "Alien 'El origen'",
-        "players": "2-6",
-        "minAge": "16",
-        "price": "250",
-        "difficulty": "Alta",
-        "duration": "80",
-        "terrorLevel": "Miedo",
-        "synopsis": "Perdidos en un planeta desconocido, tras un viaje de 200 años. Vuestra misión es regresar vivos.",
-        "image": "https://www.escapebarcelona.com/Carteles/CartelAlienOptimizado.jpg"
-      }
-    ]
-  },
-  {
-    "companyName": "Golden Pop",
-    "province": "Barcelona",
-    "city": "Barcelona",
-    "locationData": {
-      "type": "Point",
-      "coordinates": [
-        2.174447226001827,
-        41.39798215165559
-      ]
+    {
+        "companyName": "Golden Pop",
+        "province": "Barcelona",
+        "city": "Barcelona",
+        "locationData": {
+            "type": "Point",
+            "coordinates": [
+                2.174447226001827,
+                41.39798215165559
+            ]
+        },
+        "website": "https://goldenpop.es/",
+        "phone": "666 666 666",
+        "email": "goldenpop@company.es",
+        "avatar": "https://goldenpop.es/wp-content/uploads/2021/11/GoldenPop.png",
+        "type": "company",
+        "rooms": [
+            {
+                "name": "Pesadillas",
+                "players": "2-6",
+                "minAge": "18",
+                "price": "160",
+                "difficulty": "Alta",
+                "duration": "90",
+                "terrorLevel": "Terror",
+                "synopsis": "Tomen asiento, hemos preparado una cinta que será la encargada de introducirles en el mundo subconsciente. Si todo va bien, antes de que se den cuenta estarán viviendo la fantasía de Amanda Krueger, una joven estudiante que se hospedó en nuestras instalaciones durante los años 20. Si tienen suerte, podrán vivir también algunos de los momentos de más álgido esplendor de este lugar y de sus estudiantes. Pero ya saben que para cada uno es diferente, nunca se sabe lo que nos depara el mundo subconsciente, tal vez ustedes tengan suerte, o tal vez no. Esperemos que la tengan, si no, sus pesadillas les dominarán. Relájense.",
+                "image": "https://goldenpop.es/wp-content/uploads/2022/05/PESADILLAS-1024x1024.png"
+            },
+            {
+                "name": "La fortuna de los Addams",
+                "players": "2-4",
+                "minAge": "10",
+                "price": "120",
+                "difficulty": "Baja",
+                "duration": "90",
+                "terrorLevel": "No",
+                "synopsis": "La Familia Addams son poseedores de una gran fortuna y para ponerla a salvo, han decidido instalar un sistema de juguetes de tortura. Para poner a prueba dicho sistema, habéis sido invitados a alojarse en el Hotel cercano a su mansión.  Los Addams son benevolentes por lo que os ofrecen 90 minutos para encontrar su Mansión y adentraros en ella. Que tengáis una agradable estancia.",
+                "image": "https://goldenpop.es/wp-content/uploads/2023/03/wednesday_fester_pala_casa_logo_davant1-1024x1013.jpg"
+            },
+            {
+                "name": "Catacumbas",
+                "players": "2-6",
+                "minAge": "14",
+                "price": "130",
+                "difficulty": "Media",
+                "duration": "90",
+                "terrorLevel": "No",
+                "synopsis": "Las leyendas sobre la Alquimia han sido durante siglos uno de los mayores misterios de la historia. Los alquimistas decían poder conseguir la transformación de los metales en oro, aunque su objetivo se centraba en un reto mayor, la obtención de la piedra alquímica. A dicho objeto se le atribuyen propiedades mágicas, entre ellas la inmortalidad. Gracias a las interpretaciones de los últimos escritos de los que se tiene conocimiento, se cree que dicha piedra podría encontrarse en las catacumbas de Minos, en la isla de Creta. Vida eterna y riqueza infinita, objetivos por los que durante décadas muchos aventureros intentaron ir en su búsqueda. Por desgracia, sin éxito alguno……. salir con vida de las catacumbas no es tan fácil. Aunque como ya hemos dicho, todo esto son solamente mitos y leyendas, ¿verdad?",
+                "image": "https://goldenpop.es/wp-content/uploads/2022/05/9d88fe54-2607-45f8-9901-96876e3f288c-1024x1024.jpg"
+            }
+        ]
     },
-    "website": "https://goldenpop.es/",
-    "phone": "666 666 666",
-    "email": "goldenpop@company.es",
-    "avatar": "https://goldenpop.es/wp-content/uploads/2021/11/GoldenPop.png",
-    "type": "company",
-    "rooms": [
-      {
-        "name": "Pesadillas",
-        "players": "2-6",
-        "minAge": "18",
-        "price": "160",
-        "difficulty": "Alta",
-        "duration": "90",
-        "terrorLevel": "Terror",
-        "synopsis": "Tomen asiento, hemos preparado una cinta que será la encargada de introducirles en el mundo subconsciente. Si todo va bien, antes de que se den cuenta estarán viviendo la fantasía de Amanda Krueger, una joven estudiante que se hospedó en nuestras instalaciones durante los años 20. Si tienen suerte, podrán vivir también algunos de los momentos de más álgido esplendor de este lugar y de sus estudiantes. Pero ya saben que para cada uno es diferente, nunca se sabe lo que nos depara el mundo subconsciente, tal vez ustedes tengan suerte, o tal vez no. Esperemos que la tengan, si no, sus pesadillas les dominarán. Relájense.",
-        "image": "https://goldenpop.es/wp-content/uploads/2022/05/PESADILLAS-1024x1024.png"
-      },
-      {
-        "name": "La fortuna de los Addams",
-        "players": "2-4",
-        "minAge": "10",
-        "price": "120",
-        "difficulty": "Baja",
-        "duration": "90",
-        "terrorLevel": "No",
-        "synopsis": "La Familia Addams son poseedores de una gran fortuna y para ponerla a salvo, han decidido instalar un sistema de juguetes de tortura. Para poner a prueba dicho sistema, habéis sido invitados a alojarse en el Hotel cercano a su mansión.  Los Addams son benevolentes por lo que os ofrecen 90 minutos para encontrar su Mansión y adentraros en ella. Que tengáis una agradable estancia.",
-        "image": "https://goldenpop.es/wp-content/uploads/2023/03/wednesday_fester_pala_casa_logo_davant1-1024x1013.jpg"
-      },
-      {
-        "name": "Catacumbas",
-        "players": "2-6",
-        "minAge": "14",
-        "price": "130",
-        "difficulty": "Media",
-        "duration": "90",
-        "terrorLevel": "No",
-        "synopsis": "Las leyendas sobre la Alquimia han sido durante siglos uno de los mayores misterios de la historia. Los alquimistas decían poder conseguir la transformación de los metales en oro, aunque su objetivo se centraba en un reto mayor, la obtención de la piedra alquímica. A dicho objeto se le atribuyen propiedades mágicas, entre ellas la inmortalidad. Gracias a las interpretaciones de los últimos escritos de los que se tiene conocimiento, se cree que dicha piedra podría encontrarse en las catacumbas de Minos, en la isla de Creta. Vida eterna y riqueza infinita, objetivos por los que durante décadas muchos aventureros intentaron ir en su búsqueda. Por desgracia, sin éxito alguno……. salir con vida de las catacumbas no es tan fácil. Aunque como ya hemos dicho, todo esto son solamente mitos y leyendas, ¿verdad?",
-        "image": "https://goldenpop.es/wp-content/uploads/2022/05/9d88fe54-2607-45f8-9901-96876e3f288c-1024x1024.jpg"
-      }
-    ]
-  },
-  {
-    "companyName": "Krematorium",
-    "province": "Barcelona",
-    "city": "Hospitalet",
-    "locationData": {
-      "type": "Point",
-      "coordinates": [
-        2.108741030684589,
-        41.35691521017427
-      ]
+    {
+        "companyName": "Krematorium",
+        "province": "Barcelona",
+        "city": "Hospitalet",
+        "locationData": {
+            "type": "Point",
+            "coordinates": [
+                2.108741030684589,
+                41.35691521017427
+            ]
+        },
+        "website": "https://krematoriumescaperoom.es/",
+        "phone": "666 666 666",
+        "email": "krematorium@company.es",
+        "avatar": "https://krematoriumescaperoom.es/wp-content/uploads/2021/03/KEMATORIUM-LOGO-PNG-1-1536x362.png",
+        "type": "company",
+        "rooms": [
+            {
+                "name": "Malum",
+                "players": "2-4",
+                "minAge": "16",
+                "price": "150",
+                "difficulty": "Alta",
+                "duration": "120",
+                "terrorLevel": "Terror",
+                "synopsis": "Un mal ancestral habita tras estas puertas, si es vuestra decisión continuar por este sendero que Dios se apiade de vuestras almas.",
+                "image": "https://www.gibaescape.com/images/2021/02/23/malum-escape-room-krematorium__1080x1080.png"
+            },
+            {
+                "name": "Encrypt",
+                "players": "2-6",
+                "minAge": "18",
+                "price": "180",
+                "difficulty": "Alta",
+                "duration": "120",
+                "terrorLevel": "Pánico",
+                "synopsis": "Cuando la realidad supera la ficción no hay escapatoria. ¡Nadie vendrá en tu ayuda!",
+                "image": "https://4.bp.blogspot.com/-aWKxPJv19bU/W-2rK1KEygI/AAAAAAABuAA/mytkFfUlOaA11150eI3Ojfgt05yizMp8gCLcBGAs/s1600/29542758_1498810433561415_3666533497230656202_n.jpg"
+            }
+        ]
     },
-    "website": "https://krematoriumescaperoom.es/",
-    "phone": "666 666 666",
-    "email": "krematorium@company.es",
-    "avatar": "https://krematoriumescaperoom.es/wp-content/uploads/2021/03/KEMATORIUM-LOGO-PNG-1-1536x362.png",
-    "type": "company",
-    "rooms": [
-      {
-        "name": "Malum",
-        "players": "2-4",
-        "minAge": "16",
-        "price": "150",
-        "difficulty": "Alta",
-        "duration": "120",
-        "terrorLevel": "Terror",
-        "synopsis": "Un mal ancestral habita tras estas puertas, si es vuestra decisión continuar por este sendero que Dios se apiade de vuestras almas.",
-        "image": "https://www.gibaescape.com/images/2021/02/23/malum-escape-room-krematorium__1080x1080.png"
-      },
-      {
-        "name": "Encrypt",
-        "players": "2-6",
-        "minAge": "18",
-        "price": "180",
-        "difficulty": "Alta",
-        "duration": "120",
-        "terrorLevel": "Pánico",
-        "synopsis": "Cuando la realidad supera la ficción no hay escapatoria. ¡Nadie vendrá en tu ayuda!",
-        "image": "https://4.bp.blogspot.com/-aWKxPJv19bU/W-2rK1KEygI/AAAAAAABuAA/mytkFfUlOaA11150eI3Ojfgt05yizMp8gCLcBGAs/s1600/29542758_1498810433561415_3666533497230656202_n.jpg"
-      }
-    ]
-  },
-  {
-    "companyName": "Silent Town",
-    "province": "País Vasco",
-    "city": "Basauri",
-    "locationData": {
-      "type": "Point",
-      "coordinates": [
-        -2.8922648920537664,
-        43.23787945553562
-      ]
+    {
+        "companyName": "Silent Town",
+        "province": "País Vasco",
+        "city": "Basauri",
+        "locationData": {
+            "type": "Point",
+            "coordinates": [
+                -2.8922648920537664,
+                43.23787945553562
+            ]
+        },
+        "website": "https://www.silenttownbasauri.com/",
+        "phone": "666 666 666",
+        "email": "silenttown@company.es",
+        "avatar": "https://www.silenttownbasauri.com/img/silent_logo.png",
+        "type": "company",
+        "rooms": [
+            {
+                "name": "Colegio Midwich",
+                "players": "2-6",
+                "minAge": "16",
+                "price": "160",
+                "difficulty": "Media",
+                "duration": "120",
+                "terrorLevel": "Horror",
+                "synopsis": "Carretera del norte de Westbrook, os dirigíais a pasar unos días a la vieja cabaña, todo iba según lo previsto cuando de repente... Como salida de la nada, una niña se cruzó en vuestro camino, un fuerte volantazo os hizo perder el control y ahora no sabéis como, os habéis despertado en un pueblo cubierto de cenizas, un pueblo sin luz, un pueblo mancillado por los terribles sucesos que acontecieron hace 50 años. Deberéis separaros, correr, conseguir ayuda y sobrevivir, pero solo vuestro instinto os podrá salvar de quedar atrapados y pasar a formar parte para siempre del pueblo maldito de Silent Town",
+                "image": "https://www.escaperadar.com/img/salas/1838/room/1838.jpg?vc=20220614083758"
+            }
+        ]
     },
-    "website": "https://www.silenttownbasauri.com/",
-    "phone": "666 666 666",
-    "email": "silenttown@company.es",
-    "avatar": "https://www.silenttownbasauri.com/img/silent_logo.png",
-    "type": "company",
-    "rooms": [
-      {
-        "name": "Colegio Midwich",
-        "players": "2-6",
-        "minAge": "16",
-        "price": "160",
-        "difficulty": "Media",
-        "duration": "120",
-        "terrorLevel": "Horror",
-        "synopsis": "Carretera del norte de Westbrook, os dirigíais a pasar unos días a la vieja cabaña, todo iba según lo previsto cuando de repente... Como salida de la nada, una niña se cruzó en vuestro camino, un fuerte volantazo os hizo perder el control y ahora no sabéis como, os habéis despertado en un pueblo cubierto de cenizas, un pueblo sin luz, un pueblo mancillado por los terribles sucesos que acontecieron hace 50 años. Deberéis separaros, correr, conseguir ayuda y sobrevivir, pero solo vuestro instinto os podrá salvar de quedar atrapados y pasar a formar parte para siempre del pueblo maldito de Silent Town",
-        "image": "https://www.escaperadar.com/img/salas/1838/room/1838.jpg?vc=20220614083758"
-      }
-    ]
-  },
-  {
-    "companyName": "Bite the fly",
-    "province": "Madrid",
-    "city": "Madrid",
-    "locationData": {
-      "type": "Point",
-      "coordinates": [
-        -3.629179053422945,
-        40.380029726541146
-      ]
-    },
-    "website": "https://bitethefly.com/",
-    "phone": "666 666 666",
-    "email": "bitethefly@company.es",
-    "avatar": "https://bitethefly.com/wp-content/uploads/2020/10/logoAlargadoParaWeb-1.png",
-    "type": "company",
-    "rooms": [
-      {
-        "name": "Bites Motel",
-        "players": "2-5",
-        "minAge": "18",
-        "price": "200",
-        "difficulty": "Alto",
-        "duration": "120",
-        "terrorLevel": "Miedo",
-        "synopsis": "Un viejo Motel reformado abre sus puertas en el vacío pueblo de Bite the Fly. Reserva tu habitación y vive una experiencia única. Su gerente está ansioso por recibirte.",
-        "image": "https://www.gibaescape.com/images/2022/12/21/bites-motel-escape-room-madrid-opinion__1080x1920.jpg"
-      }
-    ]
-  }
+    {
+        "companyName": "Bite the fly",
+        "province": "Madrid",
+        "city": "Madrid",
+        "locationData": {
+            "type": "Point",
+            "coordinates": [
+                -3.629179053422945,
+                40.380029726541146
+            ]
+        },
+        "website": "https://bitethefly.com/",
+        "phone": "666 666 666",
+        "email": "bitethefly@company.es",
+        "avatar": "https://bitethefly.com/wp-content/uploads/2020/10/logoAlargadoParaWeb-1.png",
+        "type": "company",
+        "rooms": [
+            {
+                "name": "Bites Motel",
+                "players": "2-5",
+                "minAge": "18",
+                "price": "200",
+                "difficulty": "Alto",
+                "duration": "120",
+                "terrorLevel": "Miedo",
+                "synopsis": "Un viejo Motel reformado abre sus puertas en el vacío pueblo de Bite the Fly. Reserva tu habitación y vive una experiencia única. Su gerente está ansioso por recibirte.",
+                "image": "https://www.gibaescape.com/images/2022/12/21/bites-motel-escape-room-madrid-opinion__1080x1920.jpg"
+            }
+        ]
+    }
 ]

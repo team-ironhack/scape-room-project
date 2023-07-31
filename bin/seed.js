@@ -17,7 +17,6 @@ mongoose.connection.once('open', () => {
     .then((createdCompanies) => {
         createdCompanies.forEach((company) => {
             console.log(`The company ${company.companyName} has been created`);
-
         });
         return Room.create(ROOMS);
     })

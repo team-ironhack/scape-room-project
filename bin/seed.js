@@ -18,8 +18,8 @@ mongoose.connection.once('open', () => {
         createdCompanies.forEach((company) => {
             console.log(`The company ${company.companyName} has been created`);
 
-            return Room.create(ROOMS);
         });
+        return Room.create(ROOMS);
     })
     .then((createdRooms) => {
         createdRooms.forEach((room) => {

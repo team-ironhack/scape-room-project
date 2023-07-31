@@ -8,7 +8,7 @@ const PASSWORD_PATTERN = /^.{8,}$/i;
 const URL_PATTERN = /^((ftp|http|https):\/\/)?(www.)?(?!.*(ftp|http|https|www.))[a-zA-Z0-9_-]+(\.[a-zA-Z]+)+((\/)[\w#]+)*(\/\w+\?[a-zA-Z0-9_]+=\w+(&[a-zA-Z0-9_]+=\w+)*)?\/?$/gm;
 const SALT_ROUNDS = 10;
 
-const companySchema = new mongoose.Schema({
+const companySchema = new Schema({
     companyName: {
         type: String,
         required: [true, "El nombre de la empresa es requerido"]
@@ -50,14 +50,18 @@ const companySchema = new mongoose.Schema({
     avatar: {
         type: String,
         default: "https://static.thenounproject.com/png/5034901-200.png"
-    },
-    rooms: {
-
-    },
-    type: {
-        type: String,
-        default: "Company"
     }
+}, 
+{
+    timestamps: true,
+    virtuals: true
+});
+
+companySchema.virtual("rooms", {
+    ref:"Room",
+    localField: "_id",
+    foreignField: "company",
+    justOne: false,
 });
 
 companySchema.pre('save', function(next) {

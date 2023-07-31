@@ -10,6 +10,10 @@ const roomSchema = new Schema(
             type: String,
             required: [true, 'El nombre de la sala es requerido']
         },
+        company: {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "Company"
+        },
         players: {
             type: String,
             enum: PLAYER,
@@ -44,8 +48,7 @@ const roomSchema = new Schema(
         image: {
             type: String,
             required: [true, 'La imagen es requerida']
-        },
-
+        }
     },
     {
         timestamps: true,

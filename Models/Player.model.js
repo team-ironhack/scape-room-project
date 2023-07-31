@@ -1,7 +1,6 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 const bcrypt = require("bcryptjs");
-const Schema = mongoose.Schema;
 
 const EMAIL_PATTERN =
   /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
@@ -41,10 +40,6 @@ const playerSchema = new Schema({
   },
   birthday: {
     type: Date
-  },
-  type: {
-    type: String,
-    default: "Player"
   }
 });
 

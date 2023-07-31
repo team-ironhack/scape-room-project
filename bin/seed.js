@@ -18,6 +18,16 @@ mongoose.connection.once('open', () => {
         createdCompanies.forEach((company) => {
             console.log(`The company ${company.companyName} has been created`);
         });
+        ROOMS.forEach((room) => {
+            const companyMatch = createdCompanies.find((company) => {
+ 
+                return company.companyName === room.companyName
+            });
+
+            if (companyMatch) {
+                room.company = companyMatch._id;
+            }
+        })
         return Room.create(ROOMS);
     })
     .then((createdRooms) => {

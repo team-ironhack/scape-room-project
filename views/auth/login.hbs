@@ -1,8 +1,10 @@
+<div style="background-color: rgb(111, 211, 251)">
+<div class="container mt-5" style="background-color: white">
 <h1>Accede a tu cuenta</h1>
 
 <div class="d-flex">
-  <button class="btn btn-primary me-2">Soy jugador</button>
-  <button class="btn btn-primary">Soy empresa</button>
+  <button class="btn btn-success me-2 role-btn active">Soy jugador</button>
+  <button class="btn btn-primary role-btn">Soy empresa</button>
 </div>
 
 <form action="/login" method="POST">
@@ -26,7 +28,42 @@
     >
   </div>
   <div class="flex">
-    <button class="btn btn-primary" type="submit">Sign in</button>
-    <a href="/login/google" class="btn btn-danger">Sign in with Google</a>
+    <button class="btn btn-primary" type="submit">Iniciar sesión</button>
+    <p id="create-account">¿Aún no tienes cuenta de <span>jugador</span>? <a href="/register-player">Crear cuenta.</a></p>
+    <div class="google-btn">
+      <p>-o-</p>
+      <a href="/login/google" class="btn btn-danger">Continuar con google</a>
+    </div>
   </div>
-</form>
+</form></div></div>
+
+<script>
+   const roleBtns = document.querySelectorAll('.role-btn');
+   const googleBtn = document.querySelector('.google-btn');
+   const createAccount = document.getElementById('create-account');
+   const spanWord = createAccount.querySelector('span');
+   const anchorLink = createAccount.querySelector('a');
+
+   roleBtns.forEach((btn) => {
+    console.log('entra')
+    btn.addEventListener('click', (event) => {
+      const clickedBtn = event.currentTarget;
+      if (!clickedBtn.classList.contains('active')) {
+        clickedBtn.classList.add('active');
+        if (clickedBtn.nextElementSibling) {
+          clickedBtn.nextElementSibling.classList.remove('active')
+        } else {
+          clickedBtn.previousElementSibling.classList.remove('active')
+        }
+
+        if (clickedBtn.innerText === 'Soy empresa') {
+          googleBtn.classList.add('hidden');
+          spanWord.innerText = 'empresa';
+          anchorLink.href = '/register-company'
+        } else {
+          googleBtn.classList.remove('hidden');
+        }
+      }
+    })
+   })
+</script>

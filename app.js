@@ -26,9 +26,9 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(logger('dev'));
 
-/*app.use(session);
+app.use(session);
 app.use(passport.initialize());
-app.use(passport.session());*/
+app.use(passport.session());
 
 /*app.use((req, res, next) => {
   // la variable path se podrá usar desde cualquier vista de hbs (/register, /posts)
@@ -40,8 +40,10 @@ app.use(passport.session());*/
 });*/
 
 /** Configure routes */
-const router = require('./routes/misc.routes');
-app.use('/', router);
+const miscRouter = require('./routes/misc.routes');
+app.use('/', miscRouter);
+const authRouter = require('./routes/auth.routes');
+app.use('/', authRouter);
 
 /** Error Handling */
 app.use((req, res, next) => {

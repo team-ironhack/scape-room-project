@@ -1,9 +1,9 @@
 const passport = require('passport');
 const mongoose = require('mongoose');
-const Player = require('../models/Player');
-const Company = require('../models/Company');
+const Player = require('../models/Player.model');
+const Company = require('../models/Company.model');
 const LocalStrategy = require('passport-local').Strategy;
-const GoogleStrategy = require('passport-google-auth').OAuth2Strategy;
+const GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
 
 passport.serializeUser((user, next) => {
     next(null, user._id);

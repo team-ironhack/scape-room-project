@@ -50,6 +50,10 @@ const companySchema = new Schema({
     avatar: {
         type: String,
         default: "https://static.thenounproject.com/png/5034901-200.png"
+    },
+    isCompany: {
+        type: Boolean,
+        default: true
     }
 }, 
 {

@@ -1,0 +1,117 @@
+<h1 class="mt-4">Crea una cuenta para tu empresa</h1>
+
+<form action="/register-company" method="POST" enctype="multipart/form-data">
+
+  <div class="mb-3">
+    <label for="companyName" class="form-label">Nombre de la empresa</label>
+    <input
+      class="form-control{{#if errors.companyName}} is-invalid{{/if}}"
+      name="companyName" type="text" id="companyName" placeholder="Mi empresa" value="{{company.companyName}}" required
+    >
+    {{#if errors.companyName}}
+      <div class="invalid-feedback">
+        {{errors.companyName}}
+      </div>
+    {{/if}}
+  </div>
+
+  <div class="mb-3">
+    <label for="email" class="form-label">Correo electrónico</label>
+    <input
+      class="form-control{{#if errors.email}} is-invalid{{/if}}"
+      name="email" type="email" id="email" placeholder="empresa@empresa.es" value="{{company.email}}" required
+    >
+    {{#if errors.email}}
+      <div class="invalid-feedback">
+        {{errors.email}}
+      </div>
+    {{/if}}
+  </div>
+
+  <div class="mb-3">
+    <label for="password" class="form-label">Contraseña</label>
+    <input
+      class="form-control{{#if errors.password}} is-invalid{{/if}}" 
+      name="password" type="password" id="password" required
+    >
+    {{#if errors.password}}
+      <div class="invalid-feedback">
+        {{errors.password}}
+      </div>
+    {{/if}}
+  </div>
+
+  <div class="mb-3">
+    <label for="repeatPassword" class="form-label">Repite la contraseña</label>
+    <input
+      class="form-control{{#if errors.password}} is-invalid{{/if}}" 
+      name="repeatPassword" type="password" id="repeatPassword" required
+    >
+    {{#if errors.repeatPassword}}
+      <div class="invalid-feedback">
+        {{errors.repeatPassword}}
+      </div>
+    {{/if}}
+  </div>
+
+  <div class="mb-3">
+    <label for="province" class="form-label">Provincia</label>
+    <input
+      class="form-control{{#if errors.province}} is-invalid{{/if}}"
+      name="province" type="text" id="province" placeholder="Barcelona" value="{{company.province}}" required
+    >
+    {{#if errors.province}}
+      <div class="invalid-feedback">
+        {{errors.province}}
+      </div>
+    {{/if}}
+  </div>
+
+  <div class="mb-3">
+    <label for="city" class="form-label">Ciudad</label>
+    <input
+      class="form-control{{#if errors.city}} is-invalid{{/if}}"
+      name="city" type="text" id="city" placeholder="Cornellá" value="{{company.city}}" required
+    >
+    {{#if errors.city}}
+      <div class="invalid-feedback">
+        {{errors.city}}
+      </div>
+    {{/if}}
+  </div>
+
+  <!-- INPUT LOCALIZACIÓN -->
+
+  <div class="mb-3">
+    <label for="website" class="form-label">Página web</label>
+    <input
+      class="form-control{{#if errors.website}} is-invalid{{/if}}"
+      name="website" type="url" id="website" placeholder="www.miempresa.es" value="{{company.website}}"
+    >
+    {{#if errors.website}}
+      <div class="invalid-feedback">
+        {{errors.website}}
+      </div>
+    {{/if}}
+  </div>
+
+   <div class="mb-3">
+    <label for="phone" class="form-label">Teléfono de contacto</label>
+    <input
+      class="form-control{{#if errors.phone}} is-invalid{{/if}}"
+      name="phone" type="text" id="phone" placeholder="999999999" value="{{company.phone}}"
+    >
+    {{#if errors.phone}}
+      <div class="invalid-feedback">
+        {{errors.phone}}
+      </div>
+    {{/if}}
+  </div>
+
+  <div class="mb-3">
+    <label for="avatar" class="form-label">Avatar</label>
+    <input class="form-control" type="file" id="avatar" name="avatar">
+  </div>
+
+  <button class="btn btn-primary" type="submit">Crear cuenta</button>
+</form>

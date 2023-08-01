@@ -1,11 +1,16 @@
-<h1>A</h1>
+<h1>Accede a tu cuenta</h1>
 
-<form action="/login-company" method="POST">
+<div class="d-flex">
+  <button class="btn btn-primary me-2">Soy jugador</button>
+  <button class="btn btn-primary">Soy empresa</button>
+</div>
+
+<form action="/login" method="POST">
   <div class="mb-3">
     <label for="email" class="form-label">Correo electrónico</label>
     <input
       class="form-control{{#if errors.email}} is-invalid{{/if}}"
-      name="email" type="email" id="email" placeholder="name@example.com" value="{{company.email}}" required
+      name="email" type="email" id="email" placeholder="nombre@ejemplo.com" value="{{company.email}}" required
     >
     {{#if errors.email}}
       <div class="invalid-feedback">

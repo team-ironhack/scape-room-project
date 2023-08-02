@@ -44,6 +44,8 @@ const miscRouter = require('./routes/misc.routes');
 app.use('/', miscRouter);
 const authRouter = require('./routes/auth.routes');
 app.use('/', authRouter);
+const userRouter = require('./routes/user.routes');
+app.use('/', userRouter);
 
 /** Error Handling */
 app.use((req, res, next) => {

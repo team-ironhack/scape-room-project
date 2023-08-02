@@ -17,4 +17,6 @@ router.post('/login', authController.doLogin);
 router.get('/login/google', authController.loginGoogle);
 router.get('/authenticate/google/cb', authController.doLoginGoogle);
 
+router.get('/logout', authController.logout);
+
 module.exports = router;

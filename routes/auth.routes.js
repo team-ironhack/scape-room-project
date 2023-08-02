@@ -8,7 +8,8 @@ router.post('/register-player', authController.doRegisterPlayer);
 router.get('/register-company', authController.registerCompany);
 router.post('/register-company', authController.doRegisterCompany);
 
-router.get('/users/:id/activate', authController.activate)
+router.get('/player/:id/activate', authController.activatePlayer);
+router.get('/company/:id/activate', authController.activateCompany)
 
 router.get('/login', authController.login);
 

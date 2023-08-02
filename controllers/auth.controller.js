@@ -2,7 +2,7 @@ const Player = require('../models/Player.model');
 const Company = require('../models/Company.model');
 const mongoose = require('mongoose');
 const passport = require('passport');
-const { sendValidationEmail } = require('../config/nodemailer.config')
+const { sendValidationEmailPlayer, sendValidationEmailCompany } = require('../config/nodemailer.config')
 
 const userRegister = function (userModel1, userModel2, req, res, next) {
 
@@ -20,7 +20,7 @@ const userRegister = function (userModel1, userModel2, req, res, next) {
             res.render('auth/company-register', {
                 user: req.body,
                 errors
-            }) 
+            })
         }
     }
 
@@ -48,8 +48,13 @@ const userRegister = function (userModel1, userModel2, req, res, next) {
 
                             return userModel1.create(userData)
                                 .then((user) => {
-                                    sendValidationEmail(user)
-                                    res.redirect('/login');
+                                    if (user.isCompany) {
+                                        sendValidationEmailCompany(user)
+                                        res.redirect('/login');
+                                    } else {
+                                        sendValidationEmailPlayer(user)
+                                        res.redirect('/login');
+                                    }
                                 })
                                 .catch(err => next(err));
                         }
@@ -87,19 +92,19 @@ module.exports.doRegisterCompany = (req, res, next) => {
 }
 
 //activate
-module.exports.activate = (req, res, next) => {
-    Player.findByIdAndUpdate(req.params.id, {active: true})
-    .then(() => {
-        res.redirect('/login')
-    })
+module.exports.activatePlayer = (req, res, next) => {
+    Player.findByIdAndUpdate(req.params.id, { active: true })
+        .then(() => {
+            res.redirect('/login')
+        })
 }
 
-/*module.exports.activateCompany = (req, res, next) => {
+module.exports.activateCompany = (req, res, next) => {
     Company.findByIdAndUpdate(req.params.id, {active: true})
     .then(() => {
         res.redirect('/login')
     })
-}*/
+}
 
 //login
 module.exports.login = (req, res, next) => {

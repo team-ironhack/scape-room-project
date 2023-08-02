@@ -10,7 +10,7 @@ const transporter = nodemailer.createTransport({
     }
 });
 
-module.exports.sendValidationEmail = (user) => {
+module.exports.sendValidationEmailPlayer = (user) => {
     transporter.sendMail({
         from: `Scape <${email}>`,
         to: user.email,
@@ -20,7 +20,28 @@ module.exports.sendValidationEmail = (user) => {
 
         <p>Activa tu cuenta</p>
 
-        <a href="${process.env.APP_HOST}/users/${user.id}/activate">Click here</a>
+        <a href="${process.env.APP_HOST}/player/${user.id}/activate">Click here</a>
+      `
+    })
+    .then(() => {
+        console.log(`Email sent to ${user.id}`)
+    })
+    .catch(err => {
+        console.error(err)
+    })
+};
+
+module.exports.sendValidationEmailCompany = (user) => {
+    transporter.sendMail({
+        from: `Scape <${email}>`,
+        to: user.email,
+        subject: 'Prueba Empresa',
+        html: `
+        <h1>Scape prueba</h1>
+
+        <p>Activa tu cuenta</p>
+
+        <a href="${process.env.APP_HOST}/company/${user.id}/activate">Click here</a>
       `
     })
     .then(() => {

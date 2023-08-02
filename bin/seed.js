@@ -3,6 +3,8 @@ const Room = require('../models/Room.model');
 const ROOMS = require('../data/rooms.json');
 const Company = require('../models/Company.model');
 const COMPANIES = require('../data/companies.json');
+const Player = require('../models/Player.model');
+const PLAYERS = require('../data/players.json')
 
 
 require('../config/db.config');
@@ -34,6 +36,14 @@ mongoose.connection.once('open', () => {
             createdRooms.forEach((room) => {
                 console.log(`The room ${room.name} has been created`)
             });
+
+            return Player.create(PLAYERS);
+
+        })
+        .then((createdPlayers) => {
+            createdPlayers.forEach((player) => {
+                console.log(`The player ${player.name} has been created`)
+            })
 
             return mongoose.connection.close();
         })

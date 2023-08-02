@@ -92,7 +92,7 @@ passport.use(
                                 email,
                                 password: new mongoose.Types.ObjectId(),
                                 googleID,
-                                avatar,
+                                avatar: profile.photos[0].value
                             }
                             return Player.create(playerData)
                             .then(createdPlayer => next (null, createdPlayer))

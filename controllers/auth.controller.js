@@ -53,6 +53,7 @@ module.exports.doLoginGoogle = (req, res, next) => {
 module.exports.loginGoogle = (req, res, next) => {
     const passportController = passport.authenticate('google-auth', {
         scope: ['https://www.googleapis.com/auth/userinfo.email', 'https://www.googleapis.com/auth/userinfo.profile'],
+        prompt: 'select_account'
       });
     
       passportController(req, res, next);

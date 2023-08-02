@@ -36,6 +36,10 @@ const companySchema = new Schema({
         type: String,
         required: [true, "La ciudad es requerida"]
     },
+    address: {
+        type: String,
+        required: [true, "La calle es requerida"]
+    },
     locationData: {
         type: [Number, Number],
         required: true

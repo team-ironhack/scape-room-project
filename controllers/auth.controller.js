@@ -2,7 +2,7 @@ const Player = require('../models/Player.model');
 const Company = require('../models/Company.model');
 const mongoose = require('mongoose');
 const passport = require('passport');
-const { userRegister } = require('../misc/misc')
+const { userRegister, doLoginStrategy } = require('../misc/misc')
 
 // registro player
 module.exports.registerPlayer = (req, res, next) => {
@@ -42,8 +42,9 @@ module.exports.login = (req, res, next) => {
     res.render('auth/login')
 }
 
-//module.exports.doLogin = 
-
+module.exports.doLogin = (req, res, next) => {
+    doLoginStrategy(req, res, next);
+}
 
 
 

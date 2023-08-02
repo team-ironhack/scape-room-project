@@ -68,8 +68,31 @@ const userRegister = function (userModel1, userModel2, req, res, next) {
         });
 };
 
+const doLoginStrategy = (req, res, next, strategy = 'local-auth') => {
+    const passportController = passport.authenticate(strategy, (error, user, validations) => {
+      if (error) {
+        next(error)
+      } else if (!user) {
+        res.render('auth/login', {
+          user: req.body,
+          errors: validations
+        })
+      } else {
+        req.login(user, error => {
+          if (error) {
+            next(error);
+          } else {
+            res.redirect('/profile')
+          }
+        });
+      }
+    })
+  
+    passportController(req, res, next);
+  }
 
 
 module.exports = {
-    userRegister
+    userRegister,
+    doLoginStrategy
 }

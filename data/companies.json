@@ -4,13 +4,10 @@
         "province": "País Vasco",
         "city": "Vitoria",
         "address": "Barratxi Kalea, 37",
-        "locationData": {
-            "type": "Point",
-            "coordinates": [
+        "locationData": [
                 -2.649202492596582,
                 42.873723308888515
-            ]
-        },
+            ],
         "website": "https://maytokingdom.es/",
         "phone": "666 666 666",
         "email": "maytokingdom@company.es",
@@ -23,13 +20,10 @@
         "province": "Madrid",
         "city": "Rivas",
         "address": "C. Juana Francés, 2",
-        "locationData": {
-            "type": "Point",
-            "coordinates": [
+        "locationData": [
                 -3.5331358248960667,
                 40.342938316270896
-            ]
-        },
+            ],
         "website": "https://www.shockescaperoom.com/",
         "phone": "666 666 666",
         "email": "shock@company.es",
@@ -42,13 +36,10 @@
         "province": "Barcelona",
         "city": "Cornellá",
         "address": "Avinguda del parc de can mercader, 5",
-        "locationData": {
-            "type": "Point",
-            "coordinates": [
+        "locationData": [
                 2.083262891562174,
                 41.35589746132715
-            ]
-        },
+            ],
         "website": "https://outlineescaperoom.es/",
         "phone": "666 666 666",
         "email": "outlineScapeRoom@company.es",
@@ -61,13 +52,10 @@
         "province": "Barcelona",
         "city": "Berga",
         "address": "Drecera de Queralt",
-        "locationData": {
-            "type": "Point",
-            "coordinates": [
+        "locationData": [
                 1.8423556110285735,
                 42.10765983253773
-            ]
-        },
+            ],
         "website": "https://www.insomniacorp.com/",
         "phone": "666 666 666",
         "email": "insomnia@company.es",
@@ -80,13 +68,10 @@
         "province": "Asturias",
         "city": "Gijón",
         "address": "Calle de Blas Pascal, 52",
-        "locationData": {
-            "type": "Point",
-            "coordinates": [
+        "locationData": [
                 -5.688818332298965,
                 43.50644842753361
-            ]
-        },
+            ],
         "website": "https://www.hangar18.es/",
         "phone": "666 666 666",
         "email": "hangar18@company.es",
@@ -99,13 +84,10 @@
         "province": "Barcelona",
         "city": "Sta. Coloma",
         "address": "Carrer d'en Baró, 17",
-        "locationData": {
-            "type": "Point",
-            "coordinates": [
+        "locationData": [
                 2.2093980445567203,
                 41.44940390107661
-            ]
-        },
+            ],
         "website": "https://www.escapebarcelona.com/",
         "phone": "666 666 666",
         "email": "escapebarcelona@company.es",
@@ -118,13 +100,10 @@
         "province": "Barcelona",
         "city": "Barcelona",
         "address": "C/ de Girona, 7",
-        "locationData": {
-            "type": "Point",
-            "coordinates": [
+        "locationData": [
                 2.174447226001827,
                 41.39798215165559
-            ]
-        },
+            ],
         "website": "https://goldenpop.es/",
         "phone": "666 666 666",
         "email": "goldenpop@company.es",
@@ -137,13 +116,10 @@
         "province": "Barcelona",
         "city": "Hospitalet",
         "address": "Ctra. del Mig, 92",
-        "locationData": {
-            "type": "Point",
-            "coordinates": [
+        "locationData": [
                 2.108741030684589,
                 41.35691521017427
-            ]
-        },
+            ],
         "website": "https://krematoriumescaperoom.es/",
         "phone": "666 666 666",
         "email": "krematorium@company.es",
@@ -156,13 +132,10 @@
         "province": "País Vasco",
         "city": "Basauri",
         "address": "Foruak Kalea",
-        "locationData": {
-            "type": "Point",
-            "coordinates": [
+        "locationData": [
                 -2.8922648920537664,
                 43.23787945553562
-            ]
-        },
+            ],
         "website": "https://www.silenttownbasauri.com/",
         "phone": "666 666 666",
         "email": "silenttown@company.es",
@@ -175,13 +148,10 @@
         "province": "Madrid",
         "city": "Madrid",
         "address": "C. del Puerto de Pozazal, 4",
-        "locationData": {
-            "type": "Point",
-            "coordinates": [
+        "locationData": [
                 -3.629179053422945,
                 40.380029726541146
-            ]
-        },
+            ],
         "website": "https://bitethefly.com/",
         "phone": "666 666 666",
         "email": "bitethefly@company.es",

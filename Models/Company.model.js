@@ -36,9 +36,9 @@ const companySchema = new Schema({
         type: String,
         required: [true, "La ciudad es requerida"]
     },
-    locationdata: {
-        type: { type: String },
-        coordinates: [Number]
+    locationData: {
+        type: [Number, Number],
+        required: true
     },
     website: {
         type: String,

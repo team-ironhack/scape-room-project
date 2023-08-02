@@ -12,6 +12,6 @@ router.get('/player/:id/activate', authController.activatePlayer);
 router.get('/company/:id/activate', authController.activateCompany)
 
 router.get('/login', authController.login);
-router.post('/login', authController.doLogin);
+//router.post('/login', authController.doLogin);
 
 module.exports = router;

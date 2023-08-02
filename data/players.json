@@ -3,6 +3,7 @@
         "name": "Vicenta Benito",
         "email": "vicenta@estoymuynerviosa.es",
         "password": "123456789",
+        "active": true,
         "city": "Madrid",
         "avatar": "https://pbs.twimg.com/media/FEOn-gHX0AQorof.jpg:large",
         "birthday": "1950-11-24"
@@ -11,6 +12,7 @@
         "name": "Marisa Benito",
         "email": "marisa@meestoyfumandoencima.es",
         "password": "123456789",
+        "active": true,
         "city": "Madrid",
         "avatar": "https://static.wikia.nocookie.net/seriesspain/images/b/b4/Marisa.jpg/revision/latest?cb=20110104153915&path-prefix=es",
         "birthday": "1946-03-14"
@@ -19,6 +21,7 @@
         "name": "Doña Concha",
         "email": "concha@soyconchaentro.es",
         "password": "123456789",
+        "active": true,
         "city": "Madrid",
         "avatar": "https://static.wikia.nocookie.net/seriesspain/images/3/3e/Emma-penella.jpg/revision/latest?cb=20170616155237&path-prefix=es",
         "birthday": "1940-07-13"
@@ -27,6 +30,7 @@
         "name": "Juan Cuesta",
         "email": "juan@quefollon.es",
         "password": "123456789",
+        "active": true,
         "city": "Madrid",
         "avatar": "https://static.wikia.nocookie.net/seriesspain/images/9/9e/Juan.jpeg/revision/latest?cb=20170616155544&path-prefix=es",
         "birthday": "1963-12-07"
@@ -35,6 +39,7 @@
         "name": "Isabel Ruiz",
         "email": "lahierbas@matalajuan.es",
         "password": "123456789",
+        "active": true,
         "city": "Madrid",
         "avatar": "https://static.wikia.nocookie.net/seriesspain/images/8/8c/Isabel.jpg/revision/latest?cb=20101006213121&path-prefix=es",
         "birthday": "1965-01-15"

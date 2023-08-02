@@ -30,14 +30,14 @@ app.use(session);
 app.use(passport.initialize());
 app.use(passport.session());
 
-/*app.use((req, res, next) => {
+app.use((req, res, next) => {
   // la variable path se podrá usar desde cualquier vista de hbs (/register, /posts)
   res.locals.path = req.path;
   res.locals.currentUser = req.user;
 
   // Damos paso al siguiente middleware
   next();
-});*/
+});
 
 /** Configure routes */
 const miscRouter = require('./routes/misc.routes');

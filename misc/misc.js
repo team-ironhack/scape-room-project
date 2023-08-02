@@ -43,7 +43,7 @@ const userRegister = function (userModel1, userModel2, req, res, next) {
                                 ...req.body,
                                 avatar: req.file ? req.file.path : undefined
                             };
-                            if (user.isCompany) {
+                            if (userData.isCompany) {
                                userData.locationData = JSON.parse(req.body.locationData)
                             }
                             return userModel1.create(userData)

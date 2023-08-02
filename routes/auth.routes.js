@@ -12,6 +12,9 @@ router.get('/player/:id/activate', authController.activatePlayer);
 router.get('/company/:id/activate', authController.activateCompany)
 
 router.get('/login', authController.login);
-//router.post('/login', authController.doLogin);
+router.post('/login', authController.doLogin);
+
+router.get('/login/google', authController.loginGoogle);
+router.post('/authenticate/google/cb', authController.doLoginGoogle);
 
 module.exports = router;

@@ -1,5 +1,6 @@
 const { sendValidationEmailPlayer, sendValidationEmailCompany } = require('../config/nodemailer.config')
-
+const mongoose = require('mongoose');
+const passport = require('passport');
 
 const userRegister = function (userModel1, userModel2, req, res, next) {
 

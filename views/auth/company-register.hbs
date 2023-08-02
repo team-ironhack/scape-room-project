@@ -1,3 +1,6 @@
+<script id="search-js" src="https://api.mapbox.com/search-js/v1.0.0-beta.17/web.js" defer></script>
+
+
 <h1 class="mt-4">Crea una cuenta de empresa</h1>
 
 <form action="/register-company" method="POST">
@@ -82,6 +85,27 @@
 
   <!-- INPUT LOCALIZACIÓN -->
 
+  <div class="form-group mb-1">
+    <label for="address">Localización</label>
+    <input
+      type="text"
+      class="form-control"
+      id="mapbox-autofill"
+      placeholder="Escribe tu dirección."
+      autocomplete="address-line1"
+    >
+    {{#if errors.address}}
+      <div class="invalid-feedback">
+        {{errors.address.message}}
+      </div>
+    {{/if}}
+  </div>
+
+  <input name="locationData" type="hidden" id="mapbox-autofill-location">
+  <input name="address" type="hidden" id="mapbox-autofill-address">
+
+  <div id="minimap-container" class="hidden"></div>
+
   <div class="mb-3">
     <label for="website" class="form-label">Página web</label>
     <input
@@ -117,3 +141,44 @@
 
   <button class="btn btn-primary" type="submit">Crear cuenta</button>
 </form>
+
+<script>
+  const ACCESS_TOKEN = 'pk.eyJ1IjoiY2RlbGF0b3JyZSIsImEiOiJja3Y5bHJ6ZzcweG0yMnZtZzI4eXJna2UxIn0.m-OWQWPhRrb5ZNRz0M9AqQ';
+
+  let autofillCollection;
+  let minimap;
+
+  const minimapContainer = document.getElementById("minimap-container");
+  const addressInput = document.getElementById("mapbox-autofill");
+  const locationInput = document.getElementById("mapbox-autofill-location");
+  const addressInputText = document.getElementById("mapbox-autofill-address");
+
+  // Autofill initialization
+  document.getElementById("search-js").onload = () => {
+    mapboxsearch.config.accessToken = ACCESS_TOKEN;
+    
+    autofillCollection = mapboxsearch.autofill({});
+    
+    minimap = new MapboxAddressMinimap();
+    minimap.canAdjustMarker = true;
+    minimap.satelliteToggle = true;
+    minimap.onSaveMarkerLocation = (lnglat) => {
+      console.log(`Marker moved to ${lnglat}`);
+    };
+    const minimapContainer = document.getElementById("minimap-container");
+    minimapContainer.appendChild(minimap);
+    
+    autofillCollection.addEventListener(
+      "retrieve",
+      async (e) => {
+        if (minimap) {
+          minimap.feature = e.detail.features[0];
+          minimapContainer.classList.remove("hidden");
+        }
+        console.log(e.detail.features[0]);
+        locationInput.value = JSON.stringify(e.detail.features[0].geometry.coordinates);
+        addressInputText.value = e.detail.features[0].properties.address_line1;
+      }
+    );
+  };
+</script>

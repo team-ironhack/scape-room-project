@@ -2,6 +2,7 @@ const Player = require('../models/Player.model');
 const Company = require('../models/Company.model');
 const mongoose = require('mongoose');
 const passport = require('passport');
+const { sendValidationEmail } = require('../config/nodemailer.config')
 
 const userRegister = function (userModel1, userModel2, req, res, next) {
 
@@ -46,7 +47,8 @@ const userRegister = function (userModel1, userModel2, req, res, next) {
                             };
 
                             return userModel1.create(userData)
-                                .then(() => {
+                                .then((user) => {
+                                    sendValidationEmail(user)
                                     res.redirect('/login');
                                 })
                                 .catch(err => next(err));
@@ -83,6 +85,21 @@ module.exports.registerCompany = (req, res, next) => {
 module.exports.doRegisterCompany = (req, res, next) => {
     userRegister(Company, Player, req, res, next)
 }
+
+//activate
+module.exports.activate = (req, res, next) => {
+    Player.findByIdAndUpdate(req.params.id, {active: true})
+    .then(() => {
+        res.redirect('/login')
+    })
+}
+
+/*module.exports.activateCompany = (req, res, next) => {
+    Company.findByIdAndUpdate(req.params.id, {active: true})
+    .then(() => {
+        res.redirect('/login')
+    })
+}*/
 
 //login
 module.exports.login = (req, res, next) => {

@@ -32,7 +32,6 @@ const playerSchema = new Schema({
   },
   city: {
     type: String,
-    required: [true, "Por favor introduce tu ciudad"],
   },
   avatar: {
     type: String,

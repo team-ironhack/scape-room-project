@@ -11,5 +11,6 @@ router.post('/register-company', authController.doRegisterCompany);
 router.get('/users/:id/activate', authController.activate)
 
 router.get('/login', authController.login);
+router.post('/login', authController.doLogin);
 
 module.exports = router;

@@ -12,7 +12,7 @@
     <label for="email" class="form-label">Correo electrónico</label>
     <input
       class="form-control{{#if errors.email}} is-invalid{{/if}}"
-      name="email" type="email" id="email" placeholder="nombre@ejemplo.com" value="{{company.email}}" required
+      name="email" type="email" id="email" placeholder="nombre@ejemplo.com" value="{{user.email}}" required
     >
     {{#if errors.email}}
       <div class="invalid-feedback">

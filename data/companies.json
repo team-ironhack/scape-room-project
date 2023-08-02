@@ -3,6 +3,7 @@
         "companyName": "Mayto Kingdom",
         "province": "País Vasco",
         "city": "Vitoria",
+        "address": "Barratxi Kalea, 37",
         "locationData": {
             "type": "Point",
             "coordinates": [
@@ -21,6 +22,7 @@
         "companyName": "Shock",
         "province": "Madrid",
         "city": "Rivas",
+        "address": "C. Juana Francés, 2",
         "locationData": {
             "type": "Point",
             "coordinates": [
@@ -39,6 +41,7 @@
         "companyName": "Outline Escape Room",
         "province": "Barcelona",
         "city": "Cornellá",
+        "address": "Avinguda del parc de can mercader, 5",
         "locationData": {
             "type": "Point",
             "coordinates": [
@@ -57,6 +60,7 @@
         "companyName": "Insomnia",
         "province": "Barcelona",
         "city": "Berga",
+        "address": "Drecera de Queralt",
         "locationData": {
             "type": "Point",
             "coordinates": [
@@ -75,6 +79,7 @@
         "companyName": "Hangar 18",
         "province": "Asturias",
         "city": "Gijón",
+        "address": "Calle de Blas Pascal, 52",
         "locationData": {
             "type": "Point",
             "coordinates": [
@@ -93,6 +98,7 @@
         "companyName": "Escape Barcelona",
         "province": "Barcelona",
         "city": "Sta. Coloma",
+        "address": "Carrer d'en Baró, 17",
         "locationData": {
             "type": "Point",
             "coordinates": [
@@ -111,6 +117,7 @@
         "companyName": "Golden Pop",
         "province": "Barcelona",
         "city": "Barcelona",
+        "address": "C/ de Girona, 7",
         "locationData": {
             "type": "Point",
             "coordinates": [
@@ -129,6 +136,7 @@
         "companyName": "Krematorium",
         "province": "Barcelona",
         "city": "Hospitalet",
+        "address": "Ctra. del Mig, 92",
         "locationData": {
             "type": "Point",
             "coordinates": [
@@ -147,6 +155,7 @@
         "companyName": "Silent Town",
         "province": "País Vasco",
         "city": "Basauri",
+        "address": "Foruak Kalea",
         "locationData": {
             "type": "Point",
             "coordinates": [
@@ -165,6 +174,7 @@
         "companyName": "Bite the fly",
         "province": "Madrid",
         "city": "Madrid",
+        "address": "C. del Puerto de Pozazal, 4",
         "locationData": {
             "type": "Point",
             "coordinates": [

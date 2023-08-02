@@ -1,4 +1,6 @@
-<h1 class="mt-3">User profile</h1>
+{{> navbar }}
+
+<h1 class="mt-3">Tu perfil de jugador</h1>
 
 {{#if currentUser}}
 <div class="d-flex mt-3">
@@ -8,12 +10,12 @@
     <div>
         <p>{{currentUser.name}}</p>
         <p>{{currentUser.email}}</p>
-        <p>{{currentUser.email}}</p>
-        <p>{{currentUser.email}}</p>
+        {{#if currentUser.city}}<p>{{currentUser.city}}</p>{{/if}}  
+        <a href="/logout"><button class="btn btn-danger">Cerrar sesión</button></a>  
     </div>
 </div>
-
+    
 
 {{else}}
-<p>No user found</p>
+<p>No hay jugador</p>
 {{/if}}

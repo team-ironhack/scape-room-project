@@ -58,6 +58,13 @@ module.exports.loginGoogle = (req, res, next) => {
       passportController(req, res, next);
 }
 
+//logout
+
+module.exports.logout = (req, res, next) => {
+    req.session.destroy();
+    res.redirect('/login');
+}
+
 
 
 

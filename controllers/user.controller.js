@@ -1,6 +1,8 @@
 const Player = require('../models/Player.model');
 const Company = require('../models/Company.model');
 const Room = require('../models/Room.model');
+const mongoose = require('mongoose');
+const { errorMonitor } = require('connect-mongo');
 
 module.exports.playerProfile = (req, res, next) => {
     const id = req.params.id;
@@ -33,4 +35,22 @@ module.exports.companyProfile = (req, res, next) => {
 
 module.exports.createRoom = (req, res, next) => {
     res.render('room/room-form')
+}
+
+module.exports.doCreateRoom = (req, res, next) => {
+
+    const data = {
+        ...req.body,
+        company: req.user._id,
+        image: req.file ? req.file.path : undefined
+    }
+    
+    Room.create(data)
+    .then(room => {
+        res.redirect(`/profile/company/${req.user._id}`)
+        console.log(`Sala ${room.name} creada.`)
+    })
+    .catch(err => {
+      console.log(err)
+      })
 }

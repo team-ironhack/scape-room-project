@@ -1,8 +1,6 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
-const PLAYER = ['2-4', '2-5', '2-6'];
-const DIFFICULTY = ['Baja', 'Media', 'Alta'];
-const TERROR = ["No", "Temor", "Miedo", "Horror", "Terror", "Pánico"]
+const { PLAYERS, DIFFICULTY, TERROR } = require('../misc/enum')
 
 const roomSchema = new Schema(
     {
@@ -16,7 +14,7 @@ const roomSchema = new Schema(
         },
         players: {
             type: String,
-            enum: PLAYER,
+            enum: PLAYERS,
             required: [true, 'El número de jugadores es requerido']
         },
         minAge: {

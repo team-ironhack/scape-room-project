@@ -50,10 +50,10 @@ const userRegister = function (userModel1, userModel2, req, res, next) {
                                 .then((user) => {
                                     if (user.isCompany) {
                                         sendValidationEmailCompany(user)
-                                        res.redirect('/login');
+                                        res.render('auth/mail-sent');
                                     } else {
                                         sendValidationEmailPlayer(user)
-                                        res.redirect('/login');
+                                        res.render('auth/mail-sent');
                                     }
                                 })
                                 .catch(err => next(err));

@@ -32,13 +32,6 @@
 <p>No hay empresa</p>
 {{/if}}
 
-{{#if !currentUser.isCompany }}
-  {{> roomCards currentUser.rooms}}
-{{else}}
-   {{> roomRows currentUser.rooms}}
-{{}}
-</div>
-
 
  <script>
   const ACCESS_TOKEN = 'pk.eyJ1IjoiY2RlbGF0b3JyZSIsImEiOiJja3Y5bHJ6ZzcweG0yMnZtZzI4eXJna2UxIn0.m-OWQWPhRrb5ZNRz0M9AqQ';

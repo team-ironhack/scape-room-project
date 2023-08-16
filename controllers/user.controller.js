@@ -23,7 +23,7 @@ module.exports.companyProfile = (req, res, next) => {
     .then(company => {
       console.log(company.rooms)
         if (company) {
-          res.render('user/company-profile', { company, isRowView });
+          res.render('user/company-profile', { company, isRowView: true });
         } else {
           next(createError(404, 'Usuario no encontrado'))
         }

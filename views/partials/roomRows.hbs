@@ -1,5 +1,15 @@
-<h1>Tus salas {{company}}</h1>
+<h1>Tus salas</h1>
 {{#if company.rooms}}
-{{}}
+<div class="mb-4">
+    {{#each company.rooms}}
+    <div class="row room-row mb-4">
+        <p>{{this.name}}</p>
+        <div>
+            <a class="btn btn-primary" href="#">Editar</a>
+            <a class="btn btn-danger" href="#">Borrar</a>
+        </div>
+    </div>
 
+    {{/each}}
+</div>
 {{/if}}

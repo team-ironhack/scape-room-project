@@ -1,46 +1,47 @@
-<link href="https://api.mapbox.com/mapbox-assembly/v1.3.0/assembly.min.css" rel="stylesheet">
+
 <script id="search-js" src="https://api.mapbox.com/search-js/v1.0.0-beta.17/web.js" defer></script>
 
 
 <div class="container">
-<h1 class="mt-3">Tu perfil de empresa</h1>
+  <h1 class="mt-3">Tu perfil de empresa</h1>
 
-{{#if currentUser}}
-<div class="d-flex justify-content-between mt-3">
+  {{#if currentUser}}
+  <div class="d-flex justify-content-between mt-3">
     <div class="me-3">
-        <img width='300' src="{{currentUser.avatar}}" alt="" />
+      <img width='300' src="{{currentUser.avatar}}" alt="" />
     </div>
     <div>
-        <p>{{currentUser.name}}</p>
-        <p>{{currentUser.email}}</p>
-        <p>{{currentUser.address}}</p>
-        <p>{{currentUser.province}}</p>
-        <p>{{currentUser.city}}</p>
-        {{#if currentUser.website}}<p>{{currentUser.website}}</p>{{/if}}
-        {{#if currentUser.phone}}<p>{{currentUser.phone}}</p>{{/if}}
+      <p>{{currentUser.name}}</p>
+      <p>{{currentUser.email}}</p>
+      <p>{{currentUser.address}}</p>
+      <p>{{currentUser.province}}</p>
+      <p>{{currentUser.city}}</p>
+      {{#if currentUser.website}}<p>{{currentUser.website}}</p>{{/if}}
+      {{#if currentUser.phone}}<p>{{currentUser.phone}}</p>{{/if}}
     </div>
     <div class="row">
-        <mapbox-address-minimap satellite-toggle="true" can-adjust-marker="true" id="map"
-            location="{{currentUser.locationData}}">
-        </mapbox-address-minimap>
+      <mapbox-address-minimap satellite-toggle="true" can-adjust-marker="true" id="map"
+        location="{{currentUser.locationData}}">
+      </mapbox-address-minimap>
     </div>
 
+  </div>
+
+
+  {{else}}
+  <p>No hay empresa</p>
+  {{/if}}
+  <div class="mt-5">
+    {{#if isRowView }}
+    {{> roomRows this}}
+    {{else}}
+    {{> roomCards this}}
+    {{/if}}
+  </div>
 </div>
 
 
-{{else}}
-<p>No hay empresa</p>
-{{/if}}
-
-{{#if isRowView }}
-  {{> roomRows this}}
-{{else}}
-   {{> roomCards this}}
-{{/if}}
-</div>
-
-
- <script>
+<script>
   const ACCESS_TOKEN = 'pk.eyJ1IjoiY2RlbGF0b3JyZSIsImEiOiJja3Y5bHJ6ZzcweG0yMnZtZzI4eXJna2UxIn0.m-OWQWPhRrb5ZNRz0M9AqQ';
   const minimap = document.querySelector('mapbox-address-minimap')
   const coordinates = minimap.getAttribute('location').split(',');
@@ -56,5 +57,5 @@
       properties: {}
     };
   }
-  
+
 </script>

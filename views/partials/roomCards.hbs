@@ -1,1 +1,16 @@
-<h1>Aquí van las cards</h1>
+<h1>Salas de {{company.name}}</h1>
+{{#if company.rooms}}
+<div class="mb-4">
+    {{#each company.rooms}}
+    <div class="card" style="width: 18rem;">
+  <img src="{{this.image}}" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">{{this.name}}</h5>
+    <p class="card-text">{{this.city}}</p>
+    <a href="#" class="btn btn-primary">ver más</a>
+  </div>
+</div>
+
+    {{/each}}
+</div>
+{{/if}}

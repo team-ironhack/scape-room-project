@@ -32,10 +32,10 @@
 <p>No hay empresa</p>
 {{/if}}
 
-{{#if !currentUser.esCompany }}
-  {{> roomCards currentUser.rooms}}
+{{#if currentUser.isCompany }}
+  {{> roomRows currentUser.rooms}}
 {{else}}
-   {{> roomRows currentUser.rooms}}
+   {{> roomCards currentUser.rooms}}
 {{}}
 </div>
 

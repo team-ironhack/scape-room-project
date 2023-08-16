@@ -32,6 +32,13 @@
 <p>No hay empresa</p>
 {{/if}}
 
+{{#if isRowView }}
+  {{> roomRows this}}
+{{else}}
+   {{> roomCards this}}
+{{/if}}
+</div>
+
 
  <script>
   const ACCESS_TOKEN = 'pk.eyJ1IjoiY2RlbGF0b3JyZSIsImEiOiJja3Y5bHJ6ZzcweG0yMnZtZzI4eXJna2UxIn0.m-OWQWPhRrb5ZNRz0M9AqQ';

@@ -8,32 +8,30 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Home</a>
+          <a class="nav-link active" aria-current="page" href="/home">Home</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">Link</a>
         </li>
-
       </ul>
       <div class="d-flex me-4">
         <ul class="navbar-nav me-auto mb-2">
           <li class="nav-item dropdown">
-            
             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               ¡Hola {{#if currentUser.isCompany }} {{ currentUser.companyName }} {{else}} {{ currentUser.name }}{{/if}}! <img class="nav-avatar ms-2 me-2" src="{{currentUser.avatar}}" />
             </a>
-            
-
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item" {{#if currentUser.isCompany }} href="/company/profile/{{currentUser._id}}" {{else}} href="/player/profile/{{currentUser._id}}" {{/if}}>Mi perfil</a></li>
-              {{#if currentUser.isCompany }} <li><a class="dropdown-item" href="/create/room">Crear una sala</a></li> {{else}} <li><a class="dropdown-item" href="#">Juegos guardados </a></li>  {{/if}}
+              {{#if currentUser.isCompany }}
+              <li><a class="dropdown-item" href="/company/profile/{{currentUser.id}}">Mi perfil</a></li>
+              <li><a class="dropdown-item" href="/create/room">Crear una sala</a></li>
+              {{else}}
+              <li><a class="dropdown-item" href="/player/profile/{{currentUser.id}}">Mi perfil</a></li>
+              <li><a class="dropdown-item" href="#">Juegos guardados </a></li>  {{/if}}
               <li>
                 <hr class="dropdown-divider">
               </li>
               <li><a class="dropdown-item" href="/logout">Cerrar sesión</a></li>
             </ul>
-
-
           </li>
         </ul>
       </div>

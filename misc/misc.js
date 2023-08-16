@@ -86,9 +86,9 @@ const doLoginStrategy = (req, res, next, strategy = 'local-auth') => {
             next(error);
           } else {
             if(user.isCompany){
-                res.redirect('/company/profile')
+                res.redirect(`/company/profile/${user.id}`)
             } else {
-                res.redirect('/player/profile')
+                res.redirect(`/player/profile/${user.id}`)
             }    
           }
         });

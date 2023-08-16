@@ -62,7 +62,12 @@ const companySchema = new Schema({
 }, 
 {
     timestamps: true,
-    virtuals: true
+    toObject: {
+        virtuals: true
+      },
+    toJSON: {
+        virtuals: true
+      }
 });
 
 companySchema.virtual("rooms", {

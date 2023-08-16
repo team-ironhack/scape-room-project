@@ -31,12 +31,11 @@
 {{else}}
 <p>No hay empresa</p>
 {{/if}}
-
-{{#if !currentUser.isCompany }}
-  {{> roomCards currentUser.rooms}}
+{{#if isRowView }}
+  {{> roomRows this}}
 {{else}}
-   {{> roomCards currentUser.rooms}}
-{{}}
+   {{> roomCards this}}
+{{/if}}
 </div>
 
 

@@ -1,0 +1,116 @@
+<div class="fondo-content ">
+  <div class="login-container my-5">
+
+<h1 class="mt-4 mb-4">Crea una nueva sala</h1>
+
+<form action="/create/room" method="POST" enctype="multipart/form-data">
+
+  <div class="mb-3">
+    <label for="name" class="form-label">Nombre de la sala</label>
+    <input
+      class="form-control {{#if errors.name}}is-invalid{{/if}}"
+      name="name" type="text" id="name" placeholder="Mi sala" value="{{room.name}}" required
+    >
+    {{#if errors.name}}
+      <div class="invalid-feedback">
+        {{errors.name}}
+      </div>
+    {{/if}}
+  </div>
+
+  <div class="mb-3">
+      <label for="players" class="form-label">Número de jugadores</label>
+      <select
+        class="form-select{{#if errors.players}} is-invalid{{/if}}"
+        value="{{room.players}}"
+        name="players"
+      >
+        <option selected>Selecciona el número de jugadores</option>
+        {{#each player}}
+          <option value="{{this}}">{{this}}</option>
+        {{/each}}
+      </select>
+      {{#if errors.players}}
+        <div class="invalid-feedback">
+          {{errors.players}}
+        </div>
+      {{/if}}
+    </div>
+
+  <div class="mb-3">
+    <label for="minAge" class="form-label">Edad mínima requerida</label>
+    <input
+      class="form-control{{#if errors.minAge}} is-invalid{{/if}}" 
+      name="minAge" type="number" id="minAge" required
+    >
+    {{#if errors.minAge}}
+      <div class="invalid-feedback">
+        {{errors.minAge}}
+      </div>
+    {{/if}}
+  </div>
+
+    <div class="mb-3">
+        <label for="minAge" class="form-label">Edad mínima requerida</label>
+        <input
+        class="form-control{{#if errors.minAge}} is-invalid{{/if}}" 
+        name="minAge" type="number" id="minAge" required
+        >
+        {{#if errors.minAge}}
+        <div class="invalid-feedback">
+            {{errors.minAge}}
+        </div>
+        {{/if}}
+    </div>
+  <div class="mb-3">
+    <label for="repeatPassword" class="form-label">Repite la contraseña</label>
+    <input
+      class="form-control{{#if errors.password}} is-invalid{{/if}}" 
+      name="repeatPassword" type="password" id="repeatPassword" required
+    >
+    {{#if errors.repeatPassword}}
+      <div class="invalid-feedback">
+        {{errors.repeatPassword}}
+      </div>
+    {{/if}}
+  </div>
+
+  <div class="mb-3">
+    <label for="city" class="form-label">Ciudad</label>
+    <input
+      class="form-control{{#if errors.city}} is-invalid{{/if}}"
+      name="city" type="text" id="city" placeholder="Cornellá" value="{{user.city}}" 
+    >
+    {{#if errors.city}}
+      <div class="invalid-feedback">
+        {{errors.city}}
+      </div>
+    {{/if}}
+  </div>
+
+  <!-- INPUT LOCALIZACIÓN -->
+
+  <div class="mb-3">
+    <label for="avatar" class="form-label">Avatar</label>
+    <input class="form-control" type="file" id="avatar" name="avatar">
+  </div>
+
+  <div class="mb-3">
+    <label for="birthday" class="form-label">Cumpleaños</label>
+    <input
+      class="form-control{{#if errors.birthday}} is-invalid{{/if}}"
+      name="birthday" type="date" id="birthay" value="{{user.birthday}}"
+    >
+    {{#if errors.birthday}}
+      <div class="invalid-feedback">
+        {{errors.birthday}}
+      </div>
+    {{/if}}
+  </div>
+
+
+  <button class="btn btn-primary" type="submit">Crear cuenta</button>
+  <p >¿Ya tienes cuenta? <a href="/login"><b>Iniciar sesión</b></a></p>
+
+</form></div>
+</div>

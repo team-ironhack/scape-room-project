@@ -7,5 +7,6 @@ const role = require('../middlewares/role.middleware')
 
 router.get('/player/profile', secure.isAuthenticated, role.isPlayer, userController.playerProfile);
 router.get('/company/profile', secure.isAuthenticated, role.isCompany, userController.companyProfile);
+router.get('/create/room', secure.isAuthenticated, role.isCompany, userController.createRoom)
 
 module.exports = router;

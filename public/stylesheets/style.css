@@ -1,30 +1,70 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,400;0,600;0,700;1,100;1,400;1,600;1,700&display=swap');
+
 .hidden {
     display: none;
 };
 
 body {
-    height: 100%;
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 .fondo-content {
     width: 100%;
     min-height: 100vh;
-    background: #9b27d5;
+    background: linear-gradient(to bottom right, #ccb2eb, #9963b2);
     display: flex;
     justify-content: center;
     align-items: center;
+    overflow: hidden;
+    font-family: 'Montserrat', sans-serif;
 
 }
 
 .login-container{
-    width: 638px;
+    width: 100%; /* Ocupa todo el ancho disponible */
+    max-width: 650px; /* Limita el ancho máximo */
+    margin: auto;
+    padding: 20px; /* Agrega espacio interno */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     background-color: white;
     box-shadow: 0px 0px 44px 12px rgba(0, 0, 0, 0.25);
     border-radius: 24px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
+    overflow: auto;
+}
+
+.google-btn, .login-btn {
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border-radius: 50px;
+}
+
+.role-btn {
+
+    border: 2px solid #9963b2;
+
+    color: #9963b2;
+    font-weight: bold;
+}
+
+.role-btn:hover {
+
+    background-color: #c1a3cf;
+    color: white;
+    font-weight: bold;
+}
+
+.active {
+    background-color: #9963b2 !important;
+    color: white !important;
+    font-weight: bold !important;
 }
 
 #minimap-container {

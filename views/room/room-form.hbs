@@ -1,79 +1,110 @@
 <div class="fondo-content ">
-  <div class="login-container my-5">
+    <div class="login-container my-5">
 
-<h1 class="mt-4 mb-4">Crea una nueva sala</h1>
+        <h1 class="mt-4 mb-4">Crea una nueva sala</h1>
 
-<form action="/create/room" method="POST" enctype="multipart/form-data">
+        <form action="/create/room" method="POST" enctype="multipart/form-data">
 
-  <div class="mb-3">
-    <label for="name" class="form-label">Nombre de la sala</label>
-    <input
-      class="form-control {{#if errors.name}}is-invalid{{/if}}"
-      name="name" type="text" id="name" placeholder="Mi sala" value="{{room.name}}" required
-    >
-    {{#if errors.name}}
-      <div class="invalid-feedback">
-        {{errors.name}}
-      </div>
-    {{/if}}
-  </div>
+            <div class="mb-3">
+                <label for="name" class="form-label">Nombre de la sala</label>
+                <input class="form-control {{#if errors.name}}is-invalid{{/if}}" name="name" type="text" id="name"
+                    placeholder="Mi sala" value="{{room.name}}" required>
+                {{#if errors.name}}
+                <div class="invalid-feedback">
+                    {{errors.name}}
+                </div>
+                {{/if}}
+            </div>
 
-  <div class="mb-3">
-      <label for="players" class="form-label">Número de jugadores</label>
-      <select
-        class="form-select{{#if errors.players}} is-invalid{{/if}}"
-        value="{{room.players}}"
-        name="players"
-      >
-        <option selected>Selecciona el número de jugadores</option>
-        {{#each player}}
-          <option value="{{this}}">{{this}}</option>
-        {{/each}}
-      </select>
-      {{#if errors.players}}
-        <div class="invalid-feedback">
-          {{errors.players}}
-        </div>
-      {{/if}}
-    </div>
+            <div class="mb-3">
+                <label for="players" class="form-label">Número de jugadores</label>
+                <select class="form-select{{#if errors.players}} is-invalid{{/if}}" value="{{room.players}}"
+                    name="players">
+                    <option selected>Selecciona el número de jugadores</option>
+                    {{#each player}}
+                    <option value="{{this}}">{{this}}</option>
+                    {{/each}}
+                </select>
+                {{#if errors.players}}
+                <div class="invalid-feedback">
+                    {{errors.players}}
+                </div>
+                {{/if}}
+            </div>
 
-  <div class="mb-3">
-    <label for="minAge" class="form-label">Edad mínima requerida</label>
-    <input
-      class="form-control{{#if errors.minAge}} is-invalid{{/if}}" 
-      name="minAge" type="number" id="minAge" required
-    >
-    {{#if errors.minAge}}
-      <div class="invalid-feedback">
-        {{errors.minAge}}
-      </div>
-    {{/if}}
-  </div>
+            <div class="mb-3">
+                <label for="minAge" class="form-label">Edad mínima requerida</label>
+                <input class="form-control{{#if errors.minAge}} is-invalid{{/if}}" name="minAge" type="number"
+                    id="minAge" required>
+                {{#if errors.minAge}}
+                <div class="invalid-feedback">
+                    {{errors.minAge}}
+                </div>
+                {{/if}}
+            </div>
 
-    <div class="mb-3">
-        <label for="minAge" class="form-label">Edad mínima requerida</label>
-        <input
-        class="form-control{{#if errors.minAge}} is-invalid{{/if}}" 
-        name="minAge" type="number" id="minAge" required
-        >
-        {{#if errors.minAge}}
-        <div class="invalid-feedback">
-            {{errors.minAge}}
-        </div>
-        {{/if}}
-    </div>
-  <div class="mb-3">
-    <label for="repeatPassword" class="form-label">Repite la contraseña</label>
-    <input
-      class="form-control{{#if errors.password}} is-invalid{{/if}}" 
-      name="repeatPassword" type="password" id="repeatPassword" required
-    >
-    {{#if errors.repeatPassword}}
-      <div class="invalid-feedback">
-        {{errors.repeatPassword}}
-      </div>
-    {{/if}}
-  </div>
+            <div class="mb-3">
+                <label for="price" class="form-label">Precio de la sala</label>
+                <input class="form-control{{#if errors.price}} is-invalid{{/if}}" name="price" type="number" id="price"
+                    required>
+                {{#if errors.price}}
+                <div class="invalid-feedback">
+                    {{errors.price}}
+                </div>
+                {{/if}}
+            </div>
+
+                <div class="mb-3">
+                    <label for="difficulty" class="form-label">Nivel de dificultad</label>
+                    <select class="form-select{{#if errors.difficulty}} is-invalid{{/if}}" value="{{room.difficulty}}" name="difficulty">
+                        <option selected>Selecciona la dificultad de la sala</option>
+                        {{#each difficulty}}
+                        <option value="{{this}}">{{this}}</option>
+                        {{/each}}
+                    </select>
+                    {{#if errors.difficulty}}
+                    <div class="invalid-feedback">
+                        {{errors.difficulty}}
+                    </div>
+                    {{/if}}
+                </div>
+
+            <div class="mb-3">
+                <label for="duration" class="form-label">Duración del juego (minutos)</label>
+                <input class="form-control{{#if errors.duration}} is-invalid{{/if}}" name="duration" type="number" id="duration"
+                    required>
+                {{#if errors.duration}}
+                <div class="invalid-feedback">
+                    {{errors.duration}}
+                </div>
+                {{/if}}
+            </div>
+
+              <div class="mb-3">
+                    <label for="terrorLevel" class="form-label">Nivel de dificultad</label>
+                    <select class="form-select{{#if errors.difficulty}} is-invalid{{/if}}" value="{{room.difficulty}}" name="difficulty">
+                        <option selected>Selecciona la dificultad de la sala</option>
+                        {{#each difficulty}}
+                        <option value="{{this}}">{{this}}</option>
+                        {{/each}}
+                    </select>
+                    {{#if errors.difficulty}}
+                    <div class="invalid-feedback">
+                        {{errors.difficulty}}
+                    </div>
+                    {{/if}}
+                </div>
+
+                <div class="mb-3">
+                <label for="sinopsis" class="form-label">Sinopsis del juego</label>
+                <input class="form-control {{#if errors.sinopsis}}is-invalid{{/if}}" name="sinopsis" type="text" id="sinopsis"
+                    placeholder="" value="{{room.sinopsis}}" required>
+                {{#if errors.sinopsis}}
+                <div class="invalid-feedback">
+                    {{errors.sinopsis}}
+                </div>
+                {{/if}}
+            </div>
 
   <div class="mb-3">
     <label for="city" class="form-label">Ciudad</label>

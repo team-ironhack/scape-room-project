@@ -1,5 +1,6 @@
 const Player = require('../models/Player.model');
 const Company = require('../models/Company.model');
+const Room = require('../models/Room.model');
 
 module.exports.playerProfile = (req, res, next) => {
     const id = req.params.id;
@@ -13,12 +14,16 @@ module.exports.playerProfile = (req, res, next) => {
       })
       .catch(next)
   }
+
 module.exports.companyProfile = (req, res, next) => {
     const id  = req.params.id;
+
     Company.findById(id)
+    .populate("rooms")
     .then(company => {
+      console.log(company.rooms)
         if (company) {
-          res.render('user/company-profile', { company });
+          res.render('user/company-profile', { company, isRowView });
         } else {
           next(createError(404, 'Usuario no encontrado'))
         }

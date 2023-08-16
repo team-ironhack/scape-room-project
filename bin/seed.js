@@ -37,7 +37,14 @@ mongoose.connection.once('open', () => {
                 console.log(`The room ${room.name} has been created`)
             });
 
-            return Player.create(PLAYERS);
+           
+            PLAYERS.forEach(player => {
+                const randomRoomsArr = //array random de entre 1 y 3 elementos de createdRooms -> [objectId(12312312312312), ]
+                Player.create({ ...player, doneRooms: randomRoomsArr})
+                    .then(createdPlayer => {
+                        console.log(`The player ${createdPlayer.name} has been created`)
+                    })
+            })
 
         })
         .then((createdPlayers) => {

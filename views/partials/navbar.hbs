@@ -20,13 +20,13 @@
           <li class="nav-item dropdown">
             
             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              ¡Hola {{#if currentUser.isCompany }} {{ currentUser.companyName }} {{else}} {{ currentUser.name }} {{/if}}! <img class="nav-avatar ms-2 me-2" src="{{currentUser.avatar}}" />
+              ¡Hola {{#if currentUser.isCompany }} {{ currentUser.companyName }} {{else}} {{ currentUser.name }}{{/if}}! <img class="nav-avatar ms-2 me-2" src="{{currentUser.avatar}}" />
             </a>
             
 
             <ul class="dropdown-menu">
               <li><a class="dropdown-item" href="#">Mi perfil</a></li>
-              {{#if currentUser.isCompany }} <li><a class="dropdown-item" href="#">Crear una sala</a></li> {{/if}}
+              {{#if currentUser.isCompany }} <li><a class="dropdown-item" href="#">Crear una sala</a></li> {{else}} <li><a class="dropdown-item" href="#">Juegos guardados </a></li>  {{/if}}
               <li>
                 <hr class="dropdown-divider">
               </li>

@@ -6,7 +6,7 @@ const { userRegister, doLoginStrategy } = require('../misc/misc')
 
 // registro player
 module.exports.registerPlayer = (req, res, next) => {
-    res.render('auth/player-register')
+    res.render('auth/player-register',{ hiddenNav: true })
 }
 module.exports.doRegisterPlayer = (req, res, next) => {
     userRegister(Player, Company, req, res, next)
@@ -15,7 +15,7 @@ module.exports.doRegisterPlayer = (req, res, next) => {
 // registro company
 
 module.exports.registerCompany = (req, res, next) => {
-    res.render('auth/company-register')
+    res.render('auth/company-register', { hiddenNav: true })
 }
 
 module.exports.doRegisterCompany = (req, res, next) => {
@@ -39,7 +39,7 @@ module.exports.activateCompany = (req, res, next) => {
 
 //login
 module.exports.login = (req, res, next) => {
-    res.render('auth/login')
+    res.render('auth/login', { hiddenNav: true })
 }
 
 module.exports.doLogin = (req, res, next) => {

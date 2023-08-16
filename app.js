@@ -6,6 +6,7 @@ const logger = require('morgan');
 const path = require('path');
 const passport = require('passport');
 const hbs = require('hbs')
+const { PLAYERS, DIFFICULTY, TERROR } = require('./misc/enum')
 
 /** Configurations */
 require('./config/hbs.config');
@@ -34,6 +35,9 @@ app.use((req, res, next) => {
   // la variable path se podrá usar desde cualquier vista de hbs (/register, /posts)
   res.locals.path = req.path;
   res.locals.currentUser = req.user;
+  res.locals.playerNum = PLAYERS;
+  res.locals.difficulty = DIFFICULTY;
+  res.locals.terror = TERROR;
 
   // Damos paso al siguiente middleware
   next();

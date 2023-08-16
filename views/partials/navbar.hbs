@@ -13,21 +13,17 @@
         <li class="nav-item">
           <a class="nav-link" href="#">Link</a>
         </li>
-
       </ul>
       <div class="d-flex me-4">
         <ul class="navbar-nav me-auto mb-2">
           <li class="nav-item dropdown">
-            
             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               ¡Hola {{#if currentUser.isCompany }} {{ currentUser.companyName }} {{else}} {{ currentUser.name }}{{/if}}! <img class="nav-avatar ms-2 me-2" src="{{currentUser.avatar}}" />
             </a>
-            
-
             <ul class="dropdown-menu">
-              {{#if currentUser.isCompany }} 
+              {{#if currentUser.isCompany }}
               <li><a class="dropdown-item" href="/company/profile/{{currentUser.id}}">Mi perfil</a></li>
-              <li><a class="dropdown-item" href="#">Crear una sala</a></li>
+              <li><a class="dropdown-item" href="/create/room">Crear una sala</a></li>
               {{else}}
               <li><a class="dropdown-item" href="/player/profile/{{currentUser.id}}">Mi perfil</a></li>
               <li><a class="dropdown-item" href="#">Juegos guardados </a></li>  {{/if}}
@@ -36,8 +32,6 @@
               </li>
               <li><a class="dropdown-item" href="/logout">Cerrar sesión</a></li>
             </ul>
-
-
           </li>
         </ul>
       </div>

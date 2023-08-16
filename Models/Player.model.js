@@ -39,7 +39,10 @@ const playerSchema = new Schema({
   },
   birthday: {
     type: Date
-  }
+  },
+  doneRooms: [{
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "Room",}]
 });
 
 playerSchema.pre("save", function (next) {

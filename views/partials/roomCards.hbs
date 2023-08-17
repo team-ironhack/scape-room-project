@@ -1,6 +1,6 @@
-<h1>Salas de {{company.name}}</h1>
+<h1>Salas de {{company.companyName}}</h1>
 {{#if company.rooms}}
-<div class="mb-4">
+<div class="room-card mb-4 flex-sm-row">
     {{#each company.rooms}}
     <div class="card" style="width: 18rem;">
   <img src="{{this.image}}" class="card-img-top" alt="...">
@@ -10,7 +10,6 @@
     <a href="#" class="btn btn-primary">ver más</a>
   </div>
 </div>
-
     {{/each}}
 </div>
 {{/if}}

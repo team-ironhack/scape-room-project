@@ -63,7 +63,7 @@ app.use((error, req, res, next) => {
   res.status(status).render('error', {
     message: error.message,
     error: req.app.get('env') === 'development' ? error : {},
-  });
+  },);
 });
 
 const port = Number(process.env.PORT || 3000);

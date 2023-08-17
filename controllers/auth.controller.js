@@ -2,7 +2,7 @@ const Player = require('../models/Player.model');
 const Company = require('../models/Company.model');
 const mongoose = require('mongoose');
 const passport = require('passport');
-const { userRegister, doLoginStrategy } = require('../misc/misc')
+const { userRegister } = require('../misc/misc')
 
 // registro player
 module.exports.registerPlayer = (req, res, next) => {
@@ -41,6 +41,35 @@ module.exports.activateCompany = (req, res, next) => {
 module.exports.login = (req, res, next) => {
     res.render('auth/login', { hiddenNav: true })
 }
+
+const doLoginStrategy = (req, res, next, strategy = `local-auth-${req.query.type}`) => {
+    console.log(req.query)
+    const passportController = passport.authenticate(strategy, (error, user, validations) => {
+      if (error) {
+        next(error)
+      } else if (!user) {
+        res.render('auth/login', {
+          user: req.body,
+          errors: validations,
+          hiddenNav: true 
+        })
+      } else {
+        req.login(user, error => {
+          if (error) {
+            next(error);
+          } else {
+            if(user.isCompany){
+                res.redirect(`/company/profile/${user.id}`)
+            } else {
+                res.redirect(`/player/profile/${user.id}`)
+            }    
+          }
+        });
+      }
+    })
+  
+    passportController(req, res, next);
+  }
 
 module.exports.doLogin = (req, res, next) => {
     doLoginStrategy(req, res, next);

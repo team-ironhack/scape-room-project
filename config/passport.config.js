@@ -21,51 +21,64 @@ passport.deserializeUser((id, next) => {
                             next(null, company);
                         }
                     })
-                   .catch(err => next(err));
+                    .catch(err => next(err));
             }
         })
 });
 
+
 passport.use(
-    'local-auth',
+    'local-auth-player',
     new LocalStrategy(
         {
             usernameField: 'email',
             passwordField: 'password',
         },
         (email, password, next) => {
-            Player.findOne({ email })
-                .then(player => {
-                    if (!player) {
-                        return Company.findOne({ email })
-                            .then(company => {
-                                if (!company) {
-                                    next(null, null, { email: 'Email o contraseña inválidos.' });
-                                } else {
-                                    return company.checkPassword(password)
-                                        .then(match => {
-                                            if (!match) {
-                                                next(null, null, { email: 'Email o contraseña inválidos.' });
-                                            } else {
-                                                next(null, company);
-                                            }
-                                        });
-                                }
-                            });
-                    } else {
-                        return player.checkPassword(password)
-                            .then(match => {
-                                if (!match) {
-                                    next(null, null, { email: 'Email o contaseña inválidos.' });
-                                } else {
-                                    next(null, player);
-                                }
-                            });
-                    }
-                })
-                .catch(err => next(err));
-        }
-    )
+                Player.findOne({ email })
+                    .then(player => {
+                        if (!player) {
+                            next(null, null, { email: 'Email o contraseña inválidos.' });
+                        } else {
+                            return player.checkPassword(password)
+                                .then(match => {
+                                    if (!match) {
+                                        next(null, null, { email: 'Email o contraseña inválidos.' });
+                                    } else {
+                                        next(null, player);
+                                    }
+                                });
+                        }
+                    })
+                    .catch (err => next(err));}
+)
+);
+
+passport.use(
+    'local-auth-company',
+    new LocalStrategy(
+        {
+            usernameField: 'email',
+            passwordField: 'password',
+        },
+        (email, password, next) => {
+                Company.findOne({ email })
+                    .then(company => {
+                        if (!company) {
+                            next(null, null, { email: 'Email o contraseña inválidos.' });
+                        } else {
+                            return company.checkPassword(password)
+                                .then(match => {
+                                    if (!match) {
+                                        next(null, null, { email: 'Email o contraseña inválidos.' });
+                                    } else {
+                                        next(null, company);
+                                    }
+                                });
+                        }
+                    })
+                    .catch (err => next(err));}
+)
 );
 
 passport.use(
@@ -95,7 +108,7 @@ passport.use(
                                 avatar: profile.photos[0].value
                             }
                             return Player.create(playerData)
-                            .then(createdPlayer => next (null, createdPlayer))
+                                .then(createdPlayer => next(null, createdPlayer))
                         }
                     })
                     .catch(err => next(err))
@@ -103,5 +116,5 @@ passport.use(
                 next(null, null, { email: 'Email o contaseña inválidos.' })
             }
         }
-)
+    )
 );

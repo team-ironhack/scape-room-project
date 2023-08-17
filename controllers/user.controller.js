@@ -11,7 +11,7 @@ module.exports.playerProfile = (req, res, next) => {
     Player.findById(id)
     .then(player => {
         if (player) {
-          res.render('user/player-profile', { player });
+          res.render('user/player-profile', { player, isCurrentUser: true });
         } else {
           Company.findById(id)
           .then(company => {
@@ -34,7 +34,7 @@ module.exports.companyProfile = (req, res, next) => {
     .then(company => {
      
         if (company) {
-          res.render('user/company-profile', { company, isRowView: true });
+          res.render('user/company-profile', { company});
         } else {
           Player.findById(id)
           .then(player => {

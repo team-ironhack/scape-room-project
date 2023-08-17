@@ -18,8 +18,9 @@
 
             <div class="mb-3">
                 <label for="players" class="form-label">Número de jugadores</label>
-                <select class="form-select{{#if errors.players}} is-invalid{{/if}}" value="{{room.players}}" placeholder="Selecciona el número de jugadores"
+                <select class="form-select{{#if errors.players}} is-invalid{{/if}}" value="{{room.players}}"
                     name="players">
+                    <option selected>-- Selecciona el número de jugadores --</option>
                     {{#each playerNum}}
                     <option value="{{this}}">{{this}}</option>
                     {{/each}}
@@ -57,7 +58,7 @@
                 <label for="difficulty" class="form-label">Nivel de dificultad</label>
                 <select class="form-select{{#if errors.difficulty}} is-invalid{{/if}}" value="{{room.difficulty}}"
                     name="difficulty">
-                    <option selected>Selecciona la dificultad de la sala</option>
+                    <option selected>-- Selecciona la dificultad de la sala --</option>
                     {{#each difficulty}}
                     <option value="{{this}}">{{this}}</option>
                     {{/each}}
@@ -84,7 +85,7 @@
                 <label for="terrorLevel" class="form-label">Nivel de terror</label>
                 <select class="form-select{{#if errors.terrorLevel}} is-invalid{{/if}}" value="{{room.terrorLevel}}"
                     name="terrorLevel">
-                    <option selected>Selecciona el nivel de terror de la sala</option>
+                    <option selected>-- Selecciona el nivel de terror de la sala --</option>
                     {{#each terror}}
                     <option value="{{this}}">{{this}}</option>
                     {{/each}}

@@ -6,8 +6,8 @@ const role = require('../middlewares/role.middleware')
 const upload = require('../config/multer.config');
 
 
-router.get('/player/profile/:id', secure.isAuthenticated, role.isPlayer, userController.playerProfile);
-router.get('/company/profile/:id', secure.isAuthenticated, role.isCompany, userController.companyProfile);
+router.get('/player/profile/:id', secure.isAuthenticated, userController.playerProfile);
+router.get('/company/profile/:id', secure.isAuthenticated, userController.companyProfile);
 router.get('/create/room', secure.isAuthenticated, role.isCompany, userController.createRoom);
 router.post('/create/room', secure.isAuthenticated, role.isCompany, upload.single('image'), userController.doCreateRoom)
 

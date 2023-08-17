@@ -1,4 +1,40 @@
 
 <h1>Home</h1>
 
-    {{> footer }}
+<div class="container w-75">
+{{#if lastRooms}}
+
+<div class="room-card mb-4 flex-sm-row">
+    {{#each lastRooms}}
+    <div class="card" style="width: 18rem;">
+  <img src="{{this.image}}" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">{{this.name}}</h5>
+    <p class="card-text">{{this.city}}</p>
+    <a href="/company/profile/{{company._id}}" class="btn btn-primary">ver más</a>
+  </div>
+</div>
+    {{/each}}
+</div>
+{{/if}}
+
+</div>
+
+<div class="container w-75">
+{{#if lastPlayers}}
+
+<div class="room-card mb-4 flex-sm-row">
+    {{#each lastPlayers}}
+    <div class="card" style="width: 18rem;">
+  <img src="{{this.avatar}}" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">{{this.name}}</h5>
+    <p class="card-text">{{this.city}}</p>
+    <a href="/player/profile/{{this._id}}" class="btn btn-primary">ver más</a>
+  </div>
+</div>
+    {{/each}}
+</div>
+{{/if}}
+
+</div>

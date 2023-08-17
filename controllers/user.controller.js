@@ -83,3 +83,26 @@ module.exports.doCreateRoom = (req, res, next) => {
       }
       })
 }
+
+module.exports.companyDetail = (req, res, next) => {
+  const { id } = req.params
+  Company.findById(id)
+  .populate("rooms")
+  .then(company => {
+      res.render('user/company-detail', { company })
+  })
+  .catch(err => {
+      console.error(err)
+  })
+}
+
+module.exports.playerDetail = (req, res, next) => {
+  const { id } = req.params
+  Player.findById(id)
+  .then(player => {
+      res.render('user/player-detail', { player })
+  })
+  .catch(err => {
+      console.error(err)
+  })
+}

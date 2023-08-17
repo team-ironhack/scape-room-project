@@ -10,8 +10,9 @@
   <img src="{{this.image}}" class="card-img-top" alt="...">
   <div class="card-body">
     <h5 class="card-title">{{this.name}}</h5>
-    <p class="card-text">{{this.city}}</p>
-    <a href="/company/profile/{{company._id}}" class="btn btn-primary">ver más</a>
+    <a href="/company/{{company._id}}"><p class="card-text">{{company.companyName}}</p></a>
+    <p class="card-text">{{company.city}}</p>
+    <a href="/room/{{this._id}}" class="btn btn-primary">ver más</a>
   </div>
 </div>
     {{/each}}
@@ -30,7 +31,7 @@
   <div class="card-body">
     <h5 class="card-title">{{this.name}}</h5>
     <p class="card-text">{{this.city}}</p>
-    <a href="/player/profile/{{this._id}}" class="btn btn-primary">ver más</a>
+    <a href="/player/{{this._id}}" class="btn btn-primary">ver más</a>
   </div>
 </div>
     {{/each}}

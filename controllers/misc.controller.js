@@ -9,7 +9,7 @@ module.exports.test = (req, res, next) => {
 module.exports.list = (req, res, next) => {
 
     const promises = [
-        Room.find().limit(4).sort({ createdAt: 'descending' }),
+        Room.find().populate("company").limit(4).sort({ createdAt: 'descending' }),
         Player.find().limit(3).sort({ createdAt: 'descending' }),
     ]
     Promise.all(promises)

@@ -1,0 +1,19 @@
+
+
+<h1 class="mt-3">Perfil de {{player.name}} </h1>
+
+{{#if player}}
+<div class="d-flex mt-3">
+    <div class="me-3">
+        <img width='300'src="{{player.avatar}}" alt="" referrerpolicy="no-referrer"/>
+    </div>
+    <div>
+        <p>{{player.email}}</p>
+        {{#if player.city}}<p>{{player.city}}</p>{{/if}}  
+    </div>
+</div>
+    
+
+{{else}}
+<p>No hay jugador</p>
+{{/if}}

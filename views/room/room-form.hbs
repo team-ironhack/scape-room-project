@@ -18,9 +18,8 @@
 
             <div class="mb-3">
                 <label for="players" class="form-label">Número de jugadores</label>
-                <select class="form-select{{#if errors.players}} is-invalid{{/if}}" value="{{room.players}}"
+                <select class="form-select{{#if errors.players}} is-invalid{{/if}}" value="{{room.players}}" placeholder="Selecciona el número de jugadores"
                     name="players">
-                    <option selected>Selecciona el número de jugadores</option>
                     {{#each playerNum}}
                     <option value="{{this}}">{{this}}</option>
                     {{/each}}
@@ -35,7 +34,7 @@
             <div class="mb-3">
                 <label for="minAge" class="form-label">Edad mínima requerida</label>
                 <input class="form-control{{#if errors.minAge}} is-invalid{{/if}}" name="minAge" type="number"
-                    id="minAge" required>
+                    id="minAge" value="{{room.minAge}}" required>
                 {{#if errors.minAge}}
                 <div class="invalid-feedback">
                     {{errors.minAge}}
@@ -45,7 +44,7 @@
 
             <div class="mb-3">
                 <label for="price" class="form-label">Precio de la sala (euros)</label>
-                <input class="form-control{{#if errors.price}} is-invalid{{/if}}" name="price" type="number" id="price"
+                <input class="form-control{{#if errors.price}} is-invalid{{/if}}" name="price" type="number" id="price" value="{{room.price}}"
                     required>
                 {{#if errors.price}}
                 <div class="invalid-feedback">
@@ -73,7 +72,7 @@
             <div class="mb-3">
                 <label for="duration" class="form-label">Duración del juego (minutos)</label>
                 <input class="form-control{{#if errors.duration}} is-invalid{{/if}}" name="duration" type="number"
-                    id="duration" required>
+                    id="duration" value="{{room.duration}}" required>
                 {{#if errors.duration}}
                 <div class="invalid-feedback">
                     {{errors.duration}}
@@ -98,12 +97,12 @@
             </div>
 
             <div class="mb-3">
-                <label for="sinopsis" class="form-label">Sinopsis del juego</label>
-                <input class="form-control {{#if errors.sinopsis}}is-invalid{{/if}}" name="sinopsis" type="text"
-                    id="sinopsis" placeholder="" value="{{room.sinopsis}}" required>
-                {{#if errors.sinopsis}}
+                <label for="synopsis" class="form-label">Sinopsis del juego</label>
+                <input class="form-control {{#if errors.synopsis}}is-invalid{{/if}}" name="synopsis" type="text"
+                    id="synopsis" placeholder="" value="{{room.synopsis}}" required>
+                {{#if errors.synopsis}}
                 <div class="invalid-feedback">
-                    {{errors.sinopsis}}
+                    {{errors.synopsis}}
                 </div>
                 {{/if}}
             </div>

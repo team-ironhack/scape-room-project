@@ -50,6 +50,8 @@ const authRouter = require('./routes/auth.routes');
 app.use('/', authRouter);
 const userRouter = require('./routes/user.routes');
 app.use('/', userRouter);
+const roomRouter = require('./routes/room.routes');
+app.use('/', roomRouter);
 
 /** Error Handling */
 app.use((req, res, next) => {

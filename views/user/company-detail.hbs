@@ -1,0 +1,71 @@
+<script id="search-js" src="https://api.mapbox.com/search-js/v1.0.0-beta.17/web.js" defer></script>
+
+
+<div class="container w-75">
+  <h1 class="mt-3">Tu perfil de empresa </h1>
+
+  {{#if company}}
+  <div class="d-flex justify-content-between mt-3 flex-column flex-sm-row">
+    <div class="me-3">
+      <img width='300' src="{{company.avatar}}" alt="" />
+    </div>
+    <div>
+      <p>{{company.companyName}}</p>
+      <p>{{company.email}}</p>
+      <p>{{company.address}}</p>
+      <p>{{company.province}}</p>
+      <p>{{company.city}}</p>
+      {{#if company.website}}<p>{{company.website}}</p>{{/if}}
+      {{#if company.phone}}<p>{{company.phone}}</p>{{/if}}
+    </div>
+    <div class="row">
+      <mapbox-address-minimap satellite-toggle="true" can-adjust-marker="true" id="map"
+        location="{{company.locationData}}">
+      </mapbox-address-minimap>
+    </div>
+
+  </div>
+
+
+  {{else}}
+  <p>No hay empresa</p>
+  {{/if}}
+  <div class="mt-5">
+    <h1>Salas de {{company.companyName}}</h1>
+{{#if company.rooms}}
+<div class="room-card mb-4 flex-sm-row">
+    {{#each company.rooms}}
+    <div class="card" style="width: 18rem;">
+  <img src="{{this.image}}" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">{{this.name}}</h5>
+    <p class="card-text">{{../company.companyName}}</p>
+    <p class="card-text">{{../company.city}}</p>
+    <a href="/room/{{this._id}}" class="btn btn-primary">ver más</a>
+  </div>
+</div>
+    {{/each}}
+</div>
+{{/if}}
+  </div>
+</div>
+
+
+<script>
+  const ACCESS_TOKEN = 'pk.eyJ1IjoiY2RlbGF0b3JyZSIsImEiOiJja3Y5bHJ6ZzcweG0yMnZtZzI4eXJna2UxIn0.m-OWQWPhRrb5ZNRz0M9AqQ';
+  const minimap = document.querySelector('mapbox-address-minimap')
+  const coordinates = minimap.getAttribute('location').split(',');
+
+  const script = document.getElementById('search-js');
+
+  script.onload = () => {
+    minimap.accessToken = ACCESS_TOKEN;
+    minimap.onSaveMarkerLocation = (coordinate) => { console.log(coordinate); }
+    minimap.feature = {
+      type: 'Feature',
+      geometry: { type: 'Point', coordinates: coordinates },
+      properties: {}
+    };
+  }
+
+</script>

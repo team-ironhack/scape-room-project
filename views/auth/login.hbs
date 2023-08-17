@@ -7,7 +7,7 @@
   <button class="btn role-btn">Soy empresa</button>
 </div>
 
-<form action="/login" method="POST">
+<form action="/login?type=player" method="POST">
   <div class="mb-3">
     <label for="email" class="form-label">Correo electrónico</label>
     <input
@@ -45,6 +45,8 @@
    const createAccount = document.getElementById('create-account');
    const spanWord = createAccount.querySelector('span');
    const anchorLink = createAccount.querySelector('a');
+   const actionForm = document.querySelector('form');
+   const email = document.getElementById('email');
 
    roleBtns.forEach((btn) => {
     console.log('entra')
@@ -53,9 +55,15 @@
       if (!clickedBtn.classList.contains('active')) {
         clickedBtn.classList.add('active');
         if (clickedBtn.nextElementSibling) {
-          clickedBtn.nextElementSibling.classList.remove('active')
+          clickedBtn.nextElementSibling.classList.remove('active');
+          actionForm.action = '/login?type=player';
+          email.value = ' ';
+          email.classList.remove('is-invalid')
         } else {
-          clickedBtn.previousElementSibling.classList.remove('active')
+          clickedBtn.previousElementSibling.classList.remove('active');
+          actionForm.action = '/login?type=company';
+          email.value = ' ';
+          email.classList.remove('is-invalid')
         }
 
         if (clickedBtn.innerText === 'Soy empresa') {

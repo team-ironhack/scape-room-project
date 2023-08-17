@@ -2,6 +2,8 @@ module.exports.test = (req, res, next) => {
     res.redirect('/login')
 }
 
-module.exports.home = (req, res, next) => {
+module.exports.list = (req, res, next) => {
+
+    const promises = 
     res.render('home')
 }

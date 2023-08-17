@@ -12,12 +12,14 @@ const userRegister = function (userModel1, userModel2, req, res, next) {
         if (req.body.name) {
             res.render('auth/player-register', {
                 user: req.body,
-                errors
+                errors,
+                hiddenNav: true
             })
         } else {
             res.render('auth/company-register', {
                 user: req.body,
-                errors
+                errors,
+                hiddenNav: true
             })
         }
     }

@@ -8,5 +8,6 @@ const upload = require('../config/multer.config');
 router.get('/room/:id', roomController.roomDetail);
 router.get('/create/room', secure.isAuthenticated, role.isCompany, roomController.createRoom);
 router.post('/create/room', secure.isAuthenticated, role.isCompany, upload.single('image'), roomController.doCreateRoom)
+router.post('/delete/room/:id', secure.isAuthenticated, role.isCompany, roomController.deleteRoom);
 
 module.exports = router;

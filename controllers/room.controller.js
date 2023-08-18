@@ -1,10 +1,12 @@
 const Room = require('../models/Room.model')
 const Company = require('../models/Company.model')
 
+// Mostrar formulario de crear sala
 module.exports.createRoom = (req, res, next) => {
     res.render('room/room-form')
 }
 
+// Hacer el post de crear la sala
 module.exports.doCreateRoom = (req, res, next) => {
 
   const renderWithErrors = (errors) => {
@@ -36,7 +38,7 @@ module.exports.doCreateRoom = (req, res, next) => {
       })
 }
 
-
+// Mostrar vista detalle de la sala
 module.exports.roomDetail = (req, res, next) => {
     const { id } = req.params
     Room.findById(id)
@@ -49,3 +51,15 @@ module.exports.roomDetail = (req, res, next) => {
     })
 }
 
+// Eliminar una sala
+module.exports.deleteRoom = (req, res, next) => {
+  const { id } = req.params
+  Room.findByIdAndDelete(id)
+  .then((room) => {
+    console.log(`sala ${room.name} borrada`)
+    res.redirect(`/company/profile/${req.user._id}`) 
+  })
+  .catch(err => {
+    console.error(err)
+  })
+}

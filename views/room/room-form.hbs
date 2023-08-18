@@ -1,9 +1,13 @@
 <div class="fondo-content ">
     <div class="login-container my-5">
 
+        {{#if isEdit}}
+        <h1 class="mt-4 mb-4">Edita la sala {{room.name}}</h1>
+        <form action="/edit/room/{{room._id}}" method="POST" enctype="multipart/form-data">
+        {{else}}
         <h1 class="mt-4 mb-4">Crea una nueva sala</h1>
-
         <form action="/create/room" method="POST" enctype="multipart/form-data">
+        {{/if}}
 
             <div class="mb-3">
                 <label for="name" class="form-label">Nombre de la sala</label>
@@ -112,8 +116,8 @@
                 <label for="image" class="form-label">Imagen del juego</label>
                 <input class="form-control" type="file" id="image" name="image">
             </div>
-
-            <button class="btn btn-primary" type="submit">Crear sala</button>
+        
+            <button class="btn btn-primary" type="submit">{{#if isEdit}}Editar sala{{else}}Crear sala{{/if}}</button>
 
         </form>
     </div>

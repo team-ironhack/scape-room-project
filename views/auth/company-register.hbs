@@ -2,9 +2,15 @@
 
 <div class="fondo-content ">
   <div class="login-container mt-4 mb-4">
-<h1 class="mt-4">Crea una cuenta de empresa</h1>
 
-<form action="/register-company" method="POST" enctype="multipart/form-data">
+  {{#if isEdit}}
+  <h1 class="mt-4">Edita tu perfil</h1>
+  <form action="/company/profile/edit/{{user._id}}" method="POST" enctype="multipart/form-data">
+  {{else}}
+  <h1 class="mt-4">Crea una cuenta de empresa</h1>
+  <form action="/register-company" method="POST" enctype="multipart/form-data">
+  {{/if}}  
+
 
   <div class="mb-3">
     <label for="companyName" class="form-label">Nombre de la empresa</label>
@@ -19,7 +25,7 @@
     {{/if}}
   </div>
 
-  <div class="mb-3">
+  <div class="mb-3 {{#if isEdit}}hidden{{else}}{{/if}}">
     <label for="email" class="form-label">Correo electrónico</label>
     <input
       class="form-control{{#if errors.email}} is-invalid{{/if}}"
@@ -36,7 +42,7 @@
     <label for="password" class="form-label">Contraseña</label>
     <input
       class="form-control{{#if errors.password}} is-invalid{{/if}}" 
-      name="password" type="password" id="password" required
+      name="password" type="password" id="password" {{#if isEdit}}value="{{user.password}}"{{else}}required{{/if}}
     >
     {{#if errors.password}}
       <div class="invalid-feedback">
@@ -49,7 +55,7 @@
     <label for="repeatPassword" class="form-label">Repite la contraseña</label>
     <input
       class="form-control{{#if errors.password}} is-invalid{{/if}}" 
-      name="repeatPassword" type="password" id="repeatPassword" required
+      name="repeatPassword" type="password" id="repeatPassword" {{#if isEdit}}value="{{user.password}}"{{else}}required{{/if}}
     >
     {{#if errors.repeatPassword}}
       <div class="invalid-feedback">
@@ -140,8 +146,8 @@
 
 <input type="hidden" name="isCompany" value="true">
 
-  <button class="btn btn-primary" type="submit">Crear cuenta</button>
-    <p >¿Ya tienes cuenta? <a href="/login"><b>Iniciar sesión</b></a></p>
+  <button class="btn btn-primary" type="submit">{{#if isEdit}}Editar perfil{{else}}Crear cuenta{{/if}}</button>
+    <p class="{{#if isEdit}}hidden{{else}}{{/if}}" >¿Ya tienes cuenta? <a href="/login"><b>Iniciar sesión</b></a></p>
 </form> </div></div>
 
 <script>

@@ -1,18 +1,17 @@
-<h1 class="mt-3">{{room.name}}</h1>
+<h1 class="ms-5 mt-3">{{room.name}}</h1>
 
-<div class="d-flex mt-3">
+<div class="d-flex ms-5 mt-3">
     <div class="me-3">
         <img width='300'src="{{room.image}}" alt="" referrerpolicy="no-referrer"/>
     </div>
-    <div>
+    <div class="ms-3 container w-75">
         <p>Sala perteneciente a: <a href="/company/{{room.company._id}}">{{room.company.companyName}}</a></p>
-        <p>{{room.players}}</p>
-        <p>{{room.minAge}}</p>
-        <p>{{room.price}} €</p>
-        <p>{{room.difficulty}}</p>
-        <p>{{room.duration}} min.</p>
-        <p>{{room.players}}</p>
-        <p>{{room.terrorLevel}}</p>
-        <p>{{room.synopsis}}</p>
+        <p>- Número de jugadores: {{room.players}}</p>
+        <p>- Edad mínima requerida: {{room.minAge}}</p>
+        <p>- Precio total de la sala: {{room.price}} €</p>
+        <p>- Dificultad de la sala: {{room.difficulty}}.</p>
+        <p>- Duración del juego: {{room.duration}} minutos.</p>
+        <p>- Nivel de terror: {{room.terrorLevel}}.</p>
+        <p>- Sinopsis: </br> {{room.synopsis}}</p>
     </div>
 </div>

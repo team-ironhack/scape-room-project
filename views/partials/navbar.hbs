@@ -25,9 +25,12 @@
               {{#if currentUser.isCompany }}
               <li><a class="dropdown-item" href="/company/profile/{{currentUser.id}}">Mi perfil</a></li>
               <li><a class="dropdown-item" href="/create/room">Crear una sala</a></li>
+              <li><a class="dropdown-item" href="/company/profile/edit/{{currentUser._id}}">Editar perfil</a></li>
               {{else}}
               <li><a class="dropdown-item" href="/player/profile/{{currentUser.id}}">Mi perfil</a></li>
-              <li><a class="dropdown-item" href="#">Juegos guardados </a></li>  {{/if}}
+              <li><a class="dropdown-item" href="#">Juegos guardados </a></li>
+              <li><a class="dropdown-item" href="/player/profile/edit/{{currentUser._id}}">Editar perfil</a></li> 
+              {{/if}}
               <li>
                 <hr class="dropdown-divider">
               </li>

@@ -50,8 +50,20 @@ const roomSchema = new Schema(
     },
     {
         timestamps: true,
-    }
-);
+        toObject: {
+            virtuals: true
+          },
+        toJSON: {
+            virtuals: true
+          }
+    });
+    
+    roomSchema.virtual("likes", {
+        ref:"Like",
+        localField: "_id",
+        foreignField: "room",
+        justOne: false,
+    });
 
 const Room = mongoose.model('Room', roomSchema);
 

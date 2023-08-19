@@ -1,3 +1,4 @@
+
 <div class="search-section d-flex">
   <div class="container mx-auto">
   <div class="row mx-auto align-items-center h-100">
@@ -22,6 +23,7 @@
     <h5 class="card-title">{{this.name}}</h5>
     <a href="/company/{{company._id}}"><p class="card-text">{{company.companyName}}</p></a>
     <p class="card-text">{{company.city}}</p>
+    <button data-user="{{../currentUser._id}}" data-name="{{this.name}}" data-id="{{this._id}}" type="submit" class="like-button"><i class="bi {{#playerLikedRoom likes=../likes room=this}} bi-heart-fill {{else}} bi-heart {{/playerLikedRoom}}" style="color: rgb(250, 93, 93)"></i>{{likes.length}}</button>
     <a href="/room/{{this._id}}" class="btn btn-primary">ver más</a>
   </div>
 </div>
@@ -49,3 +51,29 @@
 {{/if}}
 
 </div>
+
+<script>
+  const likeButtons = document.querySelectorAll('.like-button');
+  likeButtons.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const heartBtn = btn.querySelector('i')
+      axios.post(`http://localhost:3000/likes/${btn.dataset.user}/${btn.dataset.id}`)
+        .then(response => {
+        if(response.data === 'DELETED'){
+          console.log('entro')
+          heartBtn.classList.remove('bi-heart-fill')
+          heartBtn.classList.add('bi-heart')
+
+        } else {
+          heartBtn.classList.remove('bi-heart')
+          heartBtn.classList.add('bi-heart-fill')
+          console.log('entro al else')
+        }
+      })
+      .catch(err => {
+           console.log(err)
+      })
+    })
+  })
+
+</script>

@@ -68,7 +68,7 @@ module.exports.doEditCompanyProfile = (req, res, next) => {
 
   const { id } = req.params
 
-  Company.findByIdAndUpdate(id, { new: true })
+  Company.findByIdAndUpdate(id, req.body, { new: true })
   .then(user => {
     console.log(`el usuario empresa ${user.name} se actualizó`)
     res.redirect(`/company/profile/${user.id}`)
@@ -141,7 +141,7 @@ module.exports.doEditPlayerProfile = (req, res, next) => {
 
   const { id } = req.params
 
-  Player.findByIdAndUpdate(id, { new: true })
+  Player.findByIdAndUpdate(id, req.body, { new: true })
   .then(user => {
     console.log(`el usuario jugador ${user.name} se actualizó`)
     res.redirect(`/player/profile/${user.id}`)

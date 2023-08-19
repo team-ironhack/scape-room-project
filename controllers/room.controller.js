@@ -22,7 +22,7 @@ module.exports.doCreateRoom = (req, res, next) => {
     image: req.file ? req.file.path : undefined,
   };
 
-  console.log(data);
+  console.log(req.body);
 
   Room.create(data)
     .then((room) => {
@@ -75,7 +75,9 @@ module.exports.doEditRoom = (req, res, next) => {
     });
   };
 
-  Room.findByIdAndUpdate(id, { new: true })
+  console.log(req.body)
+  
+  Room.findByIdAndUpdate(id, req.body, { new: true })
     .then((room) => {
       console.log(`la sala ${room.name} ha sido editada`)
       res.redirect(`/room/${room.id}`);

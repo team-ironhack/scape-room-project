@@ -9,16 +9,22 @@ const { errorMonitor } = require('connect-mongo');
 
 // Mostrar perfil
 module.exports.companyProfile = (req, res, next) => {
-    const id  = req.params.id;
+  const id = req.params.id;
 
-    Company.findById(id)
-    .populate("rooms")
+  Company.findById(id)
+    .populate({
+      path: 'rooms',
+      populate: [
+        { path: 'likes' },
+        { path: 'marks' }
+      ]
+    })
     .then(company => {
-     
-        if (company) {
-          res.render('user/company-profile', { company});
-        } else {
-          Player.findById(id)
+
+      if (company) {
+        res.render('user/company-profile', { company });
+      } else {
+        Player.findById(id)
           .then(player => {
             res.redirect(`/player/profile/${player.id}`)
           })
@@ -26,34 +32,34 @@ module.exports.companyProfile = (req, res, next) => {
             next(createError(404, 'Usuario no encontrado'))
             console.err(err)
           })
-        }
-      })
-      .catch(next)
-  }
+      }
+    })
+    .catch(next)
+}
 
 // Mostrar vista de detalle 
 module.exports.companyDetail = (req, res, next) => {
   const { id } = req.params
   Company.findById(id)
-  .populate("rooms")
-  .then(company => {
+    .populate("rooms")
+    .then(company => {
       res.render('user/company-detail', { company })
-  })
-  .catch(err => {
+    })
+    .catch(err => {
       console.error(err)
-  })
+    })
 }
 
 // Mostrar form para editar perfil
 module.exports.editCompanyProfile = (req, res, next) => {
   const { id } = req.params
   Company.findById(id)
-  .then((user) => {
-    res.render('auth/company-register', { user, isEdit: true })
-  })
-  .catch(err => {
-    console.error(err)
-  })
+    .then((user) => {
+      res.render('auth/company-register', { user, isEdit: true })
+    })
+    .catch(err => {
+      console.error(err)
+    })
 }
 
 // Editar perfil
@@ -69,17 +75,17 @@ module.exports.doEditCompanyProfile = (req, res, next) => {
   const { id } = req.params
 
   Company.findByIdAndUpdate(id, req.body, { new: true })
-  .then(user => {
-    console.log(`el usuario empresa ${user.name} se actualizó`)
-    res.redirect(`/company/profile/${user.id}`)
-  })
-  .catch((err) => {
-    if (err instanceof mongoose.Error.ValidationError) {
-      renderWithErrors(err.errors);
-    } else {
-      next(err);
-    }
-  });
+    .then(user => {
+      console.log(`el usuario empresa ${user.name} se actualizó`)
+      res.redirect(`/company/profile/${user.id}`)
+    })
+    .catch((err) => {
+      if (err instanceof mongoose.Error.ValidationError) {
+        renderWithErrors(err.errors);
+      } else {
+        next(err);
+      }
+    });
 }
 
 // PLAYER
@@ -88,45 +94,45 @@ module.exports.doEditCompanyProfile = (req, res, next) => {
 module.exports.playerProfile = (req, res, next) => {
   const id = req.params.id;
   Player.findById(id)
-  .then(player => {
+    .then(player => {
       if (player) {
         res.render('user/player-profile', { player, isCurrentUser: true });
       } else {
         Company.findById(id)
-        .then(company => {
-          res.redirect(`/company/profile/${company.id}`)
-        })
-        .catch(err => {
-          next(createError(404, 'Usuario no encontrado'))
-          console.err(err)
-        })
+          .then(company => {
+            res.redirect(`/company/profile/${company.id}`)
+          })
+          .catch(err => {
+            next(createError(404, 'Usuario no encontrado'))
+            console.err(err)
+          })
       }
     })
-  .catch(next)
+    .catch(next)
 }
 
 // Mostrar vista de detalle
 module.exports.playerDetail = (req, res, next) => {
   const { id } = req.params
   Player.findById(id)
-  .then(player => {
+    .then(player => {
       res.render('user/player-detail', { player })
-  })
-  .catch(err => {
+    })
+    .catch(err => {
       console.error(err)
-  })
+    })
 }
 
 // Mostrar form para editar perfil
 module.exports.editPlayerProfile = (req, res, next) => {
   const { id } = req.params
   Player.findById(id)
-  .then((user) => {
-    res.render('auth/player-register', { user, isEdit: true })
-  })
-  .catch(err => {
-    console.error(err)
-  })
+    .then((user) => {
+      res.render('auth/player-register', { user, isEdit: true })
+    })
+    .catch(err => {
+      console.error(err)
+    })
 }
 
 // Editar perfil
@@ -142,15 +148,15 @@ module.exports.doEditPlayerProfile = (req, res, next) => {
   const { id } = req.params
 
   Player.findByIdAndUpdate(id, req.body, { new: true })
-  .then(user => {
-    console.log(`el usuario jugador ${user.name} se actualizó`)
-    res.redirect(`/player/profile/${user.id}`)
-  })
-  .catch((err) => {
-    if (err instanceof mongoose.Error.ValidationError) {
-      renderWithErrors(err.errors);
-    } else {
-      next(err);
-    }
-  });
+    .then(user => {
+      console.log(`el usuario jugador ${user.name} se actualizó`)
+      res.redirect(`/player/profile/${user.id}`)
+    })
+    .catch((err) => {
+      if (err instanceof mongoose.Error.ValidationError) {
+        renderWithErrors(err.errors);
+      } else {
+        next(err);
+      }
+    });
 }

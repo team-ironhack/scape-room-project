@@ -65,6 +65,13 @@ const roomSchema = new Schema(
         justOne: false,
     });
 
+    roomSchema.virtual("marks", {
+        ref:"Mark",
+        localField: "_id",
+        foreignField: "room",
+        justOne: false,
+    });
+
 const Room = mongoose.model('Room', roomSchema);
 
 module.exports = Room;

@@ -1,7 +1,6 @@
 const express = require('express');
 const router = express.Router();
 const miscController = require('../controllers/misc.controller');
-const likesController = require('../controllers/likes.controller')
 const secure = require('../middlewares/auth.middleware');
 
 
@@ -11,7 +10,10 @@ router.get('/home', miscController.list);
 router.get('/resultados', secure.isAuthenticated, miscController.results)
 
 // LIKES
-router.post('/likes/:playerId/:roomId', secure.isAuthenticated, likesController.create);
+router.post('/likes/:playerId/:roomId', secure.isAuthenticated, miscController.likeCreate);
 
+// GUARDADOS
+
+router.post('/marks/:playerId/:roomId', secure.isAuthenticated, miscController.markCreate);
 
 module.exports = router;

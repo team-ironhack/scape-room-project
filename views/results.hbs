@@ -1,0 +1,20 @@
+<h1>hola</h1>
+
+<div class="container w-75 mt-5">
+
+<section class="company-section">
+   {{#if company}}
+    {{#each company }}
+    <div class="card" style="width: 18rem;">
+  <img src="{{this.image}}" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">{{this.room.name}}</h5>
+    <a href="/company/{{company._id}}"><p class="card-text">{{company.companyName}}</p></a>
+    <p class="card-text">{{company.city}}</p>
+    <a href="/room/{{this.room._id}}" class="btn btn-primary">ver más</a>
+  </div>
+</div>
+    {{/each}}
+    {{/if}}
+  </section>
+  </div>

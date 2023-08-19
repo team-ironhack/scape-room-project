@@ -170,3 +170,8 @@ footer {
     align-items: flex-start;
     flex-wrap: wrap;
 }
+
+.search-section {
+    background: linear-gradient(to bottom right, #ccb2eb, #9963b2);
+    height: 150px;
+}

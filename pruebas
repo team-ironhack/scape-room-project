@@ -1,0 +1,23 @@
+module.exports.results = (req, res, next) => {
+  const { name, category } = req.query
+  const criteria = {};
+
+  if (name) {
+    criteria.name = new RegExp(name, 'i')
+  }
+  if (category) {
+    criteria.categories = {
+      $all: category.split(',')
+    }
+  }
+
+  Experience.find(criteria)
+    .populate('user')
+    .then(experiences =>
+      res.render('users/results', {
+        experiences,
+        category,
+        name
+      })
+    ).catch(error => next(error));
+}

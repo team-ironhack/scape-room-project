@@ -4,6 +4,7 @@ const Player = require('../models/Player.model');
 const Company = require('../models/Company.model');
 const Like = require('../models/Like.model');
 const Mark = require('../models/Mark.model');
+const Comment = require('../models/Comment.model')
 
 module.exports.test = (req, res, next) => {
   res.redirect('/login')
@@ -139,3 +140,93 @@ module.exports.markCreate = (req, res, next) => {
       next(err)
     })
 }
+
+// MOSTRAR PARA COMENTAR
+
+/*module.exports.comment = (req, res, next) => {
+  res.render('room/room-detail')
+}*/
+
+// HACER COMENTARIO
+
+/*module.exports.doComment = (req, req, next) => {
+
+  const commentData = {
+    player: req.user.id,
+    room: req.params.id,
+    message: req.body.message,
+    date: new Date(),
+    score: req.body.score
+  }
+
+  const message = req.body.message
+
+  if(!commentData.message || !commentData.score) {
+    Room.findById(commentData.room)
+    .populate({
+      path: 'comments',
+        populate: {
+          path: 'player'
+        },
+    })
+    .then(room => {
+      res.render('room/room-detail', {
+        room,
+        message,
+        errors: {
+          message: req.body.message ? undefined : 'Por favor, deja un comentario.',
+          score: req.body.score ? undefined : 'Por favor, puntúa esta sala.'
+        }
+      })
+      .catch(err => {
+        next(err)
+      })
+    })
+  } else {
+    const comment = new Comment(commentData);
+      return comment 
+      .save()
+      .then(comment => {
+        if(!comment){
+          next()
+        } else {
+
+        }
+      })
+  }
+}*/
+
+module.exports.doComment = (req, res, next) => {
+  const renderWithErrors = (errors) => {
+    res.render("room/room-detail", {
+      room: req.body,
+      errors,
+    });
+  };
+
+  const data = {
+    ...req.body,
+    player: req.user._id,
+    date: new Date(),
+    room: req.params.id
+  }
+
+  Comment.create(data)
+  .then(comment => {
+    /*return Player.findById(data.player)
+    .then(player => {
+      return Room.findById(data.room)
+      .populate('company')
+      .then(room => {*/
+      res.redirect(`/room/${data.room}`);
+      console.log(comment);
+      console.log('Se ha creado el comentario');
+    })
+    .catch((err) => {
+      if (err instanceof mongoose.Error.ValidationError) {
+        renderWithErrors(err.errors);
+      } else {
+        next(err);
+      }
+    });
+};

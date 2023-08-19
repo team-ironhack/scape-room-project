@@ -16,4 +16,8 @@ router.post('/likes/:playerId/:roomId', secure.isAuthenticated, miscController.l
 
 router.post('/marks/:playerId/:roomId', secure.isAuthenticated, miscController.markCreate);
 
+// COMENTARIOS 
+
+router.post('/comments/:id', secure.isAuthenticated, miscController.doComment);
+
 module.exports = router;

@@ -1,17 +1,52 @@
-<h1 class="ms-5 mt-3">{{room.name}}</h1>
+<div class="container">
 
-<div class="d-flex ms-5 mt-3">
-    <div class="me-3">
-        <img width='300'src="{{room.image}}" alt="" referrerpolicy="no-referrer"/>
+    <h1 class="ms-5 mt-3">{{room.name}}</h1>
+
+    <div class="d-flex ms-5 mt-3">
+        <div class="me-3">
+            <img width='300' src="{{room.image}}" alt="" referrerpolicy="no-referrer" />
+        </div>
+        <div class="ms-3 container w-75">
+            <p>Sala perteneciente a: <a href="/company/{{room.company._id}}">{{room.company.companyName}}</a></p>
+            <p>- Número de jugadores: {{room.players}}</p>
+            <p>- Edad mínima requerida: {{room.minAge}}</p>
+            <p>- Precio total de la sala: {{room.price}} €</p>
+            <p>- Dificultad de la sala: {{room.difficulty}}.</p>
+            <p>- Duración del juego: {{room.duration}} minutos.</p>
+            <p>- Nivel de terror: {{room.terrorLevel}}.</p>
+            <p>- Sinopsis: </br> {{room.synopsis}}</p>
+        </div>
+
     </div>
-    <div class="ms-3 container w-75">
-        <p>Sala perteneciente a: <a href="/company/{{room.company._id}}">{{room.company.companyName}}</a></p>
-        <p>- Número de jugadores: {{room.players}}</p>
-        <p>- Edad mínima requerida: {{room.minAge}}</p>
-        <p>- Precio total de la sala: {{room.price}} €</p>
-        <p>- Dificultad de la sala: {{room.difficulty}}.</p>
-        <p>- Duración del juego: {{room.duration}} minutos.</p>
-        <p>- Nivel de terror: {{room.terrorLevel}}.</p>
-        <p>- Sinopsis: </br> {{room.synopsis}}</p>
+
+    <div>
+        <form action="/comments/{{room._id}}" method="POST">
+            <div class="mb-3">
+                <label for="message" class="form-label">Deja un comentario sobre tu experiencia en la sala:</label>
+                <input class="form-control {{#if errors.message}}is-invalid{{/if}}" name="message" type="text"
+                    id="message" placeholder="" value="{{comment.message}}" required>
+                {{#if errors.message}}
+                <div class="invalid-feedback">
+                    {{errors.message}}
+                </div>
+                {{/if}}
+            </div>
+            <button class="btn btn-primary" type="submit">Enviar</button>
+        </form>
+
+<h2>Opiniones</h2>
+
+{{#if comment}}
+{{#each comment}}
+<img src="{{player.avatar}}" style="width: 85px; height: 85px; border-radius: 50px;" alt="">
+<h5>{{player.name}}</h5>
+<p>{{this.score}}</p>
+<p>{{this.message}}</p>
+{{/each}}
+{{else}}
+<p>No hay comentarios todavia</p>
+{{/if}}
+
+
     </div>
 </div>

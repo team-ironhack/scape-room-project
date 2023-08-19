@@ -1,5 +1,6 @@
 const Room = require("../models/Room.model");
 const Company = require("../models/Company.model");
+const Comment = require ('../models/Comment.model')
 const mongoose = require('mongoose');
 
 // Mostrar formulario de crear sala
@@ -44,7 +45,12 @@ module.exports.roomDetail = (req, res, next) => {
   Room.findById(id)
     .populate("company")
     .then((room) => {
-      res.render("room/room-detail", { room });
+      Comment.find({ room: req.params.id })
+      .populate("player")
+      .then ((comment) => {
+        res.render("room/room-detail", { room, comment });
+      })
+      
     })
     .catch((err) => {
       next(err);

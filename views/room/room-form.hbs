@@ -24,14 +24,14 @@
                 <label for="players" class="form-label">Número de jugadores</label>
                 <select class="form-select{{#if errors.players}} is-invalid{{/if}}" value="{{room.players}}"
                     name="players">
-                    <option selected>-- Selecciona el número de jugadores --</option>
+                    <option>-- Selecciona el número de jugadores --</option>
                     {{#each playerNum}}
-                    <option value="{{this}}">{{this}}</option>
+                    <option value="{{this}}"selected>{{this}}</option>
                     {{/each}}
                 </select>
                 {{#if errors.players}}
                 <div class="invalid-feedback">
-                    {{errors.players}}
+                    Por favor, selecciona una opción válida.
                 </div>
                 {{/if}}
             </div>
@@ -64,12 +64,12 @@
                     name="difficulty">
                     <option selected>-- Selecciona la dificultad de la sala --</option>
                     {{#each difficulty}}
-                    <option value="{{this}}">{{this}}</option>
+                    <option value="{{this}}"selected>{{this}}</option>
                     {{/each}}
                 </select>
                 {{#if errors.difficulty}}
                 <div class="invalid-feedback">
-                    {{errors.difficulty}}
+                    Por favor, selecciona una opción válida.
                 </div>
                 {{/if}}
             </div>
@@ -91,12 +91,12 @@
                     name="terrorLevel">
                     <option selected>-- Selecciona el nivel de terror de la sala --</option>
                     {{#each terror}}
-                    <option value="{{this}}">{{this}}</option>
+                    <option value="{{this}}"selected>{{this}}</option>
                     {{/each}}
                 </select>
                 {{#if errors.terrorLevel}}
                 <div class="invalid-feedback">
-                    {{errors.terrorLevel}}
+                    Por favor, selecciona una opción válida.
                 </div>
                 {{/if}}
             </div>
@@ -114,7 +114,12 @@
 
             <div class="mb-3">
                 <label for="image" class="form-label">Imagen del juego</label>
-                <input class="form-control" type="file" id="image" name="image">
+                <input class="form-control {{#if errors.image}} is-invalid{{/if}}" type="file" id="image" name="image" value="{{room.image}}">
+                {{#if errors.image}}
+                <div class="invalid-feedback">
+                    {{errors.image}}
+                </div>
+                {{/if}}
             </div>
         
             <button class="btn btn-primary" type="submit">{{#if isEdit}}Editar sala{{else}}Crear sala{{/if}}</button>

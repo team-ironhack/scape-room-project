@@ -141,7 +141,12 @@
 
   <div class="mb-3">
     <label for="avatar" class="form-label">Avatar</label>
-    <input class="form-control" type="file" id="avatar" name="avatar">
+    <input class="form-control {{#if errors.avatar}} is-invalid{{/if}}" type="file" id="avatar" name="avatar" value="{{user.avatar}}">
+    {{#if errors.avatar}}
+      <div class="invalid-feedback">
+        {{errors.avatar}}
+      </div>
+    {{/if}}
   </div>
 
 <input type="hidden" name="isCompany" value="true">

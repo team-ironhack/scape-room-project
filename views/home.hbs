@@ -11,13 +11,13 @@
   </div>
 </div>
 
-<div class="container w-75 mt-5">
+<div class="container w-75 mt-5 section-body">
   {{#if lastRooms}}
 
   <div class="room-card mb-4 flex-sm-row">
     {{#each lastRooms}}
     <div class="card" style="width: 18rem;">
-      <img src="{{this.image}}" class="card-img-top" alt="...">
+      <img src="{{this.image}}" class="card-img-top img-cards" alt="...">
       <div class="card-body">
         <h5 class="card-title">{{this.name}}</h5>
         <a href="/company/{{company._id}}">
@@ -48,7 +48,7 @@
   <div class="room-card mb-4 flex-sm-row">
     {{#each lastPlayers}}
     <div class="card" style="width: 18rem;">
-      <img src="{{this.avatar}}" class="card-img-top" alt="...">
+      <img src="{{this.avatar}}" class="card-img-top img-cards" alt="...">
       <div class="card-body">
         <h5 class="card-title">{{this.name}}</h5>
         <p class="card-text">{{this.city}}</p>

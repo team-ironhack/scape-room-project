@@ -39,6 +39,18 @@ module.exports.doCreateRoom = (req, res, next) => {
     });
 };
 
+// Mostrar todas las salas
+module.exports.showRooms = (req, res, next) => {
+  Room.find()
+  .populate('company')
+  .then(room => {
+    res.render('room/scape-rooms', { room })
+  })
+  .catch(err => {
+    next(err)
+  })
+}
+
 // Mostrar vista detalle de la sala
 module.exports.roomDetail = (req, res, next) => {
   const { id } = req.params;

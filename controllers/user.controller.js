@@ -88,6 +88,17 @@ module.exports.doEditCompanyProfile = (req, res, next) => {
     });
 }
 
+// Mostrar todas las empresas
+module.exports.showCompanies = (req, res, next) => {
+  Company.find()
+  .then(company => {
+    res.render('user/companies', { company })
+  })
+  .catch(err => {
+    next(err)
+  })
+}
+
 // PLAYER
 
 // Mostrar perfil

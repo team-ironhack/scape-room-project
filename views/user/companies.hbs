@@ -1,0 +1,18 @@
+<div class="container"><h1>Todas las empresas:</h1>
+
+{{#if company}}
+
+  <div class="room-card mb-4 flex-sm-row">
+    {{#each company}}
+    <div class="card" style="width: 18rem;">
+      <img src="{{this.avatar}}" class="card-img-top company-img-cards" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">{{this.companyName}}</h5>
+        <p class="card-text">{{this.city}}</p>
+        <a href="/company/{{this._id}}" class="btn btn-primary">ver más</a>
+      </div>
+    </div>
+    {{/each}}
+  </div>
+  {{/if}}
+</div>

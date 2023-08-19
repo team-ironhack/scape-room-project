@@ -14,6 +14,7 @@ body {
     flex-direction: column;
     min-height: 100vh;
     scroll-behavior: smooth;
+    background-image: url('/images/fondo-galaxia-azul_23-2149249701.avif');
 }
 
 
@@ -174,4 +175,17 @@ footer {
 .search-section {
     background: linear-gradient(to bottom right, #ccb2eb, #9963b2);
     height: 150px;
+}
+
+
+.img-cards {
+    height: 18rem;
+    object-fit: cover;
+}
+
+.company-img-cards {
+    height: 18rem;
+    object-fit: contain;
+    background-color: black;
+    padding: 10px
 }

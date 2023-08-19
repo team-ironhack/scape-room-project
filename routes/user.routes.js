@@ -9,6 +9,7 @@ router.get('/company/profile/:id', secure.isAuthenticated, userController.compan
 router.get('/company/profile/edit/:id', secure.isAuthenticated, userController.editCompanyProfile);
 router.post('/company/profile/edit/:id', secure.isAuthenticated, upload.single('avatar'), userController.doEditCompanyProfile);
 router.get('/company/:id', secure.isAuthenticated, userController.companyDetail);
+router.get('/companies', secure.isAuthenticated, userController.showCompanies);
 
 router.get('/player/profile/:id', secure.isAuthenticated, userController.playerProfile);
 router.get('/player/profile/edit/:id', secure.isAuthenticated, userController.editPlayerProfile);

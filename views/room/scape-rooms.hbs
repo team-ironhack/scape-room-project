@@ -1,0 +1,30 @@
+<div class="container"><h1>Todas las salas:</h1>
+
+{{#if room}}
+
+  <div class="room-card mb-4 flex-sm-row">
+    {{#each room}}
+    <div class="card" style="width: 18rem;">
+      <img src="{{this.image}}" class="card-img-top img-cards" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">{{this.name}}</h5>
+        <a href="/company/{{company._id}}">
+          <p class="card-text">{{company.companyName}}</p>
+        </a>
+        <p class="card-text">{{company.city}}</p>
+        <button data-user="{{../currentUser._id}}" data-name="{{this.name}}" data-id="{{this._id}}" type="submit"
+          class="like-button"><i
+            class="bi {{#playerLikedRoom likes=../likes room=this}} bi-heart-fill {{else}} bi-heart {{/playerLikedRoom}}"
+            style="color: rgb(250, 93, 93)"></i></button>
+        <button data-user="{{../currentUser._id}}" data-name="{{this.name}}" data-id="{{this._id}}" type="submit"
+          class="mark-button"><i
+            class="bi {{#playerMarkedRoom marks=../marks room=this}} bi-bookmark-fill {{else}} bi-bookmark {{/playerMarkedRoom}}"
+            style="color: rgb(144, 144, 233)"></i></button>
+
+        <a href="/room/{{this._id}}" class="btn btn-primary">ver más</a>
+      </div>
+    </div>
+    {{/each}}
+  </div>
+  {{/if}}
+</div>

@@ -23,6 +23,7 @@ module.exports.companyProfile = (req, res, next) => {
         { path: 'marks' },
         { path: 'comments' },
         { path: 'dones' },
+
       ]
     })
     .then(company => {
@@ -146,10 +147,21 @@ module.exports.showCompanies = (req, res, next) => {
 module.exports.playerProfile = (req, res, next) => {
   const id = req.params.id;
   Player.findById(id)
-    .populate('likes marks dones')
     .then(player => {
       if (player) {
-        res.render('user/player-profile', { player, isCurrentUser: true });
+        Like.find({ player: id })
+        .populate('room')
+        .then(likes => {
+          Mark.find({ player: id })
+          .populate('room')
+          .then(marks => {
+            Done.find({ player: id })
+            .populate('room')
+            .then(dones => {
+              res.render('user/player-profile', { player, isCurrentUser: true, likes, marks, dones });
+            })
+          })
+        })
       } else {
         Company.findById(id)
           .then(company => {

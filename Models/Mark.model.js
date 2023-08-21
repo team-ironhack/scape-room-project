@@ -10,6 +10,15 @@ const markSchema = new Schema ({
         type: mongoose.Types.ObjectId,
         ref: 'Room'
     }
+},
+{
+    timestamps: true,
+    toObject: {
+        virtuals: true
+      },
+    toJSON: {
+        virtuals: true
+      }
 });
 
 const Mark = mongoose.model('Mark', markSchema);

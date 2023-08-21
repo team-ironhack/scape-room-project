@@ -4,7 +4,8 @@ const Player = require('../models/Player.model');
 const Company = require('../models/Company.model');
 const Like = require('../models/Like.model');
 const Mark = require('../models/Mark.model');
-const Comment = require('../models/Comment.model')
+const Comment = require('../models/Comment.model');
+const Done = require('../Models/Done.model');
 
 module.exports.test = (req, res, next) => {
   res.redirect('/login')
@@ -15,7 +16,7 @@ module.exports.test = (req, res, next) => {
 module.exports.list = (req, res, next) => {
 
   const promises = [
-    Room.find().populate("company").populate("likes").populate("marks").limit(4).sort({ createdAt: 'descending' }),
+    Room.find().populate("company").populate("likes").populate("marks").populate("dones").limit(4).sort({ createdAt: 'descending' }),
     Player.find().limit(3).sort({ createdAt: 'descending' }),
   ]
   Promise.all(promises)
@@ -24,7 +25,10 @@ module.exports.list = (req, res, next) => {
         .then((likes) => {
           Mark.find({ player: req.user._id })
             .then((marks) => {
-              res.render('home', { lastRooms: salas, lastPlayers: jugadores, likes: likes, marks: marks })
+              Done.find({ player: req.user._id })
+                .then((dones) => {
+                  res.render('home', { lastRooms: salas, lastPlayers: jugadores, likes: likes, marks: marks, dones: dones})
+                })
             })
         })
     })
@@ -141,6 +145,45 @@ module.exports.markCreate = (req, res, next) => {
     })
 }
 
+// PONER Y QUITAR DONE
+
+
+module.exports.doneCreate = (req, res, next) => {
+  const playerId = req.params.playerId;
+  const roomId = req.params.roomId;
+
+  Done.findOne({ player: playerId, room: roomId })
+    .then(done => {
+      if (done) {
+        Done.findByIdAndDelete(done._id)
+          .then(() => {
+            res.send('DELETED')
+            console.log('done borrado')
+          })
+          .catch(err => {
+            next(err)
+          })
+      } else {
+        const done = new Done({
+          player: playerId,
+          room: roomId
+        });
+        done
+          .save()
+          .then(() => {
+            res.send('CREATED')
+            console.log('done creado')
+          })
+          .catch(err => {
+            next(err)
+          })
+      }
+    })
+    .catch(err => {
+      next(err)
+    })
+}
+
 // MOSTRAR PARA COMENTAR
 
 /*module.exports.comment = (req, res, next) => {
@@ -148,53 +191,6 @@ module.exports.markCreate = (req, res, next) => {
 }*/
 
 // HACER COMENTARIO
-
-/*module.exports.doComment = (req, req, next) => {
-
-  const commentData = {
-    player: req.user.id,
-    room: req.params.id,
-    message: req.body.message,
-    date: new Date(),
-    score: req.body.score
-  }
-
-  const message = req.body.message
-
-  if(!commentData.message || !commentData.score) {
-    Room.findById(commentData.room)
-    .populate({
-      path: 'comments',
-        populate: {
-          path: 'player'
-        },
-    })
-    .then(room => {
-      res.render('room/room-detail', {
-        room,
-        message,
-        errors: {
-          message: req.body.message ? undefined : 'Por favor, deja un comentario.',
-          score: req.body.score ? undefined : 'Por favor, puntúa esta sala.'
-        }
-      })
-      .catch(err => {
-        next(err)
-      })
-    })
-  } else {
-    const comment = new Comment(commentData);
-      return comment 
-      .save()
-      .then(comment => {
-        if(!comment){
-          next()
-        } else {
-
-        }
-      })
-  }
-}*/
 
 module.exports.doComment = (req, res, next) => {
   const renderWithErrors = (errors) => {

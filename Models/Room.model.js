@@ -72,6 +72,13 @@ const roomSchema = new Schema(
         justOne: false,
     });
 
+    roomSchema.virtual("dones", {
+        ref:"Done",
+        localField: "_id",
+        foreignField: "room",
+        justOne: false,
+    });
+
 const Room = mongoose.model('Room', roomSchema);
 
 module.exports = Room;

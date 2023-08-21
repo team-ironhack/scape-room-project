@@ -24,6 +24,8 @@
           <p class="card-text">{{company.companyName}}</p>
         </a>
         <p class="card-text">{{company.city}}</p>
+
+        {{#unless ../currentUser.isCompany}}
         <button data-user="{{../currentUser._id}}" data-name="{{this.name}}" data-id="{{this._id}}" type="submit"
           class="like-button"><i
             class="bi {{#playerLikedRoom likes=../likes room=this}} bi-heart-fill {{else}} bi-heart {{/playerLikedRoom}}"
@@ -32,6 +34,12 @@
           class="mark-button"><i
             class="bi {{#playerMarkedRoom marks=../marks room=this}} bi-bookmark-fill {{else}} bi-bookmark {{/playerMarkedRoom}}"
             style="color: rgb(144, 144, 233)"></i></button>
+        <button data-user="{{../currentUser._id}}" data-name="{{this.name}}" data-id="{{this._id}}" type="submit"
+          class="done-button"><i
+            class="bi {{#playerDoneRoom dones=../dones room=this}} bi-check-circle-fill {{else}} bi-check-circle {{/playerDoneRoom}}"
+            style="color: rgb(114, 206, 134)"></i></button>
+        {{else}}
+        {{/unless}}  
 
         <a href="/room/{{this._id}}" class="btn btn-primary">ver más</a>
       </div>
@@ -64,6 +72,7 @@
 <script>
   const likeButtons = document.querySelectorAll('.like-button');
   const markButtons = document.querySelectorAll('.mark-button');
+  const doneButtons = document.querySelectorAll('.done-button');
 
 
   likeButtons.forEach((btn) => {
@@ -99,6 +108,25 @@
           } else {
             markBtn.classList.remove('bi-bookmark')
             markBtn.classList.add('bi-bookmark-fill')
+          }
+        })
+        .catch(err => {
+          console.log(err)
+        })
+    })
+  })
+
+  doneButtons.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const doneBtn = btn.querySelector('i')
+      axios.post(`http://localhost:3000/dones/${btn.dataset.user}/${btn.dataset.id}`)
+        .then(response => {
+          if (response.data === 'DELETED') {
+            doneBtn.classList.remove('bi-check-circle-fill')
+            doneBtn.classList.add('bi-check-circle')
+          } else {
+            doneBtn.classList.remove('bi-check-circle')
+            doneBtn.classList.add('bi-check-circle-fill')
           }
         })
         .catch(err => {

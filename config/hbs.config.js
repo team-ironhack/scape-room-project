@@ -23,3 +23,15 @@ hbs.registerHelper("playerMarkedRoom", function (options) {
     return options.inverse(this);
   }
 });
+
+hbs.registerHelper("playerDoneRoom", function (options) {
+  const { room, dones } = options.hash;
+
+  if (room && dones && dones.some((done) => done.room.toString() == room._id.toString())) {
+
+    return options.fn(this);
+  } else {
+
+    return options.inverse(this);
+  }
+});

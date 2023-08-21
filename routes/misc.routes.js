@@ -16,6 +16,10 @@ router.post('/likes/:playerId/:roomId', secure.isAuthenticated, miscController.l
 
 router.post('/marks/:playerId/:roomId', secure.isAuthenticated, miscController.markCreate);
 
+// HECHOS 
+
+router.post('/dones/:playerId/:roomId', secure.isAuthenticated, miscController.doneCreate);
+
 // COMENTARIOS 
 
 router.post('/comments/:id', secure.isAuthenticated, miscController.doComment);

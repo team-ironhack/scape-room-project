@@ -43,7 +43,17 @@ const playerSchema = new Schema({
   /*doneRooms: [{
     type: mongoose.Schema.Types.ObjectId,
     ref: "Room",}]*/
-});
+  },
+  {
+      timestamps: true,
+      toObject: {
+          virtuals: true
+        },
+      toJSON: {
+          virtuals: true
+        }
+  });
+
 
 playerSchema.pre("save", function (next) {
 
@@ -63,6 +73,28 @@ playerSchema.pre("save", function (next) {
 playerSchema.methods.checkPassword = function (password) {
   return bcrypt.compare(password, this.password);
 };
+
+playerSchema.virtual("likes", {
+  ref:"Like",
+  localField: "_id",
+  foreignField: "player",
+  justOne: false,
+});
+
+playerSchema.virtual("marks", {
+  ref:"Mark",
+  localField: "_id",
+  foreignField: "player",
+  justOne: false,
+});
+
+playerSchema.virtual("dones", {
+  ref:"Done",
+  localField: "_id",
+  foreignField: "player",
+  justOne: false,
+});
+
 
 const Player = mongoose.model('Player', playerSchema);
 

@@ -19,6 +19,7 @@ module.exports.companyProfile = (req, res, next) => {
         { path: 'likes' },
         { path: 'marks' },
         { path: 'comments' }
+        { path: 'dones'},
       ]
     })
     .then(company => {
@@ -127,6 +128,7 @@ module.exports.showCompanies = (req, res, next) => {
 module.exports.playerProfile = (req, res, next) => {
   const id = req.params.id;
   Player.findById(id)
+    .populate('likes marks dones')
     .then(player => {
       if (player) {
         res.render('user/player-profile', { player, isCurrentUser: true });

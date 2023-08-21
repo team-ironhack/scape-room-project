@@ -58,16 +58,19 @@ module.exports.roomDetail = (req, res, next) => {
     .populate("company")
     .then((room) => {
       Comment.find({ room: req.params.id })
-      .populate("player")
-      .then ((comment) => {
-        res.render("room/room-detail", { room, comment });
-      })
-      
+        .populate("player")
+        .then((comments) => {
+          const totalScore = comments.reduce((total, c) => total + c.score, 0);
+          const averageScore = (totalScore / comments.length).toFixed(1);
+
+          res.render("room/room-detail", { room, comments, averageScore }); 
+        });
     })
     .catch((err) => {
       next(err);
     });
 };
+
 
 // Mostrar form para editar una sala
 module.exports.editRoom = (req, res, next) => {

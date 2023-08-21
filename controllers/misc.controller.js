@@ -204,16 +204,11 @@ module.exports.doComment = (req, res, next) => {
     ...req.body,
     player: req.user._id,
     date: new Date(),
-    room: req.params.id
-  }
+    room: req.params.id,
+  };
 
   Comment.create(data)
-  .then(comment => {
-    /*return Player.findById(data.player)
-    .then(player => {
-      return Room.findById(data.room)
-      .populate('company')
-      .then(room => {*/
+    .then((comment) => {
       res.redirect(`/room/${data.room}`);
       console.log(comment);
       console.log('Se ha creado el comentario');

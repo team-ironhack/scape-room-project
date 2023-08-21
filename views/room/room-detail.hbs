@@ -20,33 +20,43 @@
     </div>
 
     <div>
-        <form action="/comments/{{room._id}}" method="POST">
-            <div class="mb-3">
-                <label for="message" class="form-label">Deja un comentario sobre tu experiencia en la sala:</label>
-                <input class="form-control {{#if errors.message}}is-invalid{{/if}}" name="message" type="text"
-                    id="message" placeholder="" value="{{comment.message}}" required>
-                {{#if errors.message}}
-                <div class="invalid-feedback">
-                    {{errors.message}}
-                </div>
-                {{/if}}
-            </div>
-            <button class="btn btn-primary" type="submit">Enviar</button>
-        </form>
-
-<h2>Opiniones</h2>
-
-{{#if comment}}
-{{#each comment}}
-<img src="{{player.avatar}}" style="width: 85px; height: 85px; border-radius: 50px;" alt="">
-<h5>{{player.name}}</h5>
-<p>{{this.score}}</p>
-<p>{{this.message}}</p>
-{{/each}}
-{{else}}
-<p>No hay comentarios todavia</p>
-{{/if}}
-
-
+  <form action="/comments/{{room._id}}" method="POST">
+    <div class="mb-3">
+      <label for="message" class="form-label">Deja un comentario sobre tu experiencia en la sala:</label>
+      <input class="form-control {{#if errors.message}}is-invalid{{/if}}" name="message" type="text"
+        id="message" placeholder="" value="{{comment.message}}" required>
+      {{#if errors.message}}
+      <div class="invalid-feedback">
+        {{errors.message}}
+      </div>
+      {{/if}}
     </div>
+    <div class="mb-3">
+      <label class="form-label">Valoración:</label>
+      <div class="rating">
+        <input type="radio" name="score" value="1" id="star1"><label for="star1"></label>
+        <input type="radio" name="score" value="2" id="star2"><label for="star2"></label>
+        <input type="radio" name="score" value="3" id="star3"><label for="star3"></label>
+        <input type="radio" name="score" value="4" id="star4"><label for="star4"></label>
+        <input type="radio" name="score" value="5" id="star5"><label for="star5"></label>
+      </div>
+    </div>
+    <button class="btn btn-primary" type="submit">Enviar</button>
+  </form>
+
+  <h2>Opiniones</h2>
+
+  {{#if comments.length}}
+    {{#each comments}}
+      <img src="{{player.avatar}}" style="width: 85px; height: 85px; border-radius: 50px;" alt="">
+      <h5>{{player.name}}</h5>
+      <p>Puntuación: {{this.score}}</p>
+      <p>{{this.message}}</p>
+    {{/each}}
+    <p>Promedio de puntuación: {{ averageScore }}</p>
+  {{else}}
+    <p>No hay comentarios todavía</p>
+  {{/if}}
+</div>
+
 </div>

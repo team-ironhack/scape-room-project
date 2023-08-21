@@ -71,7 +71,12 @@ const roomSchema = new Schema(
         foreignField: "room",
         justOne: false,
     });
-
+    roomSchema.virtual("comments", {
+        ref:"Comment",
+        localField: "_id",
+        foreignField: "room",
+        justOne: false,
+    });
     roomSchema.virtual("dones", {
         ref:"Done",
         localField: "_id",

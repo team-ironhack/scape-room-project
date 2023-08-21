@@ -1,6 +1,7 @@
 const Player = require('../models/Player.model');
 const Company = require('../models/Company.model');
 const Room = require('../models/Room.model');
+const Comment = require('../models/Comment.model');
 const mongoose = require('mongoose');
 const createError = require('http-errors');
 const { errorMonitor } = require('connect-mongo');
@@ -17,13 +18,33 @@ module.exports.companyProfile = (req, res, next) => {
       populate: [
         { path: 'likes' },
         { path: 'marks' },
+        { path: 'comments' }
         { path: 'dones'},
       ]
     })
     .then(company => {
-
       if (company) {
-        res.render('user/company-profile', { company });
+        const roomsWithAverage = company.rooms.map(room => {
+          const comments = room.comments;
+
+          if (comments.length === 0) {
+            return {
+              ...room.toObject(),
+              averageScore: 0
+            };
+          } else {
+            const totalScore = comments.reduce((total, c) => total + c.score, 0);
+            const averageScore = (totalScore / comments.length).toFixed(1);
+
+            return {
+              ...room.toObject(),
+              averageScore
+            };
+          }
+
+        });
+
+        res.render('user/company-profile', { company, roomsWithAverage });
       } else {
         Player.findById(id)
           .then(player => {
@@ -31,12 +52,13 @@ module.exports.companyProfile = (req, res, next) => {
           })
           .catch(err => {
             next(createError(404, 'Usuario no encontrado'))
-            console.err(err)
+            console.error(err)
           })
       }
     })
     .catch(next)
 }
+
 
 // Mostrar vista de detalle 
 module.exports.companyDetail = (req, res, next) => {
@@ -92,12 +114,12 @@ module.exports.doEditCompanyProfile = (req, res, next) => {
 // Mostrar todas las empresas
 module.exports.showCompanies = (req, res, next) => {
   Company.find()
-  .then(company => {
-    res.render('user/companies', { company })
-  })
-  .catch(err => {
-    next(err)
-  })
+    .then(company => {
+      res.render('user/companies', { company })
+    })
+    .catch(err => {
+      next(err)
+    })
 }
 
 // PLAYER

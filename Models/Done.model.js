@@ -10,7 +10,16 @@ const doneSchema = new Schema ({
         type: mongoose.Types.ObjectId,
         ref: 'Room'
     }
-});
+},
+{
+    timestamps: true,
+    toObject: {
+        virtuals: true
+      },
+    toJSON: {
+        virtuals: true
+      }
+});;
 
 const Done = mongoose.model('Done', doneSchema);
 

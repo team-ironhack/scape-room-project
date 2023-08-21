@@ -34,16 +34,8 @@
     <h1>Salas de {{company.companyName}}</h1>
 {{#if company.rooms}}
 <div class="room-card mb-4 flex-sm-row">
-    {{#each company.rooms}}
-    <div class="card" style="width: 18rem;">
-  <img src="{{this.image}}" class="card-img-top" alt="...">
-  <div class="card-body">
-    <h5 class="card-title">{{this.name}}</h5>
-    <p class="card-text">{{../company.companyName}}</p>
-    <p class="card-text">{{../company.city}}</p>
-    <a href="/room/{{this._id}}" class="btn btn-primary">ver más</a>
-  </div>
-</div>
+    {{#each company.rooms as |room|}}
+    {{>roomCards room=room currentUser=../currentUser likes=../likes marks=../marks dones=../dones}}
     {{/each}}
 </div>
 {{/if}}
@@ -69,3 +61,5 @@
   }
 
 </script>
+
+<script src="/js/cards-btns.js"></script>

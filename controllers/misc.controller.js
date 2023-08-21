@@ -16,23 +16,79 @@ module.exports.test = (req, res, next) => {
 module.exports.list = (req, res, next) => {
 
   const promises = [
+    Room.aggregate([
+      {
+        $lookup: {
+          from: 'likes', // Use the actual collection name for likes
+          localField: '_id',
+          foreignField: 'room',
+          as: 'likes',
+        },
+      },
+      {
+        $addFields: {
+          likeCount: { $size: '$likes' },
+        },
+      },
+      {
+        $sort: { likeCount: -1 }, // Sort in descending order of like count
+      },
+      {
+        $limit: 4, // Sort in descending order of like count
+      },
+    ]),
+    Player.aggregate([
+      {
+        $lookup: {
+          from: 'dones', // Use the actual collection name for likes
+          localField: '_id',
+          foreignField: 'player',
+          as: 'dones',
+        },
+      },
+      {
+        $addFields: {
+          doneCount: { $size: '$dones' },
+        },
+      },
+      {
+        $sort: { doneCount: -1 }, // Sort in descending order of like count
+      },
+      {
+        $limit: 3, // Sort in descending order of like count
+      },
+    ]),
     Room.find().populate("company").populate("likes").populate("marks").populate("dones").limit(4).sort({ createdAt: 'descending' }),
-    Player.find().limit(3).sort({ createdAt: 'descending' }),
+    Company.findOne({ city: req.user.city })
+    .populate({
+      path: 'rooms',
+      options: {
+        limit: 4,
+        sort: { createdAt: 'desc' },
+      },
+      populate: ['likes', 'marks', 'dones'],
+    }),
   ]
   Promise.all(promises)
-    .then(([salas, jugadores]) => {
+  .then(([likedRooms, jugadores, añadidas, cityRooms]) => {
+    const roomIds = likedRooms.map(room => room._id);
+    return Room.find({ _id: { $in: roomIds } })
+    .populate('company likes marks dones')
+    .then((populatedRooms) => {
       Like.find({ player: req.user._id })
         .then((likes) => {
+          console.log(likes);
           Mark.find({ player: req.user._id })
             .then((marks) => {
               Done.find({ player: req.user._id })
                 .then((dones) => {
-                  res.render('home', { lastRooms: salas, lastPlayers: jugadores, likes: likes, marks: marks, dones: dones})
-                })
-            })
-        })
-    })
-    .catch(next)
+                  res.render('home', { mostLiked: populatedRooms, lastPlayers: jugadores, lastRooms: añadidas, cityRooms: cityRooms.rooms,  likes: likes, marks: marks, dones: dones})
+                });
+              });
+          });
+      });
+  })
+.catch(next);
 
 }
 

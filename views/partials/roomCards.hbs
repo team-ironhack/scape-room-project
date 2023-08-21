@@ -1,15 +1,30 @@
-<h1>Salas de {{company.companyName}}</h1>
-{{#if company.rooms}}
-<div class="room-card mb-4 flex-sm-row">
-    {{#each company.rooms}}
-    <div class="card" style="width: 18rem;">
-  <img src="{{this.image}}" class="card-img-top" alt="...">
-  <div class="card-body">
-    <h5 class="card-title">{{this.name}}</h5>
-    <p class="card-text">{{this.city}}</p>
-    <a href="#" class="btn btn-primary">ver más</a>
-  </div>
-</div>
-    {{/each}}
-</div>
-{{/if}}
+<div class="card" style="width: 18rem;">
+      <img src="{{room.image}}" class="card-img-top img-cards" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">{{room.name}}</h5>
+        <a href="/company/{{room.company._id}}">
+          <p class="card-text">{{room.company.companyName}}</p>
+        </a>
+        <p class="card-text">{{room.company.city}}</p>
+
+        {{#unless currentUser.isCompany}}
+        <button data-user="{{currentUser._id}}" data-name="{{room.name}}" data-id="{{room._id}}" type="submit"
+          class="like-button"><i
+            class="bi {{#playerLikedRoom likes=likes room=room}} bi-heart-fill {{else}} bi-heart {{/playerLikedRoom}}"
+            style="color: rgb(250, 93, 93)"></i></button>
+        <button data-user="{{currentUser._id}}" data-name="{{room.name}}" data-id="{{room._id}}" type="submit"
+          class="mark-button"><i
+            class="bi {{#playerMarkedRoom marks=marks room=room}} bi-bookmark-fill {{else}} bi-bookmark {{/playerMarkedRoom}}"
+            style="color: rgb(144, 144, 233)"></i></button>
+        <button data-user="{{currentUser._id}}" data-name="{{room.name}}" data-id="{{room._id}}" type="submit"
+          class="done-button"><i
+            class="bi {{#playerDoneRoom dones=dones room=room}} bi-check-circle-fill {{else}} bi-check-circle {{/playerDoneRoom}}"
+            style="color: rgb(114, 206, 134)"></i></button>
+        {{else}}
+        {{/unless}}  
+
+        <a href="/room/{{room._id}}" class="btn btn-primary">ver más</a>
+      </div>
+    </div>
+
+  

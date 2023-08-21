@@ -1,9 +1,9 @@
 const Player = require('../models/Player.model');
 const Company = require('../models/Company.model');
 const Room = require('../models/Room.model');
-const Comment = require('../models/Comment.model');
 const Like = require('../models/Like.model');
 const Mark = require('../models/Mark.model');
+const Comment = require('../models/Comment.model');
 const Done = require('../Models/Done.model');
 const mongoose = require('mongoose');
 const createError = require('http-errors');
@@ -21,8 +21,9 @@ module.exports.companyProfile = (req, res, next) => {
       populate: [
         { path: 'likes' },
         { path: 'marks' },
-        { path: 'comments'},
-        { path: 'dones'},
+        { path: 'comments' },
+        { path: 'dones' },
+
       ]
     })
     .then(company => {
@@ -67,13 +68,28 @@ module.exports.companyProfile = (req, res, next) => {
 module.exports.companyDetail = (req, res, next) => {
   const { id } = req.params
   Company.findById(id)
-    .populate("rooms")
+  .populate({
+    path: 'rooms',
+    populate: [
+      { path: 'likes' },
+      { path: 'marks' },
+      { path: 'dones' },
+    ]
+  })
     .then(company => {
-      res.render('user/company-detail', { company })
+      Like.find({ player: req.user._id })
+      .then((likes) => {
+        Mark.find({ player: req.user._id })
+          .then((marks) => {
+            Done.find({ player: req.user._id })
+              .then((dones) => {
+                res.render('user/company-detail', { company, likes, marks, dones })
+              })
+            })
+        })
     })
-    .catch(err => {
-      console.error(err)
-    })
+    .catch(next)
+
 }
 
 // Mostrar form para editar perfil
@@ -81,7 +97,7 @@ module.exports.editCompanyProfile = (req, res, next) => {
   const { id } = req.params
   Company.findById(id)
     .then((user) => {
-      res.render('auth/company-register', { user, isEdit: true })
+      res.render('auth/company-register', { user, isEdit: true,  hiddenNav: true })
     })
     .catch(err => {
       console.error(err)
@@ -177,7 +193,7 @@ module.exports.editPlayerProfile = (req, res, next) => {
   const { id } = req.params
   Player.findById(id)
     .then((user) => {
-      res.render('auth/player-register', { user, isEdit: true })
+      res.render('auth/player-register', { user, isEdit: true, hiddenNav: true })
     })
     .catch(err => {
       console.error(err)

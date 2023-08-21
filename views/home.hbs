@@ -12,45 +12,23 @@
 </div>
 
 <div class="container w-75 mt-5 section-body">
-  {{#if lastRooms}}
+
+  <h1>Los juegos que mas gustan</h1>
+  {{#if mostLiked}}
 
   <div class="room-card mb-4 flex-sm-row">
-    {{#each lastRooms}}
-    <div class="card" style="width: 18rem;">
-      <img src="{{this.image}}" class="card-img-top img-cards" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">{{this.name}}</h5>
-        <a href="/company/{{company._id}}">
-          <p class="card-text">{{company.companyName}}</p>
-        </a>
-        <p class="card-text">{{company.city}}</p>
-
-        {{#unless ../currentUser.isCompany}}
-        <button data-user="{{../currentUser._id}}" data-name="{{this.name}}" data-id="{{this._id}}" type="submit"
-          class="like-button"><i
-            class="bi {{#playerLikedRoom likes=../likes room=this}} bi-heart-fill {{else}} bi-heart {{/playerLikedRoom}}"
-            style="color: rgb(250, 93, 93)"></i></button>
-        <button data-user="{{../currentUser._id}}" data-name="{{this.name}}" data-id="{{this._id}}" type="submit"
-          class="mark-button"><i
-            class="bi {{#playerMarkedRoom marks=../marks room=this}} bi-bookmark-fill {{else}} bi-bookmark {{/playerMarkedRoom}}"
-            style="color: rgb(144, 144, 233)"></i></button>
-        <button data-user="{{../currentUser._id}}" data-name="{{this.name}}" data-id="{{this._id}}" type="submit"
-          class="done-button"><i
-            class="bi {{#playerDoneRoom dones=../dones room=this}} bi-check-circle-fill {{else}} bi-check-circle {{/playerDoneRoom}}"
-            style="color: rgb(114, 206, 134)"></i></button>
-        {{else}}
-        {{/unless}}  
-
-        <a href="/room/{{this._id}}" class="btn btn-primary">ver más</a>
-      </div>
-    </div>
+    {{#each mostLiked as |room|}}
+    {{>roomCards room=room currentUser=../currentUser likes=../likes marks=../marks dones=../dones}}
     {{/each}}
   </div>
   {{/if}}
 
+
+
 </div>
 
 <div class="container w-75">
+  <h1>Los jugadores que mas juegos han hecho</h1>
   {{#if lastPlayers}}
 
   <div class="room-card mb-4 flex-sm-row">
@@ -69,70 +47,30 @@
 
 </div>
 
-<script>
-  const likeButtons = document.querySelectorAll('.like-button');
-  const markButtons = document.querySelectorAll('.mark-button');
-  const doneButtons = document.querySelectorAll('.done-button');
+<div class="container w-75 mt-5 section-body">
+  <h1>Novedades</h1>
+  {{#if lastRooms}}
 
+  <div class="room-card mb-4 flex-sm-row">
+    {{#each lastRooms as |room|}}
+    {{>roomCards room=room currentUser=../currentUser likes=../likes marks=../marks dones=../dones}}
+    {{/each}}
+  </div>
+  {{/if}}
 
-  likeButtons.forEach((btn) => {
-    btn.addEventListener('click', () => {
-      const heartBtn = btn.querySelector('i')
-      axios.post(`http://localhost:3000/likes/${btn.dataset.user}/${btn.dataset.id}`)
-        .then(response => {
-          if (response.data === 'DELETED') {
-            heartBtn.classList.remove('bi-heart-fill')
-            heartBtn.classList.add('bi-heart')
+</div>
 
-          } else {
-            heartBtn.classList.remove('bi-heart')
-            heartBtn.classList.add('bi-heart-fill')
-            console.log('entro al else')
-          }
-        })
-        .catch(err => {
-          console.log(err)
-        })
-    })
-  })
+<div class="container w-75 mt-5 section-body">
+  <h1>Recomendaciones</h1>
+  {{#if cityRooms}}
 
-  markButtons.forEach((btn) => {
-    btn.addEventListener('click', () => {
-      const markBtn = btn.querySelector('i')
-      axios.post(`http://localhost:3000/marks/${btn.dataset.user}/${btn.dataset.id}`)
-        .then(response => {
-          if (response.data === 'DELETED') {
-            markBtn.classList.remove('bi-bookmark-fill')
-            markBtn.classList.add('bi-bookmark')
+  <div class="room-card mb-4 flex-sm-row">
+    {{#each cityRooms as |room|}}
+    {{>roomCards room=room currentUser=../currentUser likes=../likes marks=../marks dones=../dones}}
+    {{/each}}
+  </div>
+  {{/if}}
 
-          } else {
-            markBtn.classList.remove('bi-bookmark')
-            markBtn.classList.add('bi-bookmark-fill')
-          }
-        })
-        .catch(err => {
-          console.log(err)
-        })
-    })
-  })
+</div>
 
-  doneButtons.forEach((btn) => {
-    btn.addEventListener('click', () => {
-      const doneBtn = btn.querySelector('i')
-      axios.post(`http://localhost:3000/dones/${btn.dataset.user}/${btn.dataset.id}`)
-        .then(response => {
-          if (response.data === 'DELETED') {
-            doneBtn.classList.remove('bi-check-circle-fill')
-            doneBtn.classList.add('bi-check-circle')
-          } else {
-            doneBtn.classList.remove('bi-check-circle')
-            doneBtn.classList.add('bi-check-circle-fill')
-          }
-        })
-        .catch(err => {
-          console.log(err)
-        })
-    })
-  })
-
-</script>
+<script src="/js/cards-btns.js"></script>

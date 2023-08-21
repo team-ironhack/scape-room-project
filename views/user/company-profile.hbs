@@ -33,37 +33,31 @@
   {{/if}}
   <div class="mt-5">
     <h1>Tus salas</h1>
-{{#if company.rooms}}
-<div class="mb-4">
-    {{#each roomsWithAverage}}
-    <div class="rooms-rows mb-4 flex-sm-row g-3">
+    {{#if company.rooms}}
+    <div class="mb-4">
+      {{#each roomsWithAverage}}
+      <div class="rooms-rows mb-4 flex-sm-row g-3">
         <div class="w-25">
-            <h6>{{this.name}}</h6>
+          <h6>{{this.name}}</h6>
         </div>
 
-          <p><i class="bi bi-heart-fill" style="color: rgb(250, 93, 93)"></i> {{likes.length}}</p>
-          <p><i class="bi bi-bookmark-fill" style="color: rgb(144, 144, 233)"></i> {{marks.length}}</p>
-          <p><i class="bi bi-check-circle-fill" style="color: rgb(114, 206, 134)"></i> {{dones.length}}</p>
-          <p><i class="bi bi-star-fill" style="color: rgb(237, 198, 70)"></i> {{ averageScore }}</p>
+        <p><i class="bi bi-heart-fill" style="color: rgb(250, 93, 93)"></i> {{likes.length}}</p>
+        <p><i class="bi bi-bookmark-fill" style="color: rgb(144, 144, 233)"></i> {{marks.length}}</p>
+        <p><i class="bi bi-check-circle-fill" style="color: rgb(114, 206, 134)"></i> {{dones.length}}</p>
+        <p><i class="bi bi-star-fill" style="color: rgb(237, 198, 70)"></i> {{ averageScore }}</p>
         <div class="w-25 btns-row">
-            <a class="btn edit-btn" href="/edit/room/{{this._id}}">
+          <a class="btn edit-btn" href="/edit/room/{{this._id}}">
             <i class="bi bi-pencil-square"></i> Editar</a>
-            <form action="/delete/room/{{this._id}}" method="POST">    
-            <button class="btn delete-btn"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                    fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
-                    <path
-                        d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6Z" />
-                    <path
-                        d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1ZM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118ZM2.5 3h11V2h-11v1Z" />
-                </svg> Borrar</button>
-            </form>    
+          <form action="/delete/room/{{this._id}}" method="POST">
+            <button class="btn delete-btn"><i class="bi bi-trash"></i> Borrar</button>
+          </form>
         </div>
 
-    </div>
+      </div>
 
-    {{/each}}
-</div>
-{{/if}}
+      {{/each}}
+    </div>
+    {{/if}}
   </div>
 </div>
 

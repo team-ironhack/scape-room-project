@@ -2,6 +2,9 @@ const Player = require('../models/Player.model');
 const Company = require('../models/Company.model');
 const Room = require('../models/Room.model');
 const Comment = require('../models/Comment.model');
+const Like = require('../models/Like.model');
+const Mark = require('../models/Mark.model');
+const Done = require('../Models/Done.model');
 const mongoose = require('mongoose');
 const createError = require('http-errors');
 const { errorMonitor } = require('connect-mongo');
@@ -18,7 +21,7 @@ module.exports.companyProfile = (req, res, next) => {
       populate: [
         { path: 'likes' },
         { path: 'marks' },
-        { path: 'comments' }
+        { path: 'comments'},
         { path: 'dones'},
       ]
     })
@@ -128,10 +131,21 @@ module.exports.showCompanies = (req, res, next) => {
 module.exports.playerProfile = (req, res, next) => {
   const id = req.params.id;
   Player.findById(id)
-    .populate('likes marks dones')
     .then(player => {
       if (player) {
-        res.render('user/player-profile', { player, isCurrentUser: true });
+        Like.find({ player: id })
+        .populate('room')
+        .then(likes => {
+          Mark.find({ player: id })
+          .populate('room')
+          .then(marks => {
+            Done.find({ player: id })
+            .populate('room')
+            .then(dones => {
+              res.render('user/player-profile', { player, isCurrentUser: true, likes, marks, dones });
+            })
+          })
+        })
       } else {
         Company.findById(id)
           .then(company => {

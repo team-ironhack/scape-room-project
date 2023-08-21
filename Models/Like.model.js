@@ -10,6 +10,15 @@ const likeSchema = new Schema ({
         type: mongoose.Types.ObjectId,
         ref: 'Room'
     }
+},
+{
+    timestamps: true,
+    toObject: {
+        virtuals: true
+      },
+    toJSON: {
+        virtuals: true
+      }
 });
 
 const Like = mongoose.model('Like', likeSchema);

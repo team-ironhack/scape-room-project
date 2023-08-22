@@ -113,13 +113,15 @@ module.exports.results = (req, res, next) => {
     .then(companies =>
       Room.find(roomCriteria)
         .populate('company')
-        .then(rooms =>
+        .then(rooms => {
+          const noResults = companies.length <= 0 && rooms.length <= 0
           res.render('results', {
             companies,
             rooms,
-            search
+            search,
+            noResults
           })
-        )
+        })
         .catch(error => next(error))
     )
     .catch(error => next(error));

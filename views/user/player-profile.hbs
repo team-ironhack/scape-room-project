@@ -1,92 +1,109 @@
-
-
 <h1 class="ms-5 mt-3">Tu perfil de jugador</h1>
 
 {{#if currentUser}}
 <div class="d-flex ms-5 mt-3">
-    <div class="me-3">
-        <img width='300'src="{{currentUser.avatar}}" alt="" referrerpolicy="no-referrer"/>
-    </div>
-    <div>
-        <p>{{currentUser.name}}</p>
-        <p>{{currentUser.email}}</p>
-        {{#if currentUser.city}}<p>{{currentUser.city}}</p>{{/if}}  
-    </div>
+  <div class="me-3">
+    <img width='300' src="{{currentUser.avatar}}" alt="" referrerpolicy="no-referrer" />
+  </div>
+  <div>
+    <p>{{currentUser.name}}</p>
+    <p>{{currentUser.email}}</p>
+    {{#if currentUser.city}}<p>{{currentUser.city}}</p>{{/if}}
+  </div>
 </div>
 
 
-<div class="d-flex ms-5 mt-3"><i class="me-2 bi bi-heart-fill" style="color: rgb(250, 93, 93)"></i>Salas que te han gustado:</div>
+<div class="d-flex ms-5 mt-3"><i class="me-2 bi bi-heart-fill" style="color: rgb(250, 93, 93)"></i>Salas que te han
+  gustado:</div>
 <div class="container w-75 mt-5 section-body">
   {{#if likes}}
-  <div class="room-card mb-4 flex-sm-row">
-    {{#each likes}}
-    <div class="card" style="width: 18rem;">
-      <img src="{{room.image}}" class="card-img-top img-cards" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">{{room.name}}</h5>
-        <a href="/company/{{room.company._id}}">
-          <p class="card-text">{{room.company.companyName}}</p>
-        </a>
-        <p class="card-text">{{room.company.city}}</p>
-
-        <a href="/room/{{room._id}}" class="btn btn-primary">ver más</a>
+  <div class="swiper">
+    <div class="swiper-wrapper">
+    {{#each likes as |rooms|}}
+   <div class="swiper-slide">
+        {{>roomCards room=room currentUser=../currentUser likes=../likes marks=../marks dones=../dones}}
       </div>
-    </div>
     {{/each}}
+    </div>
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+  </div>
     {{else}}
     <p class="mt-4">Todavía no has dado me gusta a ninguna sala.</p>
-{{/if}}
-</div>
+    {{/if}}
+  </div>
 </div>
 
-<div class="d-flex ms-5 mt-3"><i class="me-2 bi bi-bookmark-fill" style="color: rgb(144, 144, 233)"></i>Tus salas guardadas:</div>
-  <div class="container w-75 mt-5 section-body">
+<div class="d-flex ms-5 mt-3"><i class="me-2 bi bi-bookmark-fill" style="color: rgb(144, 144, 233)"></i>Tus salas
+  guardadas:</div>
+<div class="container w-75 mt-5 section-body">
   {{#if marks}}
-  <div class="room-card mb-4 flex-sm-row">
-    {{#each marks}}
-    <div class="card" style="width: 18rem;">
-      <img src="{{room.image}}" class="card-img-top img-cards" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">{{room.name}}</h5>
-        <a href="/company/{{room.company._id}}">
-          <p class="card-text">{{room.company.companyName}}</p>
-        </a>
-        <p class="card-text">{{room.company.city}}</p>
-
-        <a href="/room/{{room._id}}" class="btn btn-primary">ver más</a>
+  <div class="swiper">
+    <div class="swiper-wrapper">
+    {{#each marks as |rooms|}}
+    <div class="swiper-slide">
+        {{>roomCards room=room currentUser=../currentUser likes=../likes marks=../marks dones=../dones}}
       </div>
-    </div>
     {{/each}}
+    </div>
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+  </div>
     {{else}}
-    <p class="mt-4 ms-5">Todavía no has dado me gusta a ninguna sala.</p>
-{{/if}}
-</div>
+    <p class="mt-4 ms-5">Todavía no has guardado ninguna sala.</p>
+    {{/if}}
+  </div>
 </div>
 
-<div class="d-flex ms-5 mt-3"><i class="me-2 bi bi-check-circle-fill" style="color: rgb(114, 206, 134)"></i>Salas que has hecho:</div>
-    <div class="container w-75 mt-5 section-body">
-     {{#if dones}}
-  <div class="room-card mb-4 flex-sm-row">
-    {{#each dones}}
-    <div class="card" style="width: 18rem;">
-      <img src="{{room.image}}" class="card-img-top img-cards" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">{{room.name}}</h5>
-        <a href="/company/{{room.company._id}}">
-          <p class="card-text">{{room.company.companyName}}</p>
-        </a>
-        <p class="card-text">{{room.company.city}}</p>
-
-        <a href="/room/{{room._id}}" class="btn btn-primary">ver más</a>
+<div class="d-flex ms-5 mt-3"><i class="me-2 bi bi-check-circle-fill" style="color: rgb(114, 206, 134)"></i>Salas que
+  has hecho:</div>
+<div class="container w-75 mt-5 section-body">
+  {{#if dones}}
+  <div class="swiper">
+    <div class="swiper-wrapper">
+      {{#each dones as |room|}}
+      <div class="swiper-slide">
+        {{>roomCards room=room currentUser=../currentUser likes=../likes marks=../marks dones=../dones}}
       </div>
+      {{/each}}
     </div>
-    {{/each}}
-    {{else}}
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+  </div>
+ {{else}}
     <p class="mt-4 ms-5">Todavía no has marcado ninguna sala como hecha.</p>
-{{/if}}
+    {{/if}}
+      </div>
+</div>
 
-{{else}}
-<p>No hay jugador</p>
-{{/if}}
+    {{else}}
+    <p>No hay jugador</p>
+    {{/if}}
+  </div>
+
+
+
+
+
 </div>
-</div>
+
+
+
+
+<script>
+  const swiper = new Swiper('.swiper', {
+    slidesPerView: 3, // Mostrar tres slides por vista
+    spaceBetween: 20, // Espacio entre los slides
+    direction: 'horizontal',
+    //loop: true,
+
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+
+  });
+
+</script>
+
+<script src="/js/cards-btns.js"></script>

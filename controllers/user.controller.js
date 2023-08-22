@@ -144,12 +144,14 @@ module.exports.showCompanies = (req, res, next) => {
 // PLAYER
 
 // Mostrar perfil
+
 module.exports.playerProfile = (req, res, next) => {
   const id = req.params.id;
   Player.findById(id)
     .then(player => {
       if (player) {
         Like.find({ player: id })
+
         .populate({
           path: 'room',
           populate: {

@@ -62,10 +62,10 @@
 
 <div class="container w-75 mt-5 section-body">
   <h1>Recomendaciones</h1>
-  {{#if cityRooms}}
+  {{#if hasCity}}
 
   <div class="room-card mb-4 flex-sm-row">
-    {{#each cityRooms as |room|}}
+    {{#each hasCity as |room| }}
     {{>roomCards room=room currentUser=../currentUser likes=../likes marks=../marks dones=../dones}}
     {{/each}}
   </div>

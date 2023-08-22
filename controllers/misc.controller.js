@@ -82,7 +82,7 @@ module.exports.list = (req, res, next) => {
             .then((marks) => {
               Done.find({ player: req.user._id })
                 .then((dones) => {
-                  res.render('home', { mostLiked: populatedRooms, lastPlayers: jugadores, lastRooms: añadidas, cityRooms: cityRooms.rooms,  likes: likes, marks: marks, dones: dones})
+                  res.render('home', { mostLiked: populatedRooms, lastPlayers: jugadores, lastRooms: añadidas, hasCity: cityRooms.rooms,  likes: likes, marks: marks, dones: dones})
                 });
               });
           });

@@ -144,6 +144,7 @@ module.exports.showCompanies = (req, res, next) => {
 // PLAYER
 
 // Mostrar perfil
+
 module.exports.playerProfile = (req, res, next) => {
   const id = req.params.id;
   Player.findById(id)
@@ -151,7 +152,7 @@ module.exports.playerProfile = (req, res, next) => {
       if (player) {
         Like.find({ player: id })
         .populate('room')
-        .then(likes => {
+        .then(likes => {  
           Mark.find({ player: id })
           .populate('room')
           .then(marks => {

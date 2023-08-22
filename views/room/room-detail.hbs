@@ -5,6 +5,11 @@
     <div class="d-flex ms-5 mt-3">
         <div class="me-3">
             <img width='300' src="{{room.image}}" alt="" referrerpolicy="no-referrer" />
+            <div class="rooms-rows mb-4 flex-sm-row g-3">
+              <i class="bi bi-heart-fill" style="color: rgb(250, 93, 93)"></i>
+              <i class="bi bi-bookmark-fill" style="color: rgb(144, 144, 233)"></i>
+              <i class="bi bi-check-circle-fill" style="color: rgb(114, 206, 134)"></i>
+            </div>
         </div>
         <div class="ms-3 container w-75">
             <p>Sala perteneciente a: <a href="/company/{{room.company._id}}">{{room.company.companyName}}</a></p>

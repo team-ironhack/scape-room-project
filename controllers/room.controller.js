@@ -66,10 +66,15 @@ module.exports.showRooms = (req, res, next) => {
 // Mostrar vista detalle de la sala
 module.exports.roomDetail = (req, res, next) => {
   const { id } = req.params;
+  const playerId = req.user._id
   Room.findById(id)
     .populate("company")
     .then((room) => {
-      Comment.find({ room: req.params.id })
+      Like.find({ player: playerId })
+      .then((like) => {
+        Mark.find({ player: playerId })
+        .then((mark) => {
+          Comment.find({ room: req.params.id })
         .populate("player")
         .then((comments) => {
           const formattedComments = comments.map((comment) => {
@@ -91,6 +96,10 @@ module.exports.roomDetail = (req, res, next) => {
 
           res.render("room/room-detail", { room, comments: formattedComments, averageScore });
         });
+      })
+        })
+        
+      
     })
     .catch((err) => {
       next(err);

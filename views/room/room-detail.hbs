@@ -39,11 +39,11 @@
     <div class="mb-3">
       <label class="form-label">Valoración:</label>
       <div class="rating">
-        <input type="radio" name="score" value="1" id="star1" style="display: none;"><label for="star1"> <i class="bi bi-star star-icon"></i></label>
-        <input type="radio" name="score" value="2" id="star2"><label for="star2"></label>
-        <input type="radio" name="score" value="3" id="star3"><label for="star3"></label>
-        <input type="radio" name="score" value="4" id="star4"><label for="star4"></label>
-        <input type="radio" name="score" value="5" id="star5"><label for="star5"></label>
+        <input type="radio" name="score" value="1" id="star1" style="display: none;"><label for="star1"></label> <i class="bi bi-star"></i></label>
+        <input type="radio" name="score" value="2" id="star2" style="display: none;"><label for="star2"></label> <i class="bi bi-star"></i></label>
+        <input type="radio" name="score" value="3" id="star3" style="display: none;"><label for="star3"></label> <i class="bi bi-star"></i></label>
+        <input type="radio" name="score" value="4" id="star4" style="display: none;"><label for="star4"></label> <i class="bi bi-star"></i></label>
+        <input type="radio" name="score" value="5" id="star5" style="display: none;"><label for="star5"></label> <i class="bi bi-star"></i></label>
       </div>
     </div>
     <button class="btn btn-primary" type="submit">Enviar</button>
@@ -53,6 +53,7 @@
   <h2>Opiniones</h2>
 
   {{#if comments.length}}
+
    {{#each comments}}
     <img src="{{this._doc.player.avatar}}" style="width: 85px; height: 85px; border-radius: 50px;" alt="">
     <h5>{{this._doc.player.name}}</h5>
@@ -75,3 +76,6 @@
 </div>
 
 </div>
+
+
+<script src="/js/cards-btns.js"></script>

@@ -46,15 +46,16 @@
         </div>
         {{/if}}
       </div>
-      <div class="mb-3">
-        <label class="form-label">Valoración:</label>
-        <div class="rating">
-          <input type="radio" name="score" value="1" id="star1"><label for="star1"></label>
-          <input type="radio" name="score" value="2" id="star2"><label for="star2"></label>
-          <input type="radio" name="score" value="3" id="star3"><label for="star3"></label>
-          <input type="radio" name="score" value="4" id="star4"><label for="star4"></label>
-          <input type="radio" name="score" value="5" id="star5"><label for="star5"></label>
-        </div>
+      {{/if}}
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Valoración:</label>
+      <div class="rating">
+        <input type="radio" name="score" value="1" id="star1" style="display: none;"><label for="star1"> <i class="bi bi-star star-icon"></i></label>
+        <input type="radio" name="score" value="2" id="star2"><label for="star2"></label>
+        <input type="radio" name="score" value="3" id="star3"><label for="star3"></label>
+        <input type="radio" name="score" value="4" id="star4"><label for="star4"></label>
+        <input type="radio" name="score" value="5" id="star5"><label for="star5"></label>
       </div>
       <button class="btn btn-primary" type="submit">Enviar</button>
     </form>
@@ -64,6 +65,7 @@
 
     {{#if comments.length}}
     {{#each comments}}
+
     <img src="{{this._doc.player.avatar}}" style="width: 85px; height: 85px; border-radius: 50px;" alt="">
     <h5>{{this._doc.player.name}}</h5>
     <p>Puntuación: {{this._doc.score}}</p>
@@ -77,6 +79,7 @@
     </div>
     {{/if}}
     <hr size="4px" color="black" />
+
     {{/each}}
     <p>Promedio de puntuación: {{ averageScore }}</p>
     {{else}}

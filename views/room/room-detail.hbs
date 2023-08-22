@@ -39,7 +39,7 @@
     <div class="mb-3">
       <label class="form-label">Valoración:</label>
       <div class="rating">
-        <input type="radio" name="score" value="1" id="star1"><label for="star1"></label>
+        <input type="radio" name="score" value="1" id="star1" style="display: none;"><label for="star1"> <i class="bi bi-star star-icon"></i></label>
         <input type="radio" name="score" value="2" id="star2"><label for="star2"></label>
         <input type="radio" name="score" value="3" id="star3"><label for="star3"></label>
         <input type="radio" name="score" value="4" id="star4"><label for="star4"></label>
@@ -54,19 +54,17 @@
 
   {{#if comments.length}}
     {{#each comments}}
-      <img src="{{this._doc.player.avatar}}" style="width: 85px; height: 85px; border-radius: 50px;" alt="">
-      <h5>{{this._doc.player.name}}</h5>
-      <p>Puntuación: {{this._doc.score}}</p>
-      <p>{{this._doc.message}}</p>
-      <p>{{formattedDate}}</p>
-      {{#if isCurrentUser}}
+      <img src="{{player.avatar}}" style="width: 85px; height: 85px; border-radius: 50px;" alt="">
+      <h5>{{player.name}}</h5>
+      <p>Puntuación: {{this.score}}</p>
+      <p>{{this.message}}</p>
       <div class="w-25 btns-row">
-          <form action="/comment/delete/{{this._doc._id}}" method="POST">
+          <a class="btn edit-btn" href="/edit/room/{{this._id}}">
+            <i class="bi bi-pencil-square"></i> Editar</a>
+          <form action="/comment/delete/{{this._id}}" method="POST">
             <button class="btn delete-btn"><i class="bi bi-trash"></i> Borrar</button>
           </form>
-      </div>
-      {{/if}}
-      <hr size="4px" color="black" />  
+        </div>
     {{/each}}
     <p>Promedio de puntuación: {{ averageScore }}</p>
   {{else}}

@@ -72,10 +72,24 @@ module.exports.roomDetail = (req, res, next) => {
       Comment.find({ room: req.params.id })
         .populate("player")
         .then((comments) => {
+          const formattedComments = comments.map((comment) => {
+            const formattedDate = new Intl.DateTimeFormat("es-ES", {
+              day: "numeric",
+              month: "long",
+              year: "numeric",
+            }).format(comment.date);
+            
+            const isCurrentUser = comment.player._id.toString() === req.user._id.toString()
+            console.log('playerCommentId:', comment.player._id)
+            console.log('currentUserId:', req.user._id)
+
+            return { ...comment, formattedDate, isCurrentUser };
+          });
+
           const totalScore = comments.reduce((total, c) => total + c.score, 0);
           const averageScore = (totalScore / comments.length).toFixed(1);
 
-          res.render("room/room-detail", { room, comments, averageScore });
+          res.render("room/room-detail", { room, comments: formattedComments, averageScore });
         });
     })
     .catch((err) => {

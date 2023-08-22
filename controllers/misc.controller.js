@@ -77,7 +77,6 @@ module.exports.list = (req, res, next) => {
     .then((populatedRooms) => {
       Like.find({ player: req.user._id })
         .then((likes) => {
-          console.log(likes);
           Mark.find({ player: req.user._id })
             .then((marks) => {
               Done.find({ player: req.user._id })

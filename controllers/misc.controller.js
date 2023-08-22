@@ -262,13 +262,16 @@ module.exports.doComment = (req, res, next) => {
     date: new Date(),
     room: req.params.id,
   };
+  console.log('****', data);
   Comment.create(data)
     .then((comment) => {
+      console.log('Se ha creado el comentario');
       res.redirect(`/room/${data.room}`);
       console.log(comment);
       console.log('Se ha creado el comentario');
     })
     .catch((err) => {
+      console.log(err)
       if (err instanceof mongoose.Error.ValidationError) {
         renderWithErrors(err.errors);
       } else {

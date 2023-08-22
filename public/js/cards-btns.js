@@ -3,6 +3,7 @@ const likeButtons = document.querySelectorAll('.like-button');
 const markButtons = document.querySelectorAll('.mark-button');
 const doneButtons = document.querySelectorAll('.done-button');
 const stars = document.querySelectorAll('.rating i.bi-star');
+const starsRatingInput = document.querySelector('#stars-rating');
 
 
 likeButtons.forEach((btn) => {
@@ -75,5 +76,6 @@ stars.forEach((star, index) => {
     for (let i = index + 1; i < stars.length; i++) {
       stars[i].classList.replace('bi-star-fill', 'bi-star');
     }
+    starsRatingInput.value = index + 1;
   });
 });

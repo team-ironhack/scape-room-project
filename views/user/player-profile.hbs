@@ -24,12 +24,12 @@
       <img src="{{room.image}}" class="card-img-top img-cards" alt="...">
       <div class="card-body">
         <h5 class="card-title">{{room.name}}</h5>
-        <a href="/company/{{../company._id}}">
-          <p class="card-text">{{../company.companyName}}</p>
+        <a href="/company/{{room.company._id}}">
+          <p class="card-text">{{room.company.companyName}}</p>
         </a>
-        <p class="card-text">{{../company.city}}</p>
+        <p class="card-text">{{room.company.city}}</p>
 
-        <a href="/room/{{this._id}}" class="btn btn-primary">ver más</a>
+        <a href="/room/{{room._id}}" class="btn btn-primary">ver más</a>
       </div>
     </div>
     {{/each}}
@@ -48,12 +48,12 @@
       <img src="{{room.image}}" class="card-img-top img-cards" alt="...">
       <div class="card-body">
         <h5 class="card-title">{{room.name}}</h5>
-        <a href="/company/{{../company._id}}">
-          <p class="card-text">{{../company.companyName}}</p>
+        <a href="/company/{{room.company._id}}">
+          <p class="card-text">{{room.company.companyName}}</p>
         </a>
-        <p class="card-text">{{../company.city}}</p>
+        <p class="card-text">{{room.company.city}}</p>
 
-        <a href="/room/{{this._id}}" class="btn btn-primary">ver más</a>
+        <a href="/room/{{room._id}}" class="btn btn-primary">ver más</a>
       </div>
     </div>
     {{/each}}
@@ -72,12 +72,12 @@
       <img src="{{room.image}}" class="card-img-top img-cards" alt="...">
       <div class="card-body">
         <h5 class="card-title">{{room.name}}</h5>
-        <a href="/company/{{../company._id}}">
-          <p class="card-text">{{../company.companyName}}</p>
+        <a href="/company/{{room.company._id}}">
+          <p class="card-text">{{room.company.companyName}}</p>
         </a>
-        <p class="card-text">{{../company.city}}</p>
+        <p class="card-text">{{room.company.city}}</p>
 
-        <a href="/room/{{this._id}}" class="btn btn-primary">ver más</a>
+        <a href="/room/{{room._id}}" class="btn btn-primary">ver más</a>
       </div>
     </div>
     {{/each}}

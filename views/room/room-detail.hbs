@@ -18,9 +18,9 @@
         </div>
 
     </div>
-
+    {{#unless currentUser.isCompany}}
     <div>
-  <form action="/comments/{{room._id}}" method="POST">
+    <form action="/comments/{{room._id}}" method="POST">
     <div class="mb-3">
       <label for="message" class="form-label">Deja un comentario sobre tu experiencia en la sala:</label>
       <input class="form-control {{#if errors.message}}is-invalid{{/if}}" name="message" type="text"
@@ -43,6 +43,7 @@
     </div>
     <button class="btn btn-primary" type="submit">Enviar</button>
   </form>
+  {{/unless}}
 
   <h2>Opiniones</h2>
 
@@ -52,6 +53,13 @@
       <h5>{{player.name}}</h5>
       <p>Puntuación: {{this.score}}</p>
       <p>{{this.message}}</p>
+      <div class="w-25 btns-row">
+          <a class="btn edit-btn" href="/edit/room/{{this._id}}">
+            <i class="bi bi-pencil-square"></i> Editar</a>
+          <form action="/comment/delete/{{this._id}}" method="POST">
+            <button class="btn delete-btn"><i class="bi bi-trash"></i> Borrar</button>
+          </form>
+        </div>
     {{/each}}
     <p>Promedio de puntuación: {{ averageScore }}</p>
   {{else}}

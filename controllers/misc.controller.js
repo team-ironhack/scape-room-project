@@ -113,13 +113,15 @@ module.exports.results = (req, res, next) => {
     .then(companies =>
       Room.find(roomCriteria)
         .populate('company')
-        .then(rooms =>
+        .then(rooms => {
+          const noResults = companies.length <= 0 && rooms.length <= 0
           res.render('results', {
             companies,
             rooms,
-            search
+            search,
+            noResults
           })
-        )
+        })
         .catch(error => next(error))
     )
     .catch(error => next(error));
@@ -277,3 +279,19 @@ module.exports.doComment = (req, res, next) => {
       }
     });
 };
+
+// ELIMINAR COMENTARIO
+module.exports.deleteComment = (req, res, next) => {
+  const { id } = req.params
+  Comment.findByIdAndDelete(id)
+  .then(comment => {
+    res.redirect(`/room/${comment.room}`);
+  })
+  .catch((err) => {
+    if (err instanceof mongoose.Error.ValidationError) {
+      renderWithErrors(err.errors);
+    } else {
+      next(err);
+    }
+  })
+}

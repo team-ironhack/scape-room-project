@@ -151,13 +151,29 @@ module.exports.playerProfile = (req, res, next) => {
     .then(player => {
       if (player) {
         Like.find({ player: id })
-        .populate('room')
-        .then(likes => {  
+
+        .populate({
+          path: 'room',
+          populate: {
+            path: 'company'
+          }
+        })
+        .then(likes => {
           Mark.find({ player: id })
-          .populate('room')
+          .populate({
+            path: 'room',
+            populate: {
+              path: 'company'
+            }
+          })
           .then(marks => {
             Done.find({ player: id })
-            .populate('room')
+            .populate({
+              path: 'room',
+              populate: {
+                path: 'company'
+              }
+            })
             .then(dones => {
               res.render('user/player-profile', { player, isCurrentUser: true, likes, marks, dones });
             })
@@ -182,7 +198,25 @@ module.exports.playerDetail = (req, res, next) => {
   const { id } = req.params
   Player.findById(id)
     .then(player => {
-      res.render('user/player-detail', { player })
+      Like.find({ player: id })
+      .populate({
+        path: 'room',
+        populate: {
+          path: 'company'
+        }
+      })
+      .then(likes => {
+        Done.find({ player: id })
+        .populate({
+          path: 'room',
+          populate: {
+            path: 'company'
+          }
+        })
+        .then(dones => {
+          res.render('user/player-detail', { player, likes, dones })
+        })
+      })
     })
     .catch(err => {
       console.error(err)

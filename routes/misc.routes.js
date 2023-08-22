@@ -22,6 +22,8 @@ router.post('/dones/:playerId/:roomId', secure.isAuthenticated, miscController.d
 
 // COMENTARIOS 
 
+router.post('/comment/delete/:id', secure.isAuthenticated, miscController.deleteComment);
 router.post('/comments/:id', secure.isAuthenticated, miscController.doComment);
+
 
 module.exports = router;

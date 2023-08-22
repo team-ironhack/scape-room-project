@@ -1,77 +1,89 @@
 <div class="container">
 
-    <h1 class="ms-5 mt-3">{{room.name}}</h1>
+  <h1 class="ms-5 mt-3">{{room.name}}</h1>
 
-    <div class="d-flex ms-5 mt-3">
-        <div class="me-3">
-            <img width='300' src="{{room.image}}" alt="" referrerpolicy="no-referrer" />
-            <div class="rooms-rows mb-4 flex-sm-row g-3">
-              <i class="bi bi-heart-fill" style="color: rgb(250, 93, 93)"></i>
-              <i class="bi bi-bookmark-fill" style="color: rgb(144, 144, 233)"></i>
-              <i class="bi bi-check-circle-fill" style="color: rgb(114, 206, 134)"></i>
-            </div>
-        </div>
-        <div class="ms-3 container w-75">
-            <p>Sala perteneciente a: <a href="/company/{{room.company._id}}">{{room.company.companyName}}</a></p>
-            <p>- Número de jugadores: {{room.players}}</p>
-            <p>- Edad mínima requerida: {{room.minAge}}</p>
-            <p>- Precio total de la sala: {{room.price}} €</p>
-            <p>- Dificultad de la sala: {{room.difficulty}}.</p>
-            <p>- Duración del juego: {{room.duration}} minutos.</p>
-            <p>- Nivel de terror: {{room.terrorLevel}}.</p>
-            <p>- Sinopsis: </br> {{room.synopsis}}</p>
-        </div>
-
+  <div class="d-flex ms-5 mt-3">
+    <div class="me-3">
+      <img width='300' src="{{room.image}}" alt="" referrerpolicy="no-referrer" />
+      {{#unless currentUser.isCompany}}
+      <button data-user="{{currentUser._id}}" data-name="{{room.name}}" data-id="{{room._id}}" type="submit"
+        class="like-button"><i
+          class="bi {{#playerLikedRoom likes=likes room=room}} bi-heart-fill {{else}} bi-heart {{/playerLikedRoom}}"
+          style="color: rgb(250, 93, 93)"></i></button>
+      <button data-user="{{currentUser._id}}" data-name="{{room.name}}" data-id="{{room._id}}" type="submit"
+        class="mark-button"><i
+          class="bi {{#playerMarkedRoom marks=marks room=room}} bi-bookmark-fill {{else}} bi-bookmark {{/playerMarkedRoom}}"
+          style="color: rgb(144, 144, 233)"></i></button>
+      <button data-user="{{currentUser._id}}" data-name="{{room.name}}" data-id="{{room._id}}" type="submit"
+        class="done-button"><i
+          class="bi {{#playerDoneRoom dones=dones room=room}} bi-check-circle-fill {{else}} bi-check-circle {{/playerDoneRoom}}"
+          style="color: rgb(114, 206, 134)"></i></button>
+      {{else}}
+      {{/unless}}
     </div>
-    {{#unless currentUser.isCompany}}
-    <div>
+    <div class="ms-3 container w-75">
+      <p>Sala perteneciente a: <a href="/company/{{room.company._id}}">{{room.company.companyName}}</a></p>
+      <p>- Número de jugadores: {{room.players}}</p>
+      <p>- Edad mínima requerida: {{room.minAge}}</p>
+      <p>- Precio total de la sala: {{room.price}} €</p>
+      <p>- Dificultad de la sala: {{room.difficulty}}.</p>
+      <p>- Duración del juego: {{room.duration}} minutos.</p>
+      <p>- Nivel de terror: {{room.terrorLevel}}.</p>
+      <p>- Sinopsis: </br> {{room.synopsis}}</p>
+    </div>
+
+  </div>
+  {{#unless currentUser.isCompany}}
+  <div>
     <form action="/comments/{{room._id}}" method="POST">
-    <div class="mb-3">
-      <label for="message" class="form-label">Deja un comentario sobre tu experiencia en la sala:</label>
-      <input class="form-control {{#if errors.message}}is-invalid{{/if}}" name="message" type="text"
-        id="message" placeholder="" value="{{comment.message}}" required>
-      {{#if errors.message}}
-      <div class="invalid-feedback">
-        {{errors.message}}
+      <div class="mb-3">
+        <label for="message" class="form-label">Deja un comentario sobre tu experiencia en la sala:</label>
+        <input class="form-control {{#if errors.message}}is-invalid{{/if}}" name="message" type="text" id="message"
+          placeholder="" value="{{comment.message}}" required>
+        {{#if errors.message}}
+        <div class="invalid-feedback">
+          {{errors.message}}
+        </div>
+        {{/if}}
       </div>
-      {{/if}}
-    </div>
-    <div class="mb-3">
-      <label class="form-label">Valoración:</label>
-      <div class="rating">
-        <input type="radio" name="score" value="1" id="star1"><label for="star1"></label>
-        <input type="radio" name="score" value="2" id="star2"><label for="star2"></label>
-        <input type="radio" name="score" value="3" id="star3"><label for="star3"></label>
-        <input type="radio" name="score" value="4" id="star4"><label for="star4"></label>
-        <input type="radio" name="score" value="5" id="star5"><label for="star5"></label>
+      <div class="mb-3">
+        <label class="form-label">Valoración:</label>
+        <div class="rating">
+          <input type="radio" name="score" value="1" id="star1"><label for="star1"></label>
+          <input type="radio" name="score" value="2" id="star2"><label for="star2"></label>
+          <input type="radio" name="score" value="3" id="star3"><label for="star3"></label>
+          <input type="radio" name="score" value="4" id="star4"><label for="star4"></label>
+          <input type="radio" name="score" value="5" id="star5"><label for="star5"></label>
+        </div>
       </div>
-    </div>
-    <button class="btn btn-primary" type="submit">Enviar</button>
-  </form>
-  {{/unless}}
+      <button class="btn btn-primary" type="submit">Enviar</button>
+    </form>
+    {{/unless}}
 
-  <h2>Opiniones</h2>
+    <h2>Opiniones</h2>
 
-  {{#if comments.length}}
+    {{#if comments.length}}
     {{#each comments}}
-      <img src="{{this._doc.player.avatar}}" style="width: 85px; height: 85px; border-radius: 50px;" alt="">
-      <h5>{{this._doc.player.name}}</h5>
-      <p>Puntuación: {{this._doc.score}}</p>
-      <p>{{this._doc.message}}</p>
-      <p>{{formattedDate}}</p>
-      {{#if isCurrentUser}}
-      <div class="w-25 btns-row">
-          <form action="/comment/delete/{{this._doc._id}}" method="POST">
-            <button class="btn delete-btn"><i class="bi bi-trash"></i> Borrar</button>
-          </form>
-      </div>
-      {{/if}}
-      <hr size="4px" color="black" />  
+    <img src="{{this._doc.player.avatar}}" style="width: 85px; height: 85px; border-radius: 50px;" alt="">
+    <h5>{{this._doc.player.name}}</h5>
+    <p>Puntuación: {{this._doc.score}}</p>
+    <p>{{this._doc.message}}</p>
+    <p>{{formattedDate}}</p>
+    {{#if isCurrentUser}}
+    <div class="w-25 btns-row">
+      <form action="/comment/delete/{{this._doc._id}}" method="POST">
+        <button class="btn delete-btn"><i class="bi bi-trash"></i> Borrar</button>
+      </form>
+    </div>
+    {{/if}}
+    <hr size="4px" color="black" />
     {{/each}}
     <p>Promedio de puntuación: {{ averageScore }}</p>
-  {{else}}
+    {{else}}
     <p>No hay comentarios todavía</p>
-  {{/if}}
-</div>
+    {{/if}}
+  </div>
 
 </div>
+
+<script src="/js/cards-btns.js"></script>

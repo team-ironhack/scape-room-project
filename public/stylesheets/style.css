@@ -193,3 +193,7 @@ footer {
     width: 100%;
     height: 100%;
   }
+
+  .bi-star, .bi-star-fill {
+    color:rgb(237, 198, 70)
+  }

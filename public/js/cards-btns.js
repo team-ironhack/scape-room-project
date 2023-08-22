@@ -2,6 +2,7 @@
 const likeButtons = document.querySelectorAll('.like-button');
 const markButtons = document.querySelectorAll('.mark-button');
 const doneButtons = document.querySelectorAll('.done-button');
+const stars = document.querySelectorAll('.rating i.bi-star');
 
 
 likeButtons.forEach((btn) => {
@@ -23,7 +24,7 @@ axios.post(`http://localhost:3000/likes/${btn.dataset.user}/${btn.dataset.id}`)
     console.log(err)
   })
 })
-})
+});
 
 markButtons.forEach((btn) => {
 btn.addEventListener('click', () => {
@@ -43,7 +44,7 @@ axios.post(`http://localhost:3000/marks/${btn.dataset.user}/${btn.dataset.id}`)
     console.log(err)
   })
 })
-})
+});
 
 doneButtons.forEach((btn) => {
 btn.addEventListener('click', () => {
@@ -62,4 +63,17 @@ axios.post(`http://localhost:3000/dones/${btn.dataset.user}/${btn.dataset.id}`)
     console.log(err)
   })
 })
-})
+});
+
+
+
+stars.forEach((star, index) => {
+  star.addEventListener('click', () => {
+    for (let i = 0; i <= index; i++) {
+      stars[i].classList.replace('bi-star', 'bi-star-fill');
+    }
+    for (let i = index + 1; i < stars.length; i++) {
+      stars[i].classList.replace('bi-star-fill', 'bi-star');
+    }
+  });
+});

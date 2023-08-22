@@ -256,14 +256,12 @@ module.exports.doComment = (req, res, next) => {
       errors,
     });
   };
-
   const data = {
     ...req.body,
     player: req.user._id,
     date: new Date(),
     room: req.params.id,
   };
-
   Comment.create(data)
     .then((comment) => {
       res.redirect(`/room/${data.room}`);

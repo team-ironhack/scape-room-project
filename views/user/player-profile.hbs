@@ -19,9 +19,9 @@
   {{#if likes}}
   <div class="swiper">
     <div class="swiper-wrapper">
-    {{#each likes as |rooms|}}
-   <div class="swiper-slide">
-        {{>roomCards room=room currentUser=../currentUser likes=../likes marks=../marks dones=../dones}}
+    {{#each likes as |like|}}
+      <div class="swiper-slide">
+        {{>roomCards room=like.room currentUser=../currentUser likes=../likes marks=../marks dones=../dones}}
       </div>
     {{/each}}
     </div>
@@ -40,9 +40,9 @@
   {{#if marks}}
   <div class="swiper">
     <div class="swiper-wrapper">
-    {{#each marks as |rooms|}}
+    {{#each marks as |mark|}}
     <div class="swiper-slide">
-        {{>roomCards room=room currentUser=../currentUser likes=../likes marks=../marks dones=../dones}}
+        {{>roomCards room=mark.room currentUser=../currentUser likes=../likes marks=../marks dones=../dones}}
       </div>
     {{/each}}
     </div>
@@ -61,9 +61,9 @@
   {{#if dones}}
   <div class="swiper">
     <div class="swiper-wrapper">
-      {{#each dones as |room|}}
+      {{#each dones as |done|}}
       <div class="swiper-slide">
-        {{>roomCards room=room currentUser=../currentUser likes=../likes marks=../marks dones=../dones}}
+        {{>roomCards room=done.room currentUser=../currentUser likes=../likes marks=../marks dones=../dones}}
       </div>
       {{/each}}
     </div>
@@ -88,7 +88,7 @@
 </div>
 
 
-
+<script src="/js/cards-btns.js"></script>
 
 <script>
   const swiper = new Swiper('.swiper', {
@@ -106,4 +106,3 @@
 
 </script>
 
-<script src="/js/cards-btns.js"></script>

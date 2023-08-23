@@ -1,5 +1,5 @@
-const Player = require('../models/Player.model');
-const Company = require('../models/Company.model');
+const Player = require('../model/Player.model');
+const Company = require('../model/Company.model');
 const mongoose = require('mongoose');
 const passport = require('passport');
 const { userRegister } = require('../misc/misc')

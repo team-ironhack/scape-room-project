@@ -1,11 +1,11 @@
 const mongoose = require('mongoose');
-const Room = require('../models/Room.model');
-const Player = require('../models/Player.model');
-const Company = require('../models/Company.model');
-const Like = require('../models/Like.model');
-const Mark = require('../models/Mark.model');
-const Comment = require('../models/Comment.model');
-const Done = require('../Models/Done.model');
+const Room = require('../model/Room.model');
+const Player = require('../model/Player.model');
+const Company = require('../model/Company.model');
+const Like = require('../model/Like.model');
+const Mark = require('../model/Mark.model');
+const Comment = require('../model/Comment.model');
+const Done = require('../model/Done.model');
 
 module.exports.test = (req, res, next) => {
   res.redirect('/login')

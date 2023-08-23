@@ -1,9 +1,11 @@
+require('dotenv').config();
+
 const mongoose = require('mongoose');
-const Room = require('../models/Room.model');
+const Room = require('../model/Room.model');
 const ROOMS = require('../data/rooms.json');
-const Company = require('../models/Company.model');
+const Company = require('../model/Company.model');
 const COMPANIES = require('../data/companies.json');
-const Player = require('../models/Player.model');
+const Player = require('../model/Player.model');
 const PLAYERS = require('../data/players.json')
 
 

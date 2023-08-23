@@ -53,7 +53,7 @@ footer {
 
 .login-container {
     width: 100%;
-    max-width: 650px;
+    max-width: 700px;
     margin: auto;
     padding: 20px;
     display: flex;
@@ -62,10 +62,27 @@ footer {
     justify-content: center;
     border-radius: 24px;
     overflow: auto;
+    
+    position: fixed;
+    top: 100px;
+}
+
+.register-container {
+    width: 100%;
+    max-width: 700px;
+    margin: auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 24px;
+    overflow: auto;
+   
 }
 
 .forms-tittle {
-    color: white;
+    color: #cdcdca;
     font-weight: bold;
 }
 
@@ -86,10 +103,15 @@ footer {
 }
 
 .google-btn{
-    background-color: #333;
-    color: #cdcdca
+
+    color: #cdcdca;
+    border: 1px solid #cdcdca
 }
 
+.google-btn:hover{
+    color: #eb8479;
+    border: 1px solid #eb8479
+}
 
 .login-btn:hover {
     background-color: #FFD76B;
@@ -130,25 +152,26 @@ footer {
     font-weight: bold !important;
 }
 
-.login-container label {
+.login-container label, .forms-container label {
     color: #cdcdca;
     font-weight: bold;
 }
 
-.input-forms {
+.login-container input, .forms-container input {
     background-color: #333;
     border: none;
     color: #cdcdca;
 
 }
 
-.input-forms:focus {
+.login-container input:focus, .forms-container input:focus {
     background-color: #333;
-    border: 1px solid #FFD321;
+    outline: 1px solid #FFD321;
     color: #cdcdca;
+    
 }
 
-.input-forms::placeholder {
+.login-container input::placeholder, .forms-container input::placeholder {
     font-size: 12px;
     color: #cdcdca;
 }

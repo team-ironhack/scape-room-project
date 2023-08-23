@@ -1,16 +1,16 @@
 <div class="fondo-content ">
-  <div class="login-container my-5">
+  <div class="register-container my-5">
 
 {{#if isEdit}}
-<h1 class="mt-4 mb-4">Edita tu perfil</h1>
+<h1 class="mt-4 mb-4 forms-tittle">Edita tu perfil</h1>
 <form action="/player/profile/edit/{{user._id}}" method="POST" enctype="multipart/form-data">
 {{else}}
-<h1 class="mt-4 mb-4">Crea una cuenta de jugador</h1>
+<h1 class="mt-4 mb-4 forms-tittle">Crea una cuenta de jugador</h1>
 <form action="/register-player" method="POST" enctype="multipart/form-data">
 {{/if}}
 
-
-  <div class="mb-3">
+<div class="forms-container">
+  <div class="mb-3 ">
     <label for="name" class="form-label">Nombre</label>
     <input
       class="form-control {{#if errors.name}}is-invalid{{/if}}"
@@ -40,7 +40,7 @@
     <label for="password" class="form-label">Contraseña</label>
     <input
       class="form-control{{#if errors.password}} is-invalid{{/if}}" 
-      name="password" type="password" id="password" {{#if isEdit}}value="{{user.password}}"{{else}}required{{/if}}
+      name="password" type="password" placeholder="*********" id="password" {{#if isEdit}}value="{{user.password}}"{{else}}required{{/if}}
     >
     {{#if errors.password}}
       <div class="invalid-feedback">
@@ -53,7 +53,7 @@
     <label for="repeatPassword" class="form-label">Repite la contraseña</label>
     <input
       class="form-control{{#if errors.password}} is-invalid{{/if}}" 
-      name="repeatPassword" type="password" id="repeatPassword" {{#if isEdit}}value="{{user.password}}"{{else}}required{{/if}}
+      name="repeatPassword" type="password" placeholder="*********" id="repeatPassword" {{#if isEdit}}value="{{user.password}}"{{else}}required{{/if}}
     >
     {{#if errors.repeatPassword}}
       <div class="invalid-feedback">
@@ -99,10 +99,11 @@
       </div>
     {{/if}}
   </div>
-
-
-  <button class="btn btn-primary" type="submit">{{#if isEdit}}Editar perfil{{else}}Crear cuenta{{/if}}</button>
-  <p class="{{#if isEdit}}hidden{{else}}{{/if}}">¿Ya tienes cuenta? <a href="/login"><b>Iniciar sesión</b></a></p>
-
-</form></div>
+</div>
+<div class="login-btn-container">
+  <button class="btn login-btn" type="submit">{{#if isEdit}}Editar perfil{{else}}Crear cuenta{{/if}}</button>
+  <p class="{{#if isEdit}}hidden{{else}}{{/if}}">¿Ya tienes cuenta? <a class="create-account-link" href="/login"><b>Iniciar sesión</b></a></p>
+</div>
+</form>
+</div>
 </div>

@@ -68,23 +68,23 @@ module.exports.companyProfile = (req, res, next) => {
 module.exports.companyDetail = (req, res, next) => {
   const { id } = req.params
   Company.findById(id)
-  .populate({
-    path: 'rooms',
-    populate: [
-      { path: 'likes' },
-      { path: 'marks' },
-      { path: 'dones' },
-    ]
-  })
+    .populate({
+      path: 'rooms',
+      populate: [
+        { path: 'likes' },
+        { path: 'marks' },
+        { path: 'dones' },
+      ]
+    })
     .then(company => {
       Like.find({ player: req.user._id })
-      .then((likes) => {
-        Mark.find({ player: req.user._id })
-          .then((marks) => {
-            Done.find({ player: req.user._id })
-              .then((dones) => {
-                res.render('user/company-detail', { company, likes, marks, dones })
-              })
+        .then((likes) => {
+          Mark.find({ player: req.user._id })
+            .then((marks) => {
+              Done.find({ player: req.user._id })
+                .then((dones) => {
+                  res.render('user/company-detail', { company, likes, marks, dones })
+                })
             })
         })
     })
@@ -97,7 +97,7 @@ module.exports.editCompanyProfile = (req, res, next) => {
   const { id } = req.params
   Company.findById(id)
     .then((user) => {
-      res.render('auth/company-register', { user, isEdit: true,  hiddenNav: true })
+      res.render('auth/company-register', { user, isEdit: true, hiddenNav: true })
     })
     .catch(err => {
       console.error(err)
@@ -152,33 +152,33 @@ module.exports.playerProfile = (req, res, next) => {
       if (player) {
         Like.find({ player: id })
 
-        .populate({
-          path: 'room',
-          populate: {
-            path: 'company'
-          }
-        })
-        .then(likes => {
-          Mark.find({ player: id })
           .populate({
             path: 'room',
             populate: {
               path: 'company'
             }
           })
-          .then(marks => {
-            Done.find({ player: id })
-            .populate({
-              path: 'room',
-              populate: {
-                path: 'company'
-              }
-            })
-            .then(dones => {
-              res.render('user/player-profile', { player, isCurrentUser: true, likes, marks, dones });
-            })
+          .then(likes => {
+            Mark.find({ player: id })
+              .populate({
+                path: 'room',
+                populate: {
+                  path: 'company'
+                }
+              })
+              .then(marks => {
+                Done.find({ player: id })
+                  .populate({
+                    path: 'room',
+                    populate: {
+                      path: 'company'
+                    }
+                  })
+                  .then(dones => {
+                    res.render('user/player-profile', { player, isCurrentUser: true, likes, marks, dones });
+                  })
+              })
           })
-        })
       } else {
         Company.findById(id)
           .then(company => {
@@ -199,64 +199,77 @@ module.exports.playerDetail = (req, res, next) => {
   Player.findById(id)
     .then(player => {
       Like.find({ player: id })
-      .populate({
-        path: 'room',
-        populate: {
-          path: 'company'
-        }
-      })
-      .then(likes => {
-        Done.find({ player: id })
         .populate({
           path: 'room',
           populate: {
             path: 'company'
           }
         })
-        .then(dones => {
-          res.render('user/player-detail', { player, isCurrentUser: true, likes, dones })
+        .then(likes => {
+          Like.find({ player: req.user._id })
+            .populate('room')
+            .then(userLikes => {
+              Done.find({ player: id })
+                .populate({
+                  path: 'room',
+                  populate: {
+                    path: 'company'
+                  }
+                })
+                .then(dones => {
+                  Done.find({ player: req.user._id })
+                    .populate('room')
+                    .then(userDones => {
+                      Mark.find({ player: req.user._id })
+                      .populate('room')
+                      .then(userMarks => {
+                      res.render('user/player-detail', { player, isCurrentUser: true, likes, dones, userLikes, userDones, userMarks })
+                    })
+                })
+
+            })
         })
-      })
+        .catch(err => {
+          console.error(err)
+        })
     })
-    .catch(err => {
-      console.error(err)
-    })
+  })
 }
 
 // Mostrar form para editar perfil
 module.exports.editPlayerProfile = (req, res, next) => {
-  const { id } = req.params
-  Player.findById(id)
-    .then((user) => {
-      res.render('auth/player-register', { user, isEdit: true, hiddenNav: true })
-    })
-    .catch(err => {
-      console.error(err)
-    })
-}
+        const { id } = req.params
+        Player.findById(id)
+          .then((user) => {
+            res.render('auth/player-register', { user, isEdit: true, hiddenNav: true })
+          })
+          .catch(err => {
+            console.error(err)
+          })
+      }
 
 // Editar perfil
 module.exports.doEditPlayerProfile = (req, res, next) => {
 
-  const renderWithErrors = (errors) => {
-    res.render('auth/player-register', {
-      user: req.body,
-      errors,
-    });
-  };
+        const renderWithErrors = (errors) => {
+          res.render('auth/player-register', {
+            user: req.body,
+            errors,
+          });
+        };
 
-  const { id } = req.params
+        const { id } = req.params
 
-  Player.findByIdAndUpdate(id, req.body, { new: true })
-    .then(user => {
-      console.log(`el usuario jugador ${user.name} se actualizó`)
-      res.redirect(`/player/profile/${user.id}`)
-    })
-    .catch((err) => {
-      if (err instanceof mongoose.Error.ValidationError) {
-        renderWithErrors(err.errors);
-      } else {
-        next(err);
+        Player.findByIdAndUpdate(id, req.body, { new: true })
+          .then(user => {
+            console.log(`el usuario jugador ${user.name} se actualizó`)
+            res.redirect(`/player/profile/${user.id}`)
+          })
+          .catch((err) => {
+            if (err instanceof mongoose.Error.ValidationError) {
+              renderWithErrors(err.errors);
+            } else {
+              next(err);
+            }
+          });
       }
-    });
-}

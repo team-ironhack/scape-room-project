@@ -5,8 +5,9 @@ const express = require('express');
 const logger = require('morgan');
 const path = require('path');
 const passport = require('passport');
-const hbs = require('hbs')
-const { PLAYERS, DIFFICULTY, TERROR } = require('./misc/enum')
+const hbs = require('hbs');
+const cookieParser = require('cookie-parser');
+const { PLAYERS, DIFFICULTY, TERROR } = require('./misc/enum');
 
 /** Configurations */
 require('./config/hbs.config');
@@ -26,6 +27,7 @@ hbs.registerPartials(path.join(__dirname, "/views/partials"));
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(logger('dev'));
+app.use(cookieParser())
 
 app.use(session);
 app.use(passport.initialize());
@@ -44,6 +46,11 @@ app.use((req, res, next) => {
 });
 
 /** Configure routes */
+app.use((req, res, next) => {
+  if (!req.cookies.puzzle && req.path !== '/onboarding') {
+    res.redirect('/onboarding')
+  } else { next() }
+})
 const miscRouter = require('./routes/misc.routes');
 app.use('/', miscRouter);
 const authRouter = require('./routes/auth.routes');

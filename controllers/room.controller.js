@@ -68,6 +68,9 @@ module.exports.roomDetail = (req, res, next) => {
   const { id } = req.params;
   Room.findById(id)
     .populate("company")
+    .populate("likes")
+    .populate("marks")
+    .populate("dones")
     .then((room) => {
       Comment.find({ room: req.params.id })
         .populate("player")

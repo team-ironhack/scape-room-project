@@ -8,6 +8,10 @@ const Comment = require('../model/Comment.model');
 const Done = require('../model/Done.model');
 
 
+module.exports.index = (req, res, next) => {
+  res.redirect('/login')
+}
+
 module.exports.puzzle = (req, res, next) => {
   const options = {
     maxAge: 10 * 365 * 24 * 60 * 60 * 1000, // 10 years in milliseconds

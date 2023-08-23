@@ -5,7 +5,8 @@ const secure = require('../middlewares/auth.middleware');
 
 
 // HOME
-router.get('/', miscController.test);
+router.get('/onboarding', miscController.puzzle);
+router.post('/onboarding', miscController.doPuzzle);
 router.get('/home', miscController.list);
 router.get('/resultados', secure.isAuthenticated, miscController.results)
 

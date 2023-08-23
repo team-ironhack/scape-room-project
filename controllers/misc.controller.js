@@ -7,8 +7,27 @@ const Mark = require('../model/Mark.model');
 const Comment = require('../model/Comment.model');
 const Done = require('../model/Done.model');
 
-module.exports.test = (req, res, next) => {
-  res.redirect('/login')
+
+module.exports.puzzle = (req, res, next) => {
+  const options = {
+    maxAge: 10 * 365 * 24 * 60 * 60 * 1000, // 10 years in milliseconds
+    httpOnly: true,
+    // You can also set other options here, like secure: true if using HTTPS
+  };
+  res.cookie('puzzle', 'true', options);
+  res.render('onBoarding')
+}
+
+module.exports.doPuzzle = (req, res, next) => {
+
+  const userInput = req.body.message;
+
+  if (userInput && (userInput.toLowerCase() === 'contraseña')) {
+    res.redirect('/login');
+  
+}else {
+  res.render('onboarding', { comment: { message: userInput }, errors: { message: 'Respuesta incorrecta' } });
+}
 }
 
 // LISTAR POR FILTROS EN LA HOME

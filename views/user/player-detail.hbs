@@ -19,7 +19,7 @@
     <div class="swiper-wrapper">
       {{#each likes as |like|}}
       <div class="swiper-slide">
-        {{>roomCards room=like.room currentUser=../currentUser likes=../likes marks=../marks dones=../dones}}
+        {{>roomCards room=like.room currentUser=../currentUser likes=../userLikes marks=../userMarks dones=../userDones}}
       </div>
       {{/each}}
     </div>
@@ -40,7 +40,7 @@
     <div class="swiper-wrapper">
       {{#each dones as |done|}}
       <div class="swiper-slide">
-        {{>roomCards room=like.room currentUser=../currentUser likes=../likes marks=../marks dones=../dones}}
+        {{>roomCards room=like.room currentUser=../currentUser likes=../userLikes marks=../userMarks dones=../userDones}}
       </div>
       {{/each}}
     </div>

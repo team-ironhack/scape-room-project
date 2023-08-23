@@ -68,9 +68,15 @@ module.exports.list = (req, res, next) => {
       },
       populate: ['likes', 'marks', 'dones'],
     }),
+    Company.find()
+    .populate({
+      path: 'rooms',
+      populate: ['likes', 'marks', 'dones'],
+    })
+    .limit(4).sort({ createdAt: 'descending' })
   ]
   Promise.all(promises)
-  .then(([likedRooms, jugadores, añadidas, cityRooms]) => {
+  .then(([likedRooms, jugadores, añadidas, cityRooms, empresas]) => {
     const roomIds = likedRooms.map(room => room._id);
     return Room.find({ _id: { $in: roomIds } })
     .populate('company likes marks dones')
@@ -81,7 +87,7 @@ module.exports.list = (req, res, next) => {
             .then((marks) => {
               Done.find({ player: req.user._id })
                 .then((dones) => {
-                  res.render('home', { mostLiked: populatedRooms, lastPlayers: jugadores, lastRooms: añadidas, hasCity: cityRooms.rooms,  likes: likes, marks: marks, dones: dones})
+                  res.render('home', { mostLiked: populatedRooms, lastPlayers: jugadores, lastRooms: añadidas, hasCity: cityRooms.rooms,  likes: likes, marks: marks, dones: dones, lastCompanies: empresas})
                 });
               });
           });

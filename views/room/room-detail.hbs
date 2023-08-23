@@ -31,6 +31,15 @@
       <p>- Dificultad de la sala: {{room.difficulty}}.</p>
       <p>- Duración del juego: {{room.duration}} minutos.</p>
       <p>- Nivel de terror: {{room.terrorLevel}}.</p>
+      <p>
+        <span>Niveles de terror:</span>
+        <span style="color: rgb(107, 248, 128);">No</span> -
+        <span style="color: rgb(240, 225, 26);">Temor</span> -
+        <span style="color: rgb(249, 184, 31);">Miedo</span> -
+        <span style="color: rgb(188, 71, 4);">Horror</span> -
+        <span style="color: rgb(203, 8, 8);">Terror</span> -
+        <span style="color: rgb(108, 6, 6);">Pánico</span>
+      </p>
       <p>- Sinopsis: </br> {{room.synopsis}}</p>
     </div>
 
@@ -74,28 +83,28 @@
 
     {{#each comments}}
     <div class="comment">
-    <img src="{{this._doc.player.avatar}}" style="width: 85px; height: 85px; border-radius: 50px;" alt="">
-    <h5>{{this._doc.player.name}}</h5>
-    <div class="comment-stars">
-      <i class="bi bi-star"></i>
-      <i class="bi bi-star"></i>
-      <i class="bi bi-star"></i>
-      <i class="bi bi-star"></i>
-      <i class="bi bi-star"></i>
-    </div>
+      <img src="{{this._doc.player.avatar}}" style="width: 85px; height: 85px; border-radius: 50px;" alt="">
+      <h5>{{this._doc.player.name}}</h5>
+      <div class="comment-stars">
+        <i class="bi bi-star"></i>
+        <i class="bi bi-star"></i>
+        <i class="bi bi-star"></i>
+        <i class="bi bi-star"></i>
+        <i class="bi bi-star"></i>
+      </div>
 
-    <!-- Input oculto para almacenar la valoración -->
-    <input type="hidden" class="comment-rating" value="{{this._doc.score}}">
-    <p>{{this._doc.message}}</p>
-    <p>{{formattedDate}}</p>
-    {{#if isCurrentUser}}
-    <div class="w-25 btns-row">
-      <form action="/comment/delete/{{this._doc._id}}" method="POST">
-        <button class="btn delete-btn"><i class="bi bi-trash"></i> Borrar</button>
-      </form>
-    </div>
-    {{/if}}
-    <hr size="4px" color="black" />
+      <!-- Input oculto para almacenar la valoración -->
+      <input type="hidden" class="comment-rating" value="{{this._doc.score}}">
+      <p>{{this._doc.message}}</p>
+      <p>{{formattedDate}}</p>
+      {{#if isCurrentUser}}
+      <div class="w-25 btns-row">
+        <form action="/comment/delete/{{this._doc._id}}" method="POST">
+          <button class="btn delete-btn"><i class="bi bi-trash"></i> Borrar</button>
+        </form>
+      </div>
+      {{/if}}
+      <hr size="4px" color="black" />
     </div>
     {{/each}}
     <p>Promedio de puntuación: {{ averageScore }}</p>

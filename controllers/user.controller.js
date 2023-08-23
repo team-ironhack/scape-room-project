@@ -214,7 +214,7 @@ module.exports.playerDetail = (req, res, next) => {
           }
         })
         .then(dones => {
-          res.render('user/player-detail', { player, likes, dones })
+          res.render('user/player-detail', { player, isCurrentUser: true, likes, dones })
         })
       })
     })

@@ -73,9 +73,19 @@
     {{#if comments.length}}
 
     {{#each comments}}
+    <div class="comment">
     <img src="{{this._doc.player.avatar}}" style="width: 85px; height: 85px; border-radius: 50px;" alt="">
     <h5>{{this._doc.player.name}}</h5>
-    <p>Puntuación: {{this._doc.score}}</p>
+    <div class="comment-stars">
+      <i class="bi bi-star"></i>
+      <i class="bi bi-star"></i>
+      <i class="bi bi-star"></i>
+      <i class="bi bi-star"></i>
+      <i class="bi bi-star"></i>
+    </div>
+
+    <!-- Input oculto para almacenar la valoración -->
+    <input type="hidden" class="comment-rating" value="{{this._doc.score}}">
     <p>{{this._doc.message}}</p>
     <p>{{formattedDate}}</p>
     {{#if isCurrentUser}}
@@ -86,6 +96,7 @@
     </div>
     {{/if}}
     <hr size="4px" color="black" />
+    </div>
     {{/each}}
     <p>Promedio de puntuación: {{ averageScore }}</p>
     {{else}}

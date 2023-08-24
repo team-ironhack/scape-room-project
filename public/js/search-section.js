@@ -1,4 +1,4 @@
-const images = [
+/*const images = [
     'buscador-img-1.jpg',
     'buscador-img-2.jpg',
     'buscador-img-3.jpg',
@@ -15,3 +15,4 @@ window.addEventListener('load', () => {
     const randomImage = getRandomImage();
     dynamicBackground.style.backgroundImage = randomImage;
 });
+*/

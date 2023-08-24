@@ -102,7 +102,8 @@ footer {
     max-height: 80vh;
 }
 
-.register-container {
+.register-container,
+.form-room-container {
     width: 100%;
     max-width: 700px;
     margin: auto;
@@ -223,7 +224,8 @@ h1 {
 .login-container input,
 .forms-container input,
 .forms-container input[type="file"],
-.puzzle-container input {
+.puzzle-container input,
+.form-select {
     background-color: #333;
     border: none;
     color: #cdcdca;
@@ -233,10 +235,16 @@ h1 {
 .login-container input:focus,
 .forms-container input:focus,
 .forms-container input[type="file"]:focus,
-.puzzle-container input:focus {
+.puzzle-container input:focus,
+.form-select:focus {
     background-color: #333;
     outline: 1px solid #FFD321;
     color: #cdcdca;
+}
+
+.form-select option:hover
+.form-select option:focus {
+    background-color: #FFD321 !important
 }
 
 .login-container input::placeholder,
@@ -250,6 +258,29 @@ h1 {
 .forms-container input[type="file"]::-webkit-file-upload-button {
     visibility: hidden;
 }
+
+/* COMPANY DETAIL Y PROFILE */
+
+.company-detail h1,
+.company-profile h1 {
+    border-bottom: solid 1px #FFD321;
+    display: inline-block;
+}
+
+.company-info {
+    color: #cdcdca;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  color: #FFD321; 
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  margin-right: 20px; 
+}
+
 
 #minimap-container {
     width: 100%;
@@ -270,7 +301,7 @@ h1 {
 }
 
 .rooms-rows {
-    background-color: white;
+    background-color: #333;
     border-radius: 8px;
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
     display: flex;
@@ -279,6 +310,8 @@ h1 {
     flex-direction: column;
     flex-wrap: nowrap;
     justify-content: space-between;
+    color: #cdcdca;
+
 }
 
 .room-detail {
@@ -297,22 +330,25 @@ h1 {
     align-items: center;
 }
 
-.edit-btn {
-    background-color: #2ebca0;
-}
-
-.delete-btn {
-    background-color: #e57e95;
-}
-
 .edit-btn,
 .delete-btn {
+    background-color: #585858;
+    color: #cdcdca;
     padding: 8px 12px;
-    color: white;
     border: none;
     border-radius: 4px;
     cursor: pointer;
     margin-bottom: 10px;
+}
+
+.edit-btn:hover {
+    outline: solid 1px #2ebca0;
+    color: #2ebca0;
+}
+
+.delete-btn:hover {
+    outline: solid 1px #e57e95;
+    color: #e57e95;
 }
 
 .bi-heart-fill {

@@ -1,13 +1,17 @@
+<div class="puzzle-container"> 
 <form action="/onboarding" method="POST">
       <div class="mb-3">
         <label for="message" class="form-label">Pon contraseña y entra</label>
         <input class="form-control {{#if errors.message}}is-invalid{{/if}}" name="message" type="text" id="message"
-          placeholder="pON TU RESPUESTA" value="{{comment.message}}" required>
+          placeholder="Escribe tu respuesta" value="{{comment.message}}" required>
         {{#if errors.message}}
         <div class="invalid-feedback">
           {{errors.message}}
         </div>
         {{/if}}
       </div>
-      <button class="btn btn-primary" type="submit">Enviar</button>
+      <div class="login-btn-container">
+      <button class="btn login-btn" type="submit">Enviar</button>
+      </div>
     </form>
+    </div>

@@ -40,6 +40,17 @@ footer {
     align-items: flex-start;
 }
 
+.puzzle-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin: auto;
+    overflow: auto;
+
+}
+
 .fondo-content {
     width: 100%;
     min-height: 100vh;
@@ -62,9 +73,9 @@ footer {
     justify-content: center;
     border-radius: 24px;
     overflow: auto;
-    
-    position: fixed;
-    top: 100px;
+
+    /*position: fixed;
+    top: 100px;*/
 }
 
 .register-container {
@@ -78,7 +89,7 @@ footer {
     justify-content: center;
     border-radius: 24px;
     overflow: auto;
-   
+
 }
 
 .forms-tittle {
@@ -102,13 +113,13 @@ footer {
     font-weight: bold;
 }
 
-.google-btn{
+.google-btn {
 
     color: #cdcdca;
     border: 1px solid #cdcdca
 }
 
-.google-btn:hover{
+.google-btn:hover {
     color: #eb8479;
     border: 1px solid #eb8479
 }
@@ -152,26 +163,34 @@ footer {
     font-weight: bold !important;
 }
 
-.login-container label, .forms-container label {
+.login-container label,
+.forms-container label,
+.puzzle-container label {
     color: #cdcdca;
     font-weight: bold;
 }
 
-.login-container input, .forms-container input {
+.login-container input,
+.forms-container input,
+.puzzle-container input {
     background-color: #333;
     border: none;
     color: #cdcdca;
 
 }
 
-.login-container input:focus, .forms-container input:focus {
+.login-container input:focus,
+.forms-container input:focus,
+.puzzle-container input:focus {
     background-color: #333;
     outline: 1px solid #FFD321;
     color: #cdcdca;
-    
+
 }
 
-.login-container input::placeholder, .forms-container input::placeholder {
+.login-container input::placeholder,
+.forms-container input::placeholder,
+.puzzle-container input::placeholder {
     font-size: 12px;
     color: #cdcdca;
 }

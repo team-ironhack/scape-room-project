@@ -19,7 +19,7 @@ module.exports.puzzle = (req, res, next) => {
     // You can also set other options here, like secure: true if using HTTPS
   };
   res.cookie('puzzle', 'true', options);
-  res.render('onBoarding')
+  res.render('onBoarding', { hiddenNav: true })
 }
 
 module.exports.doPuzzle = (req, res, next) => {

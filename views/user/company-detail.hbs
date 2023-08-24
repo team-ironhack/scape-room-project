@@ -1,11 +1,11 @@
 <script id="search-js" src="https://api.mapbox.com/search-js/v1.0.0-beta.17/web.js" defer></script>
 
 
-<div class="container w-75">
+<div class="company-detail container w-75">
   <h1 class="mt-3">{{company.companyName}}</h1>
 
   {{#if company}}
-  <div class="d-flex justify-content-between mt-3 flex-column flex-sm-row">
+  <div class="company-info d-flex justify-content-between mt-3 flex-column flex-sm-row">
     <div class="me-3">
       <img width='300' src="{{company.avatar}}" alt="" />
     </div>
@@ -31,12 +31,20 @@
   <p>No hay empresa</p>
   {{/if}}
   <div class="mt-5">
-    <h1>Salas de {{company.companyName}}</h1>
+    <h1 class="mb-5">Salas de {{company.companyName}}</h1>
 {{#if company.rooms}}
 <div class="room-card mb-4 flex-sm-row">
+    <div class="swiper">
+    <div class="swiper-wrapper">
     {{#each company.rooms as |room|}}
-    {{>roomCards room=room currentUser=../currentUser likes=../likes marks=../marks dones=../dones}}
+      <div class="swiper-slide">
+        {{>roomCards room=room currentUser=../currentUser likes=../likes marks=../marks dones=../dones}}
+      </div>
     {{/each}}
+    </div>
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+  </div>
 </div>
 {{/if}}
   </div>
@@ -63,3 +71,19 @@
 </script>
 
 <script src="/js/cards-btns.js"></script>
+
+<script>
+  const swiper = new Swiper('.swiper', {
+    slidesPerView: 3, // Mostrar tres slides por vista
+    spaceBetween: 20, // Espacio entre los slides
+    direction: 'horizontal',
+    //loop: true,
+
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+
+  });
+
+</script>

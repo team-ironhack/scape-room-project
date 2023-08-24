@@ -57,7 +57,7 @@ module.exports.list = (req, res, next) => {
         $sort: { likeCount: -1 }, // Sort in descending order of like count
       },
       {
-        $limit: 4, // Sort in descending order of like count
+        $limit: 3, // Sort in descending order of like count
       },
     ]),
     Player.aggregate([
@@ -81,12 +81,12 @@ module.exports.list = (req, res, next) => {
         $limit: 3, // Sort in descending order of like count
       },
     ]),
-    Room.find().populate("company").populate("likes").populate("marks").populate("dones").limit(4).sort({ createdAt: 'descending' }),
+    Room.find().populate("company").populate("likes").populate("marks").populate("dones").limit(3).sort({ createdAt: 'descending' }),
     Company.findOne({ city: req.user.city })
     .populate({
       path: 'rooms',
       options: {
-        limit: 4,
+        limit: 3,
         sort: { createdAt: 'desc' },
       },
       populate: ['likes', 'marks', 'dones'],
@@ -96,7 +96,7 @@ module.exports.list = (req, res, next) => {
       path: 'rooms',
       populate: ['likes', 'marks', 'dones'],
     })
-    .limit(4).sort({ createdAt: 'descending' })
+    .limit(3).sort({ createdAt: 'descending' })
   ]
   Promise.all(promises)
   .then(([likedRooms, jugadores, añadidas, cityRooms, empresas]) => {

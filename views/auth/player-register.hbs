@@ -2,10 +2,10 @@
   <div class="register-container my-5">
 
 {{#if isEdit}}
-<h1 class="mt-4 mb-4 forms-tittle">Edita tu perfil</h1>
+<h1 class="mt-4 mb-4 forms-tittle register-title">Edita tu perfil</h1>
 <form action="/player/profile/edit/{{user._id}}" method="POST" enctype="multipart/form-data">
 {{else}}
-<h1 class="mt-4 mb-4 forms-tittle">Crea una cuenta de jugador</h1>
+<h1 class="mt-4 mb-4 forms-tittle register-title">Crea una cuenta de jugador</h1>
 <form action="/register-player" method="POST" enctype="multipart/form-data">
 {{/if}}
 
@@ -100,8 +100,8 @@
     {{/if}}
   </div>
 </div>
-<div class="login-btn-container">
-  <button class="btn login-btn" type="submit">{{#if isEdit}}Editar perfil{{else}}Crear cuenta{{/if}}</button>
+<div class="register-btn-container">
+  <button class="btn register-btn" type="submit">{{#if isEdit}}Editar perfil{{else}}Crear cuenta{{/if}}</button>
   <p class="{{#if isEdit}}hidden{{else}}{{/if}}">¿Ya tienes cuenta? <a class="create-account-link" href="/login"><b>Iniciar sesión</b></a></p>
 </div>
 </form>

@@ -1,7 +1,7 @@
 <div id="top"></div>
 <nav class="navbar navbar-expand-lg bg-body-tertiary sticky-top">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">Navbar</a>
+    <a class="navbar-brand" href="/"><img src="/images/imagotipo-ironscapes.png" width="80" alt=""></a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
       aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -9,35 +9,35 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="/home">Home</a>
+          <a class="nav-btn nav-link" aria-current="page" href="/home">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/scape-rooms">Salas</a>
+          <a class="nav-btn nav-link" href="/scape-rooms">Salas</a>
         </li>
          <li class="nav-item">
-          <a class="nav-link" href="/companies">Empresas</a>
+          <a class="nav-btn nav-link" href="/companies">Empresas</a>
         </li>
       </ul>
       <div class="d-flex me-4">
         <ul class="navbar-nav me-auto mb-2">
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <a id="navbar-name" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               ¡Hola {{#if currentUser.isCompany }} {{ currentUser.companyName }}{{else}} {{ currentUser.name }}{{/if}}! <img class="nav-avatar ms-2 me-2" src="{{currentUser.avatar}}" />
             </a>
             <ul class="dropdown-menu">
               {{#if currentUser.isCompany }}
-              <li><a class="dropdown-item" href="/company/profile/{{currentUser.id}}">Mi perfil</a></li>
-              <li><a class="dropdown-item" href="/create/room">Crear una sala</a></li>
-              <li><a class="dropdown-item" href="/company/profile/edit/{{currentUser._id}}">Editar perfil</a></li>
+              <li><a class="nav-btn dropdown-item" href="/company/profile/{{currentUser.id}}">Mi perfil</a></li>
+              <li><a class="nav-btn dropdown-item" href="/create/room">Crear una sala</a></li>
+              <li><a class="nav-btn dropdown-item" href="/company/profile/edit/{{currentUser._id}}">Editar perfil</a></li>
               {{else}}
-              <li><a class="dropdown-item" href="/player/profile/{{currentUser.id}}">Mi perfil</a></li>
-              <li><a class="dropdown-item" href="#">Juegos guardados </a></li>
-              <li><a class="dropdown-item" href="/player/profile/edit/{{currentUser._id}}">Editar perfil</a></li> 
+              <li><a class="nav-btn dropdown-item" href="/player/profile/{{currentUser.id}}">Mi perfil</a></li>
+              <li><a class="nav-btn dropdown-item" href="#">Juegos guardados </a></li>
+              <li><a class="nav-btn dropdown-item" href="/player/profile/edit/{{currentUser._id}}">Editar perfil</a></li> 
               {{/if}}
               <li>
                 <hr class="dropdown-divider">
               </li>
-              <li><a class="dropdown-item" href="/logout">Cerrar sesión</a></li>
+              <li><a class="nav-btn dropdown-item" href="/logout">Cerrar sesión</a></li>
             </ul>
           </li>
         </ul>
@@ -45,3 +45,4 @@
     </div>
   </div>
 </nav>
+

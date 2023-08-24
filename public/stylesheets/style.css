@@ -20,6 +20,29 @@ body {
     background-attachment: fixed;
 }
 
+.navbar {
+    background-color: #040404 !important;
+}
+.nav-link, .nav-link.show, #navbar-name:hover, .dropdown-item  {
+    color: #cdcdca !important;
+}
+
+.nav-btn:hover {
+    color: #FFD321 !important;
+}
+
+.navbar-active {
+    color: #FFD321 !important;
+    font-weight: bold;
+}
+
+.dropdown-menu {
+    background-color: #040404 !important;
+}
+
+.dropdown-item:hover {
+    background-color: #040404 !important;
+}
 
 footer {
     background: linear-gradient(to bottom right, #ccb2eb, #9963b2);
@@ -64,7 +87,7 @@ footer {
 
 .login-container {
     width: 100%;
-    max-width: 700px;
+    max-width: 70vw;
     margin: auto;
     padding: 20px;
     display: flex;
@@ -74,8 +97,9 @@ footer {
     border-radius: 24px;
     overflow: auto;
 
-    /*position: fixed;
-    top: 100px;*/
+    position: fixed;
+    top: 100px;
+    max-height: 80vh;
 }
 
 .register-container {
@@ -92,26 +116,57 @@ footer {
 
 }
 
-.forms-tittle {
+.register-title {
+    border-bottom: solid 1px #FFD321
+}
+
+h1 {
     color: #cdcdca;
     font-weight: bold;
+    font-size: 25px;
 }
 
 .google-btn-container,
-.login-btn-container {
+.login-btn-container,
+.register-btn-container {
     text-align: center;
     margin-top: 20px;
     margin-bottom: 20px;
     border-radius: 50px;
 }
 
-.login-btn {
+.login-btn, 
+.register-btn {
     background-color: #FFD321;
     border: none;
     margin-bottom: 20px;
     color: #333;
     font-weight: bold;
 }
+
+.login-btn:hover,
+.register-btn:hover {
+    background-color: #FFD76B;
+    border: none;
+    margin-bottom: 20px;
+    color: #333;
+    font-weight: bold;
+}
+
+.see-more-btn {
+    background-color: #FFD321;
+    border: none;
+    color: #333;
+    font-weight: bold;
+}
+
+.see-more-btn:hover {
+    background-color: #FFD76B;
+    border: none;
+    color: #333;
+    font-weight: bold;
+}
+
 
 .google-btn {
 
@@ -124,17 +179,8 @@ footer {
     border: 1px solid #eb8479
 }
 
-.login-btn:hover {
-    background-color: #FFD76B;
-    border: none;
-    margin-bottom: 20px;
-    color: #333;
-    font-weight: bold;
-}
-
-
-
-.login-btn-container p {
+.login-btn-container p,
+.register-btn-container p {
     color: #cdcdca;
     font-size: 13px
 }
@@ -143,8 +189,12 @@ footer {
     color: #FFD76B;
 }
 
-.role-btn {
+.company-link {
+    color: #FFD76B;
+    text-decoration: none;
+}
 
+.role-btn {
     border: 2px solid #FFD321;
     color: #FFD321;
     font-weight: bold;
@@ -172,6 +222,7 @@ footer {
 
 .login-container input,
 .forms-container input,
+.forms-container input[type="file"],
 .puzzle-container input {
     background-color: #333;
     border: none;
@@ -181,11 +232,11 @@ footer {
 
 .login-container input:focus,
 .forms-container input:focus,
+.forms-container input[type="file"]:focus,
 .puzzle-container input:focus {
     background-color: #333;
     outline: 1px solid #FFD321;
     color: #cdcdca;
-
 }
 
 .login-container input::placeholder,
@@ -195,6 +246,10 @@ footer {
     color: #cdcdca;
 }
 
+
+.forms-container input[type="file"]::-webkit-file-upload-button {
+    visibility: hidden;
+}
 
 #minimap-container {
     width: 100%;
@@ -274,7 +329,7 @@ footer {
 
 .room-card {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
     align-items: flex-start;
     flex-wrap: wrap;
 }
@@ -284,10 +339,30 @@ footer {
     height: 150px;
 }
 
+.card{
+    width: 18rem;
+    border: none;
+    border-radius: 12px;
+    background: linear-gradient(to bottom, #4b4b4b, #1e1d1d);
+    
+    
+
+}
+
+.card-body {
+    height: 14rem;
+    color: #cdcdca;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
 
 .img-cards {
     height: 18rem;
     object-fit: cover;
+    border-radius: 24px;
+    padding: 10px;
 }
 
 .company-img-cards {

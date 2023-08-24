@@ -1,3 +1,6 @@
+
+const handlebars = require('handlebars');
+const fs = require('fs');
 const nodemailer = require('nodemailer');
 
 const email = process.env.EMAIL_ACCOUNT;
@@ -11,17 +14,22 @@ const transporter = nodemailer.createTransport({
 });
 
 module.exports.sendValidationEmailPlayer = (user) => {
+    const source = fs.readFileSync('misc/bienvenida.hbs', 'utf8');
+    const template = handlebars.compile(source);
+
+    const activationLink = `${process.env.APP_HOST}/player/${user.id}/activate`;
+
+    const userData = {
+        name: user.name // Usar el nombre del usuario real
+    };
+
+    const html = template({ activationLink, user: userData });
+
     transporter.sendMail({
         from: `Scape <${email}>`,
         to: user.email,
-        subject: 'Prueba',
-        html: `
-        <h1>Scape prueba</h1>
-
-        <p>Activa tu cuenta</p>
-
-        <a href="${process.env.APP_HOST}/player/${user.id}/activate">Click here</a>
-      `
+        subject: '¡Bienvenide a IronScapes!',
+        html: html
     })
     .then(() => {
         console.log(`Email sent to ${user.id}`)
@@ -32,17 +40,22 @@ module.exports.sendValidationEmailPlayer = (user) => {
 };
 
 module.exports.sendValidationEmailCompany = (user) => {
+    const source = fs.readFileSync('misc/bienvenida.hbs', 'utf8');
+    const template = handlebars.compile(source);
+
+    const activationLink = `${process.env.APP_HOST}/player/${user.id}/activate`;
+
+    const userData = {
+        name: user.name // Usar el nombre del usuario real
+    };
+
+    const html = template({ activationLink, user: userData });
+
     transporter.sendMail({
         from: `Scape <${email}>`,
         to: user.email,
-        subject: 'Prueba Empresa',
-        html: `
-        <h1>Scape prueba</h1>
-
-        <p>Activa tu cuenta</p>
-
-        <a href="${process.env.APP_HOST}/company/${user.id}/activate">Click here</a>
-      `
+        subject: '¡Bienvenide a IronScapes!',
+        html: html
     })
     .then(() => {
         console.log(`Email sent to ${user.id}`)

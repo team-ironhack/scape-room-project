@@ -7,7 +7,6 @@ const roleBtns = document.querySelectorAll('.role-btn');
    const email = document.getElementById('email');
 
    roleBtns.forEach((btn) => {
-    console.log('entra')
     btn.addEventListener('click', (event) => {
       const clickedBtn = event.currentTarget;
       if (!clickedBtn.classList.contains('active')) {

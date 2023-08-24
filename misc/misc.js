@@ -52,10 +52,10 @@ const userRegister = function (userModel1, userModel2, req, res, next) {
                                 .then((user) => {
                                     if (user.isCompany) {
                                         sendValidationEmailCompany(user)
-                                        res.render('auth/mail-sent');
+                                        res.render('auth/mail-sent', { hiddenNav: true });
                                     } else {
                                         sendValidationEmailPlayer(user)
-                                        res.render('auth/mail-sent');
+                                        res.render('auth/mail-sent', { hiddenNav: true });
                                     }
                                 })
                                 .catch(err => next(err));

@@ -5,6 +5,7 @@
     display: none;
 }
 
+/* BODY */
 
 body {
     font-family: 'Montserrat', sans-serif;
@@ -20,6 +21,13 @@ body {
     background-attachment: fixed;
 }
 
+h1 {
+    color: #cdcdca;
+    font-weight: bold;
+    font-size: 25px;
+}
+
+/* NAVBAR */
 .navbar {
     background-color: #040404 !important;
 }
@@ -44,10 +52,20 @@ body {
     background-color: #040404 !important;
 }
 
+/* FOOTER */
+
 footer {
-    background: linear-gradient(to bottom right, #ccb2eb, #9963b2);
-    min-height: 25vh;
+    background-color: #040404;
+    min-height: 15vh;
     margin-top: auto;
+    color: #cdcdca;
+}
+footer i {
+    color: #FFD321;
+}
+
+.footer-container {
+    flex-direction: column;
 }
 
 .footer-address {
@@ -62,17 +80,19 @@ footer {
     justify-content: space-around;
     align-items: flex-start;
 }
+/* ONBOARDING */
 
 .puzzle-container {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 100%;
+    width: 650px;
     margin: auto;
     overflow: auto;
 
 }
+/*LOGIN REGISTER*/
 
 .fondo-content {
     width: 100%;
@@ -120,11 +140,7 @@ footer {
     border-bottom: solid 1px #FFD321
 }
 
-h1 {
-    color: #cdcdca;
-    font-weight: bold;
-    font-size: 25px;
-}
+
 
 .google-btn-container,
 .login-btn-container,
@@ -262,6 +278,25 @@ h1 {
     width: 300px;
 }
 
+
+/* PÁGINA GRACIAS */
+.gracias-container {
+    width: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 24px;
+    background-color: #333;
+    padding: 20px;
+}
+
+.gracias-container p{
+    color: #cdcdca; 
+    text-align: center;
+}
+
+
 .nav-avatar {
     width: 40px;
     height: 40px;
@@ -335,8 +370,10 @@ h1 {
 }
 
 .search-section {
-    background: linear-gradient(to bottom right, #ccb2eb, #9963b2);
-    height: 150px;
+    background-size: cover;
+    background-position: center;
+    transition: background-image 0.5s ease-in-out;
+    height: 300px;
 }
 
 .card{

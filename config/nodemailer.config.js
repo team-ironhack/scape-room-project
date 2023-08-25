@@ -46,7 +46,7 @@ module.exports.sendValidationEmailCompany = (user) => {
     const activationLink = `${process.env.APP_HOST}/player/${user.id}/activate`;
 
     const userData = {
-        name: user.name // Usar el nombre del usuario real
+        name: user.companyName // Usar el nombre del usuario real
     };
 
     const html = template({ activationLink, user: userData });

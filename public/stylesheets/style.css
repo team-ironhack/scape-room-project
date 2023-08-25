@@ -118,7 +118,7 @@ footer i {
     overflow: auto;
 
     position: fixed;
-    top: 100px;
+    top: 25px;
 }
 
 .register-container,
@@ -516,5 +516,7 @@ footer i {
   
   /* DESKTOP */
   @media (min-width: 1281) {
-   
+    .login-container {
+        top: 100px;
+    }
   }

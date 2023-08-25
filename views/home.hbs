@@ -1,19 +1,24 @@
 <div class="search-section d-flex">
   <div class="container mx-auto">
     <div class="row mx-auto align-items-center h-100">
-      <div class="d-flex align-items-center justify-content-center flex-row">
-        <form action="/resultados" method="GET">
-          <input type="text" class="form-control" id="rooms-search" name="search">
-          <button type="submit" id="search-button" class="btn btn-danger">Buscar</button>
-        </form>
-      </div>
-    </div>
+  <div class="d-flex align-items-center justify-content-center flex-column">
+    <form action="/resultados" method="GET" class="d-flex align-items-center">
+      <input type="text" class="form-control me-3" id="rooms-search" name="search">
+      <button type="submit" id="search-button" class="btn btn-primary search-btn">Buscar</button>
+    </form>
   </div>
 </div>
 
-<div class="container w-75 mt-5 section-body">
+  </div>
+</div>
 
-  <h1>Los juegos que mas gustan</h1>
+
+<div class="container home-container w-75 mt-5 section-body">
+
+  <div class="d-flex align-items-center mb-4">
+    <i class="me-2 bi bi-heart-fill" style="color: rgb(237, 198, 70)"></i>
+    <h1>Los juegos que más gustan: </h1>
+  </div>
   {{#if mostLiked}}
 
   <div class="room-card mb-4 flex-sm-row">
@@ -29,8 +34,12 @@
 
 </div>
 
-<div class="container w-75">
-  <h1>Los jugadores que mas juegos han hecho</h1>
+<div class="container home-container w-75">
+  <div class="d-flex align-items-center mt-4 mb-4">
+    <i class="me-2 bi bi-shift-fill" style="color: rgb(237, 198, 70)"></i>
+    <h1>Los jugadores que más juegos han hecho: </h1>
+  </div>
+
   {{#if lastPlayers}}
 
   <div class="room-card mb-4 flex-sm-row">
@@ -49,8 +58,11 @@
 
 </div>
 
-<div class="container w-75 mt-5 section-body">
-  <h1>Novedades</h1>
+<div class="container home-container w-75">
+  <div class="d-flex align-items-center mt-4 mb-4">
+    <i class="me-2 bi bi-bell-fill" style="color: rgb(237, 198, 70)"></i>
+    <h1>Novedades: </h1>
+  </div>
   {{#if lastRooms}}
 
   <div class="room-card mb-4 flex-sm-row">
@@ -62,8 +74,11 @@
 
 </div>
 
-<div class="container w-75 mt-5 section-body">
-  <h1>Recomendaciones</h1>
+<div class="container home-container w-75">
+  <div class="d-flex align-items-center mt-4 mb-4">
+    <i class="me-2 bi bi-hand-thumbs-up-fill" style="color: rgb(237, 198, 70)"></i>
+    <h1>Recomendaciones: </h1>
+  </div>
   {{#if hasCity}}
 
   <div class="room-card mb-4 flex-sm-row">
@@ -75,8 +90,11 @@
 
 </div>
 
-<div class="container w-75 mt-5 section-body">
-  <h1>Nuevas empresas</h1>
+<div class="container home-container w-75 section-body">
+  <div class="d-flex align-items-center mt-4 mb-4">
+    <i class="me-2 bi bi-bell-fill" style="color: rgb(237, 198, 70)"></i>
+    <h1>Nuevas empresas: </h1>
+  </div>
   {{#if lastCompanies}}
   <div class="room-card mb-4 flex-sm-row">
     {{#each lastCompanies}}

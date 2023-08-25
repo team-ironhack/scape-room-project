@@ -96,7 +96,7 @@
   </div>
 
   <!-- INPUT LOCALIZACIÓN -->
-
+  {{#unless isEdit}}
   <div class="form-group mb-1">
     <label for="address">Localización</label>
     <input
@@ -116,7 +116,8 @@
   <input name="locationData" type="hidden" id="mapbox-autofill-location">
   <input name="address" type="hidden" id="mapbox-autofill-address">
 
-  <div id="minimap-container" class="hidden"></div>
+  <div id="minimap-container" class="hidden"></div>ç
+  {{/unless}}
 
   <div class="mb-3">
     <label for="website" class="form-label">Página web</label>

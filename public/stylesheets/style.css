@@ -141,8 +141,6 @@ footer i {
     border-bottom: solid 1px #FFD321
 }
 
-
-
 .google-btn-container,
 .login-btn-container,
 .register-btn-container {
@@ -170,14 +168,16 @@ footer i {
     font-weight: bold;
 }
 
-.see-more-btn {
+.see-more-btn, .search-btn, .comment-btn {
     background-color: #FFD321;
     border: none;
     color: #333;
     font-weight: bold;
 }
 
-.see-more-btn:hover {
+.see-more-btn:hover,
+.search-btn:hover,
+.comment-btn:hover {
     background-color: #FFD76B;
     border: none;
     color: #333;
@@ -218,7 +218,6 @@ footer i {
 }
 
 .role-btn:hover {
-
     background-color: #FFD76B;
     color: #333;
     font-weight: bold;
@@ -258,9 +257,15 @@ footer i {
     color: #cdcdca;
 }
 
-.form-select option:hover
-.form-select option:focus {
-    background-color: #FFD321 !important
+.forms-container input[type="file"]:before{
+    content: 'Seleccionar archivo';
+    color: #cdcdca;
+}
+
+.form-select option:hover {
+    background-color: #FFD321 !important;
+    outline: none !important;
+    border: none !important;
 }
 
 .login-container input::placeholder,
@@ -278,12 +283,16 @@ footer i {
 /* COMPANY DETAIL Y PROFILE */
 
 .company-detail h1,
-.company-profile h1 {
+.company-profile h1,
+.home-container h1,
+.container h1{
     border-bottom: solid 1px #FFD321;
     display: inline-block;
 }
 
-.company-info {
+.company-info,
+.room-detail p,
+.room-comment {
     color: #cdcdca;
 }
 

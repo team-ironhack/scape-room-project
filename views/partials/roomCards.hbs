@@ -1,7 +1,7 @@
 <div class="card mb-5">
       <img src="{{room.image}}" class="card-img-top img-cards" alt="{{room.name}}">
       <div class="card-body">
-{{#unless currentUser.isCompany}}
+      {{#unless currentUser.isCompany}}
        <div class="pb-2"><button data-user="{{currentUser._id}}" data-name="{{room.name}}" data-id="{{room._id}}" type="submit"
           class="like-button"><i
             class="bi {{#playerLikedRoom likes=likes room=room}} bi-heart-fill {{else}} bi-heart {{/playerLikedRoom}}"
@@ -15,7 +15,7 @@
             class="bi {{#playerDoneRoom dones=dones room=room}} bi-check-circle-fill {{else}} bi-check-circle {{/playerDoneRoom}}"
             style="color: rgb(114, 206, 134)"></i></button>
             </div> 
-        {{/unless}}  
+      {{/unless}}  
 
         <h5 class="card-title fw-semibold">{{room.name}}</h5>
         <a class="company-link" href="/company/{{room.company._id}}">

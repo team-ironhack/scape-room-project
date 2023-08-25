@@ -5,67 +5,65 @@
   <section class="company-section">
     {{#if companies}}
     <h1>Resultados para la búsqueda "{{search}}"</h1>
-    <H1>Empresas</H1>
+    <div class="mt-3">
+    <h1>Empresas:</h1>
     {{#each companies }}
-    <div class="card" style="width: 18rem;">
-      <img src="{{this.avatar}}" class="card-img-top" alt="...">
+     <div class="room-card card mb-5">
+      <img src="{{this.avatar}}" class=" company-img-cards card-img-top img-cards" alt="...">
       <div class="card-body">
-        <h5 class="card-text">{{this.companyName}}</h5>
-        <p class="card-text">{{company.city}}</p>
-        <a href="/company/{{this._id}}" class="btn btn-primary">ver más</a>
+        <h5 class="card-title fw-semibold">{{this.companyName}}</h5>
+        <p class="card-text">{{this.city}}</p>
+        <p class="card-text">{{this.phone}}</p>
+        <p class="card-text">{{this.website}}</p>
+        <a href="/company/{{this._id}}" class="btn see-more-btn">Ver más</a>
       </div>
     </div>
     {{/each}}
-    <H1>Salas</H1>
+    <div class="mt-4">
+    <h1>Salas:</h1>
     {{#each companies }}
-    {{#each this.rooms}}
-    <div class="card" style="width: 18rem;">
-      <img src="{{this.image}}" class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">{{this.name}}</h5>
-        <a href="/company/{{company._id}}">
-          <p class="card-text">{{company.companyName}}</p>
-        </a>
-        <p class="card-text">{{company.city}}</p>
-        <a href="/room/{{this._id}}" class="btn btn-primary">ver más</a>
-      </div>
+    <div class="room-card mb-4 mt-3 flex-sm-row">
+      {{#each this.rooms as |room|}}
+        {{>roomCards room=room currentUser=../currentUser likes=../likes marks=../marks dones=../dones}}
+      {{/each}}
     </div>
     {{/each}}
-    {{/each}}
+    </div>
+    </div>
     {{/if}}
   </section>
 
+  
   <section class="company-section">
-
     {{#if rooms}}
     <h1>Resultados para la búsqueda "{{search}}"</h1>
-    <H1>Salas</H1>
-    {{#each rooms }}
-    <div class="card" style="width: 18rem;">
-      <img src="{{this.image}}" class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">{{this.name}}</h5>
-        <a href="/company/{{company._id}}">
-          <p class="card-text">{{company.companyName}}</p>
-        </a>
-        <p class="card-text">{{company.city}}</p>
-        <a href="/room/{{this._id}}" class="btn btn-primary">ver más</a>
-      </div>
+    <div class="mt-3">
+      <h1>Salas:</h1>
+        <div class="room-card mb-4 mt-3 flex-sm-row">
+        {{#each rooms as | room |}}
+          {{>roomCards room=room currentUser=../currentUser likes=../likes marks=../marks dones=../dones}}
+        {{/each}}
+        </div>
     </div>
-    {{/each}}
-    <H1>Empresas</H1>
+    <div class="mt-4">
+    <h1>Empresas:</h1>
     {{#each rooms}}
-    <div class="card" style="width: 18rem;">
-      <img src="{{this.company.avatar}}" class="card-img-top" alt="...">
+     <div class="card mt-4 mb-5">
+      <img src="{{this.company.avatar}}" class=" company-img-cards card-img-top img-cards" alt="...">
       <div class="card-body">
-        <h5 class="card-text">{{this.company.companyName}}</h5>
+        <h5 class="card-title fw-semibold">{{this.company.companyName}}</h5>
         <p class="card-text">{{this.company.city}}</p>
-        <a href="/company/{{this.company._id}}" class="btn btn-primary">ver más</a>
+        <p class="card-text">{{this.company.phone}}</p>
+        <p class="card-text">{{this.company.website}}</p>
+        <a href="/company/{{this._id}}" class="btn see-more-btn">Ver más</a>
       </div>
     </div>
     {{/each}}
+    </div>
     {{/if}}
   {{/if}}  
 
   </section>
 </div>
+
+<script src="/js/cards-btns.js"></script>

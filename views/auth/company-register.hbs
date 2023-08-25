@@ -1,12 +1,20 @@
 <script id="search-js" src="https://api.mapbox.com/search-js/v1.0.0-beta.17/web.js" defer></script>
 
 
+{{#if isEdit}}
 
-<div class="fondo-content ">
+  {{> navbar }}
+  <div class="fondo-content ">
+  <div class="register-container mt-4 mb-4">
+
+{{else}}
+  <div class="fondo-content ">
   <div class="register-container mt-4 mb-4">
     <div>
       <img src="/images/IRONSCAPES-HORIZONTAL.png" alt="Logo" width="200">
     </div>
+{{/if}}
+
 
   {{#if isEdit}}
   <h1 class="mt-4 mb-4 forms-tittle register-title">Edita tu perfil</h1>
@@ -164,6 +172,13 @@
     </div> 
 </div>
 </div>
+
+{{#if isEdit}}
+  {{> footer }}
+{{else}}
+
+{{/if}}
+
 
 <script>
   const ACCESS_TOKEN = 'pk.eyJ1IjoiY2RlbGF0b3JyZSIsImEiOiJja3Y5bHJ6ZzcweG0yMnZtZzI4eXJna2UxIn0.m-OWQWPhRrb5ZNRz0M9AqQ';

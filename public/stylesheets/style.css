@@ -17,7 +17,7 @@ body {
     scroll-behavior: smooth;
     background-image: url(../images/fondo-amarillo.jpg);
     background-size: cover;
-    background-repeat: no-repeat;
+    background-repeat: repeat;
     background-attachment: fixed;
 }
 
@@ -118,7 +118,7 @@ footer i {
     overflow: auto;
 
     position: fixed;
-    top: 100px;
+    top: 25px;
 }
 
 .register-container,
@@ -433,9 +433,10 @@ footer i {
 .room-card {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: flex-start;
     flex-wrap: wrap;
+    gap: 25px;
 }
 
 .search-section {
@@ -495,15 +496,6 @@ footer i {
 @media (max-width: 768px) {
     .login-container {
         top: 100px;
-    }
-    .role-btns-container {
-        flex-direction: column ;
-    }
-    .role-btn {
-        width: 200px;
-        margin-top: 5px;  
-        margin-bottom: 5px; 
-
     }
   }
   

@@ -95,6 +95,7 @@ module.exports.companyDetail = (req, res, next) => {
 // Mostrar form para editar perfil
 module.exports.editCompanyProfile = (req, res, next) => {
   const { id } = req.params
+  
   Company.findById(id)
     .then((user) => {
       res.render('auth/company-register', { user, isEdit: true, hiddenNav: true })
@@ -116,7 +117,12 @@ module.exports.doEditCompanyProfile = (req, res, next) => {
 
   const { id } = req.params
 
-  Company.findByIdAndUpdate(id, req.body, { new: true })
+  const data = {
+    ...req.body,
+    image: req.file ? req.file.path : undefined,
+  };
+
+  Company.findByIdAndUpdate(id, data, { new: true })
     .then(user => {
       console.log(`el usuario empresa ${user.name} se actualizó`)
       res.redirect(`/company/profile/${user.id}`)
@@ -260,7 +266,12 @@ module.exports.doEditPlayerProfile = (req, res, next) => {
 
         const { id } = req.params
 
-        Player.findByIdAndUpdate(id, req.body, { new: true })
+        const data = {
+          ...req.body,
+          image: req.file ? req.file.path : undefined,
+        };
+
+        Player.findByIdAndUpdate(id, data, { new: true })
           .then(user => {
             console.log(`el usuario jugador ${user.name} se actualizó`)
             res.redirect(`/player/profile/${user.id}`)

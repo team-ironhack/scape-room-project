@@ -125,9 +125,12 @@ module.exports.doEditRoom = (req, res, next) => {
     });
   };
 
-  console.log(req.body)
+  const data = {
+    ...req.body,
+    image: req.file ? req.file.path : undefined,
+  };
 
-  Room.findByIdAndUpdate(id, req.body, { new: true })
+  Room.findByIdAndUpdate(id, data, { new: true })
     .then((room) => {
       console.log(`la sala ${room.name} ha sido editada`)
       res.redirect(`/room/${room.id}`);

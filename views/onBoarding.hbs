@@ -2,12 +2,12 @@
   <img class="p-3" src="/images/IRONSCAPES-HORIZONTAL.png" alt="Logo" width="200">
 <form action="/onboarding" method="POST">
       <div class="mb-3">
-        <label for="message" class="form-label">Pon contraseña y entra</label>
-        <input class="form-control {{#if errors.message}}is-invalid{{/if}}" name="message" type="text" id="message"
-          placeholder="Escribe tu respuesta" value="{{comment.message}}" required>
-        {{#if errors.message}}
+        <label for="puzzle" class="form-label">Pon contraseña y entra</label>
+        <input class="form-control {{#if errors.puzzle}}is-invalid{{/if}}" name="puzzle" type="text" id="puzzle"
+          placeholder="Escribe tu respuesta" value="{{comment.puzzle}}" required>
+        {{#if errors.puzzle}}
         <div class="invalid-feedback">
-          {{errors.message}}
+          {{errors.puzzle}}
         </div>
         {{/if}}
       </div>

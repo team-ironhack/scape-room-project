@@ -24,13 +24,13 @@ module.exports.puzzle = (req, res, next) => {
 
 module.exports.doPuzzle = (req, res, next) => {
 
-  const userInput = req.body.message;
+  const userInput = req.body.puzzle;
 
   if (userInput && (userInput.toLowerCase() === 'contraseña')) {
     res.redirect('/login');
 
   } else {
-    res.render('onboarding', { comment: { message: userInput }, errors: { message: 'Respuesta incorrecta' } });
+    res.render('onboarding', { hiddenNav: true }, { comment: { puzzle: userInput }, errors: { puzzle: 'Respuesta incorrecta' }});
   }
 }
 

@@ -5,7 +5,8 @@
   <section class="company-section">
     {{#if companies}}
     <h1>Resultados para la búsqueda "{{search}}"</h1>
-    <H1>Empresas</H1>
+    <div><H1>Empresas</H1>
+    <div class="room-card mb-4 flex-sm-row">
     {{#each companies }}
     <div class="card" style="width: 18rem;">
       <img src="{{this.avatar}}" class="card-img-top" alt="...">
@@ -16,7 +17,10 @@
       </div>
     </div>
     {{/each}}
-    <H1>Salas</H1>
+    </div>
+    </div>
+   <div> <H1>Salas</H1>
+   <div class="room-card mb-4 flex-sm-row">
     {{#each companies }}
     {{#each this.rooms}}
     <div class="card" style="width: 18rem;">
@@ -32,6 +36,8 @@
     </div>
     {{/each}}
     {{/each}}
+    </div>
+    </div>
     {{/if}}
   </section>
 

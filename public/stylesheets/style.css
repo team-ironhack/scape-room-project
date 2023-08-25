@@ -294,7 +294,8 @@ footer i {
 
 .company-info,
 .room-detail p,
-.room-comment {
+.room-comment,
+.info-player-container p {
     color: #cdcdca;
 }
 
@@ -320,6 +321,14 @@ footer i {
     width: 300px;
 }
 
+/* PLAYER DETAIL Y PROFILE */
+.player-avatar {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: solid 3px #FFD321;
+}
 
 /* PÁGINA GRACIAS */
 .gracias-container {

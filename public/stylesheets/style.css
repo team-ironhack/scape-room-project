@@ -432,6 +432,7 @@ footer i {
 
 .room-card {
     display: flex;
+    flex-direction: row;
     justify-content: space-between;
     align-items: flex-start;
     flex-wrap: wrap;
@@ -488,22 +489,32 @@ footer i {
     color: rgb(237, 198, 70)
 }
 
+
 /*MEDIA QUERY*/
 /* MOBILE */
 @media (max-width: 768px) {
     .login-container {
         top: 100px;
     }
-}
+    .role-btns-container {
+        flex-direction: column ;
+    }
+    .role-btn {
+        width: 200px;
+        margin-top: 5px;  
+        margin-bottom: 5px; 
 
-/* TABLET */
-@media (min-width: 769px) and (max-width: 1280px) {
-  .login-container {
-      top: 25px;
+    }
   }
-}
-
-/* DESKTOP */
-@media (min-width: 1281px) {
-  /* Estilos específicos para pantallas grandes */
-}
+  
+  /* TABLET */
+  @media (min-width: 769px) and (max-width: 1280) {
+    .login-container {
+        top: 25px;
+    }
+  }
+  
+  /* DESKTOP */
+  @media (min-width: 1281) {
+   
+  }

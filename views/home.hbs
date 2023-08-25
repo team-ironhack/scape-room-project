@@ -50,7 +50,9 @@
         <h6 class="card-text">{{this.doneCount}} juegos</h6>
         </div>
         <p class="card-text">{{this.city}}</p>
-        <a href="/player/{{this._id}}" class="btn see-more-btn">Ver más</a>
+  
+            <a href="/player/{{this._id}}" class="btn see-more-btn">Ver perfil</a> 
+
       </div>
     </div>
     {{/each}}
@@ -83,10 +85,12 @@
   {{#if hasCity}}
 
   <div class="room-card mb-4 flex-sm-row">
-    {{#each hasCity as |room| }}
-    {{>roomCards room=room currentUser=../currentUser likes=../likes marks=../marks dones=../dones}}
+    {{#each hasCity }}
+    {{>roomCards room=this currentUser=../currentUser likes=../likes marks=../marks dones=../dones}}
     {{/each}}
   </div>
+  {{else}}
+  No hay salas cerca de ti
   {{/if}}
 
 </div>

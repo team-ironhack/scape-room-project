@@ -90,7 +90,8 @@ module.exports.list = (req, res, next) => {
           sort: { createdAt: 'desc' },
         },
         populate: ['company', 'likes', 'marks', 'dones'],
-      }),
+      })
+      .exec(),
     Company.find()
       .populate({
         path: 'rooms',
@@ -99,8 +100,9 @@ module.exports.list = (req, res, next) => {
       .limit(3).sort({ createdAt: 'descending' })
   ]
   Promise.all(promises)
-    .then(([likedRooms, jugadores, añadidas, cityRooms, empresas]) => {
+    .then(([likedRooms, jugadores, añadidas, cityRoomsResult, empresas]) => {
       const roomIds = likedRooms.map(room => room._id);
+      const cityRooms = cityRoomsResult ? cityRoomsResult.rooms : [];
       return Room.find({ _id: { $in: roomIds } })
         .populate('company likes marks dones')
         .then((populatedRooms) => {
@@ -110,7 +112,15 @@ module.exports.list = (req, res, next) => {
                 .then((marks) => {
                   Done.find({ player: req.user._id })
                     .then((dones) => {
-                      res.render('home', { mostLiked: populatedRooms, lastPlayers: jugadores, lastRooms: añadidas, hasCity: cityRooms.rooms, likes: likes, marks: marks, dones: dones, lastCompanies: empresas })
+                      res.render('home', { 
+                        mostLiked: populatedRooms,
+                        lastPlayers: jugadores,
+                        lastRooms: añadidas,
+                        hasCity: cityRooms,
+                        likes: likes,
+                        marks: marks,
+                        dones: dones,
+                        lastCompanies: empresas })
                     });
                 });
             });

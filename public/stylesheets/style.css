@@ -168,7 +168,8 @@ footer i {
     font-weight: bold;
 }
 
-.see-more-btn, .search-btn, .comment-btn {
+.see-more-btn, .search-btn, .comment-btn,
+.see-all-btn {
     background-color: #FFD321;
     border: none;
     color: #333;
@@ -177,7 +178,8 @@ footer i {
 
 .see-more-btn:hover,
 .search-btn:hover,
-.comment-btn:hover {
+.comment-btn:hover,
+.see-all-btn:hover {
     background-color: #FFD76B;
     border: none;
     color: #333;

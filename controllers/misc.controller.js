@@ -89,7 +89,7 @@ module.exports.list = (req, res, next) => {
         limit: 3,
         sort: { createdAt: 'desc' },
       },
-      populate: ['likes', 'marks', 'dones'],
+      populate: ['company', 'likes', 'marks', 'dones'],
     }),
     Company.find()
     .populate({

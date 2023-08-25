@@ -150,15 +150,28 @@ module.exports.results = (req, res, next) => {
     .populate('rooms')
     .then(companies =>
       Room.find(roomCriteria)
-        .populate('company')
+        .populate('company likes marks dones')
         .then(rooms => {
-          const noResults = companies.length <= 0 && rooms.length <= 0
-          res.render('results', {
-            companies,
-            rooms,
-            search,
-            noResults
-          })
+          Like.find({ player: req.user._id })
+            .then(likes => {
+              Mark.find({ player: req.user._id })
+                .then(marks => {
+                  Done.find({ player: req.user._id })
+                    .then(dones => {
+                      const noResults = companies.length <= 0 && rooms.length <= 0
+                      res.render('results', {
+                        companies,
+                        rooms,
+                        search,
+                        noResults,
+                        likes,
+                        marks,
+                        dones
+                      })
+                    })
+
+                })
+            })
         })
         .catch(error => next(error))
     )

@@ -1,85 +1,83 @@
 <div class="container w-75">
-<h1 class="mt-3">Perfil de {{player.name}} </h1>
+  <h1 class="mt-3">Perfil de {{player.name}} </h1>
 
-<div class="d-flex align-items-center mt-3 flex-column flex-sm-row">
-  <div class="me-5">
-    <img width='300' src="{{currentUser.avatar}}" alt="" class="player-avatar" referrerpolicy="no-referrer" />
-  </div>
-  <div class="info-player-container">
-    <p>{{currentUser.name}}</p>
-    <div class="d-flex flex-row g-3">
+  {{#if player}}
+  <div class="d-flex align-items-center mt-3 flex-column flex-sm-row">
+    <div class="me-5">
+      <img width='300' src="{{player.avatar}}" alt="" class="player-avatar" referrerpolicy="no-referrer" />
+    </div>
+    <div class="info-player-container">
+      <h5 class="fw-semibold">{{player.name}}</h5>
+      <div class="d-flex flex-row g-3 mt-3">
         <i class="bi bi-envelope" style="color: #FFD321"></i>
-        <p class="footer-address ms-2">{{currentUser.email}}</p>
-    </div>
-    {{#if currentUser.city}}
-    <div class="d-flex flex-row g-3">
+        <p class="footer-address ms-2">{{player.email}}</p>
+      </div>
+      {{#if player.city}}
+      <div class="d-flex flex-row g-3">
         <i class="bi bi-geo-alt" style="color: #FFD321"></i>
-        <p class="footer-address ms-2">{{currentUser.city}}</p>
-    </div>
-    {{/if}}
-  </div>
-</div>
-
-
-{{#if player}}
-<div class="d-flex align-items-center mt-3 flex-column flex-sm-row">
-  <div class="me-3">
-    <img width='300' src="{{player.avatar}}" alt="" class="player-avatar" referrerpolicy="no-referrer" />
-  </div>
-  <div class="info-player-container">
-    <p>{{player.name}}</p>
-    <p>{{player.email}}</p>
-    {{#if player.city}}<p>{{player.city}}</p>{{/if}}
-  </div>
-</div>
-
-<div class="d-flex mt-3"><i class="me-2 bi bi-heart-fill" style="color: rgb(250, 93, 93)"></i>Salas que le gustan a {{player.name}}:
-<div class="container w-75 mt-5 section-body">
-  {{#if likes}}
-  <div class="swiper">
-    <div class="swiper-wrapper">
-      {{#each likes as |like|}}
-      <div class="swiper-slide">
-        {{>roomCards room=like.room currentUser=../currentUser likes=../userLikes marks=../userMarks dones=../userDones}}
+        <p class="footer-address ms-2">{{player.city}}</p>
       </div>
-      {{/each}}
+      {{/if}}
     </div>
-    <div class="swiper-button-prev"></div>
-    <div class="swiper-button-next"></div>
   </div>
-  {{else}}
-  <p class="mt-4">{{player.name}} todavía no ha indicado que le gusta una sala.</p>
-  {{/if}}
-</div>
-</div>
 
-<div class="d-flex mt-3"><i class="me-2 bi bi-check-circle-fill" style="color: rgb(114, 206, 134)"></i>Salas que {{player.name}} ha hecho:
-<div class="container w-75 mt-5 section-body">
-  {{#if dones}}
-  <div class="swiper">
-    <div class="swiper-wrapper">
-      {{#each dones as |done|}}
-      <div class="swiper-slide">
-        {{>roomCards room=like.room currentUser=../currentUser likes=../userLikes marks=../userMarks dones=../userDones}}
+  <div class="mt-5">
+    <div class="d-flex align-items-center mb-4">
+      <i class="me-2 bi bi-heart-fill" style="color: rgb(250, 93, 93)"></i>
+      <h1>Salas que le gustan a {{player.name}}</h1>
+    </div>
+    <div class="container mt-3 section-body">
+      {{#if likes}}
+      <div class="swiper">
+        <div class="swiper-wrapper">
+          {{#each likes as |like|}}
+          <div class="swiper-slide">
+            {{>roomCards room=like.room currentUser=../currentUser likes=../userLikes marks=../userMarks
+            dones=../userDones}}
+          </div>
+          {{/each}}
+        </div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
       </div>
-      {{/each}}
+        {{else}}
+        <div class="no-results">
+        <p>{{player.name}} todavía no ha marcado que le gusta una sala.</p>
+        </div>
+  {{/if}}
     </div>
-    <div class="swiper-button-prev"></div>
-    <div class="swiper-button-next"></div>
   </div>
 
-  {{else}}
-  <p class="mt-4 ms-5">{{player.name}} no ha marcado ninguna sala como hecha.</p>
+<div class="mt-5 mb-5">
+    <div class="d-flex align-items-center mb-4">
+      <i class="me-2 bi bi-check-circle-fill" style="color: rgb(114, 206, 134)"></i>
+      <h1>Salas que ha hecho {{player.name}}</h1>
+    </div>
+    <div class="container mt-3 section-body">
+      {{#if dones}}
+      <div class="swiper">
+        <div class="swiper-wrapper">
+          {{#each dones as |done|}}
+          <div class="swiper-slide">
+            {{>roomCards room=done.room currentUser=../currentUser likes=../userLikes marks=../userMarks
+            dones=../userDones}}
+          </div>
+          {{/each}}
+        </div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+      </div>
+      {{else}}
+      <div class="no-results">
+        <p>{{player.name}} aún no ha marcado ninguna sala como hecha.</p>
+      </div>
+      {{/if}}
+
+    </div>
+</div>
   {{/if}}
-
-
-
-  {{else}}
-  <p>No hay jugador</p>
-  {{/if}}
 </div>
-</div>
-</div>
+
 
 <script src="/js/cards-btns.js"></script>
 

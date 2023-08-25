@@ -1,11 +1,11 @@
-<div class="container">
+<div class="container w-75">
 
   <h1 class="ms-5 mt-3">{{room.name}}</h1>
 
   <div class="d-flex ms-5 mt-3">
     <div class="me-3">
       <img width='300' src="{{room.image}}" alt="" referrerpolicy="no-referrer" />
-      <div class="rooms-rows mb-4 flex-sm-row g-3">
+      <div class="room-buttons mb-4 flex-sm-row g-3">
         {{#unless currentUser.isCompany}}
         <button data-user="{{currentUser._id}}" data-name="{{room.name}}" data-id="{{room._id}}" type="submit"
           class="like-button"><i
@@ -49,8 +49,7 @@
     <form action="/comments/{{room._id}}" method="POST">
       <div class="mb-3">
         <label for="message" class="form-label"><h1>Deja un comentario sobre tu experiencia en la sala:</h1></label>
-        <input class="form-control {{#if errors.message}}is-invalid{{/if}}" name="message" type="text" id="message"
-          placeholder="" value="{{comment.message}}" required>
+        <textarea class="form-control {{#if errors.message}}is-invalid{{/if}}" name="message" id="message">{{comment.message}}</textarea>
         {{#if errors.message}}
         <div class="invalid-feedback">
           {{errors.message}}
@@ -95,7 +94,7 @@
 
       <!-- Input oculto para almacenar la valoración -->
       <input type="hidden" class="comment-rating" value="{{this._doc.score}}">
-      <p>{{this._doc.message}}</p>
+      <p>{{{this._doc.message}}}</p>
       <p>{{formattedDate}}</p>
       {{#if isCurrentUser}}
       <div class="w-25 btns-row">

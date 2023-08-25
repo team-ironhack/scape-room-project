@@ -1,36 +1,42 @@
 <div class="search-section d-flex">
   <div class="container mx-auto">
     <div class="row mx-auto align-items-center h-100">
-      <div class="d-flex align-items-center justify-content-center flex-row">
-        <form action="/resultados" method="GET">
-          <input type="text" class="form-control" id="rooms-search" name="search">
-          <button type="submit" id="search-button" class="btn btn-danger">Buscar</button>
-        </form>
-      </div>
-    </div>
+  <div class="d-flex align-items-center justify-content-center flex-column">
+    <form action="/resultados" method="GET" class="d-flex align-items-center">
+      <input type="text" class="form-control me-3" id="rooms-search" name="search">
+      <button type="submit" id="search-button" class="btn btn-primary search-btn">Buscar</button>
+    </form>
   </div>
 </div>
 
-<div class="container w-75 mt-5 section-body">
+  </div>
+</div>
 
-  <h1>Los juegos que mas gustan</h1>
+
+<div class="container home-container w-75 mt-5 section-body">
+  <div class="d-flex align-items-center mb-4">
+    <i class="me-2 bi bi-heart-fill" style="color: rgb(237, 198, 70)"></i>
+    <h1>Los juegos que más gustan: </h1>
+  </div>
   {{#if mostLiked}}
 
-  <div class="room-card mb-4 flex-sm-row">
+  <div class="room-card flex-sm-row">
     {{#each mostLiked as |room|}}
     {{>roomCards room=room currentUser=../currentUser likes=../likes marks=../marks dones=../dones}}
     {{/each}}
   </div>
-  <a class="btn edit-btn" href="/edit/room/{{this._id}}">
-            <i class="bi bi-pencil-square"></i> Ver todos</a>
+  <div class="d-flex mb-4 justify-content-center">
+    <a class="btn see-all-btn" href="/scape-rooms">Ver todos</a>
+  </div>
   {{/if}}
-
-
-
 </div>
 
-<div class="container w-75">
-  <h1>Los jugadores que mas juegos han hecho</h1>
+<div class="container home-container w-75">
+  <div class="d-flex align-items-center mt-4 mb-4">
+    <i class="me-2 bi bi-shift-fill" style="color: rgb(237, 198, 70)"></i>
+    <h1>Los jugadores que más juegos han hecho: </h1>
+  </div>
+
   {{#if lastPlayers}}
 
   <div class="room-card mb-4 flex-sm-row">
@@ -38,9 +44,13 @@
     <div class="card" style="width: 18rem;">
       <img src="{{this.avatar}}" class="card-img-top img-cards" alt="...">
       <div class="card-body">
-        <h5 class="card-title">{{this.name}}</h5>
+        <h5 class="card-title fw-semibold">{{this.name}}</h5>
+        <div class="d-flex align-items-center">
+        <i class="bi bi-check-circle-fill me-2" style="color: rgb(114, 206, 134)"></i>
+        <h6 class="card-text">{{this.doneCount}} juegos</h6>
+        </div>
         <p class="card-text">{{this.city}}</p>
-        <a href="/player/{{this._id}}" class="btn btn-primary">ver más</a>
+        <a href="/player/{{this._id}}" class="btn see-more-btn">Ver más</a>
       </div>
     </div>
     {{/each}}
@@ -49,8 +59,11 @@
 
 </div>
 
-<div class="container w-75 mt-5 section-body">
-  <h1>Novedades</h1>
+<div class="container home-container w-75">
+  <div class="d-flex align-items-center mt-4 mb-4">
+    <i class="me-2 bi bi-bell-fill" style="color: rgb(237, 198, 70)"></i>
+    <h1>Novedades: </h1>
+  </div>
   {{#if lastRooms}}
 
   <div class="room-card mb-4 flex-sm-row">
@@ -62,8 +75,11 @@
 
 </div>
 
-<div class="container w-75 mt-5 section-body">
-  <h1>Recomendaciones</h1>
+<div class="container home-container w-75">
+  <div class="d-flex align-items-center mt-4 mb-4">
+    <i class="me-2 bi bi-hand-thumbs-up-fill" style="color: rgb(237, 198, 70)"></i>
+    <h1>Recomendaciones: </h1>
+  </div>
   {{#if hasCity}}
 
   <div class="room-card mb-4 flex-sm-row">
@@ -75,17 +91,22 @@
 
 </div>
 
-<div class="container w-75 mt-5 section-body">
-  <h1>Nuevas empresas</h1>
+<div class="container home-container w-75 section-body">
+  <div class="d-flex align-items-center mt-4 mb-4">
+    <i class="me-2 bi bi-bell-fill" style="color: rgb(237, 198, 70)"></i>
+    <h1>Nuevas empresas: </h1>
+  </div>
   {{#if lastCompanies}}
   <div class="room-card mb-4 flex-sm-row">
     {{#each lastCompanies}}
     <div class="card" style="width: 18rem;">
       <img src="{{this.avatar}}" class="card-img-top img-cards" alt="...">
       <div class="card-body">
-        <h5 class="card-title">{{this.companyName}}</h5>
+        <h5 class="card-title fw-semibold">{{this.companyName}}</h5>
         <p class="card-text">{{this.city}}</p>
-        <a href="/company/{{this._id}}" class="btn btn-primary">ver más</a>
+        <p class="card-text">{{this.phone}}</p>
+        <p class="card-text">{{this.website}}</p>
+        <a href="/company/{{this._id}}" class="btn see-more-btn">Ver más</a>
       </div>
     </div>
     {{/each}}

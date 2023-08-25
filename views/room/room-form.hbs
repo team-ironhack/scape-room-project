@@ -23,7 +23,7 @@
 
             <div class="mb-3">
                 <label for="players" class="form-label">Número de jugadores</label>
-                <select class="form-select{{#if errors.players}} is-invalid{{/if}}" value="{{room.players}}"
+                <select class="custom-select form-select{{#if errors.players}} is-invalid{{/if}}" value="{{room.players}}"
                     name="players">
                     <option>-- Selecciona el número de jugadores --</option>
                     {{#each playerNum}}

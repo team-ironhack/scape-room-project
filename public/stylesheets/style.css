@@ -35,6 +35,10 @@ h1 {
     color: #cdcdca !important;
 }
 
+.navbar-toggler-icon {
+    background-color: #FFD321 !important;
+}
+
 .nav-btn:hover {
     color: #FFD321 !important;
 }
@@ -51,6 +55,7 @@ h1 {
 .dropdown-item:hover {
     background-color: #040404 !important;
 }
+
 
 /* FOOTER */
 
@@ -561,6 +566,15 @@ footer i {
 
 .comment-date {
     font-size: 12px;
+}
+
+.comment-img {
+    border: 2px solid #FFD321;
+    object-fit: cover
+}
+
+.no-comments {
+    color: #cdcdca
 }
 
 /*MEDIA QUERY*/

@@ -48,6 +48,8 @@
     {{/if}}
   </div>
 
+  {{#if isEdit}}
+  {{else}}
   <div class="mb-3">
     <label for="password" class="form-label">Contraseña</label>
     <input
@@ -73,6 +75,7 @@
       </div>
     {{/if}}
   </div>
+  {{/if}}
 
   <div class="mb-3">
     <label for="city" class="form-label">Ciudad</label>
@@ -91,7 +94,7 @@
 
   <div class="mb-3">
     <label for="avatar" class="form-label">Avatar</label>
-    <input class="form-control {{#if errors.avatar}}is-invalid{{/if}}" type="file" id="avatar" name="avatar">
+    <input class="form-control {{#if errors.avatar}}is-invalid{{/if}}" type="file" id="avatar" name="avatar" value="{{user.avatar}}">
     {{#if errors.avatar}}
       <div class="invalid-feedback">
         {{errors.avatar}}

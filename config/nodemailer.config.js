@@ -26,7 +26,7 @@ module.exports.sendValidationEmailPlayer = (user) => {
     const html = template({ activationLink, user: userData });
 
     transporter.sendMail({
-        from: `Scape <${email}>`,
+        from: `IronScapes <${email}>`,
         to: user.email,
         subject: '¡Bienvenide a IronScapes!',
         html: html
@@ -52,7 +52,7 @@ module.exports.sendValidationEmailCompany = (user) => {
     const html = template({ activationLink, user: userData });
 
     transporter.sendMail({
-        from: `Scape <${email}>`,
+        from: `IronScapes <${email}>`,
         to: user.email,
         subject: '¡Bienvenide a IronScapes!',
         html: html

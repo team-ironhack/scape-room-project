@@ -90,8 +90,8 @@
     {{#if comments.length}}
 
     {{#each comments}}
-    <div class="comment">
-      <img src="{{this._doc.player.avatar}}" style="width: 85px; height: 85px; border-radius: 50px;" alt="">
+    <div class="room-comment">
+      <img class="comment-img mb-2" src="{{this._doc.player.avatar}}" style="width: 85px; height: 85px; border-radius: 50px;" alt="">
       <h5>{{this._doc.player.name}}</h5>
       <div class="comment-stars">
         <i class="bi bi-star"></i>
@@ -118,7 +118,7 @@
     </div>
     {{/each}}
     {{else}}
-    <p>No hay comentarios todavía</p>
+    <p class="no-comments">No hay comentarios todavía.</p>
     {{/if}}
   </div>
 

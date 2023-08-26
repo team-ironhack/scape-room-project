@@ -51,6 +51,8 @@
     {{/if}}
   </div>
 
+  {{#if isEdit}}
+  {{else}}
   <div class="mb-3">
     <label for="password" class="form-label">Contraseña</label>
     <input
@@ -76,6 +78,7 @@
       </div>
     {{/if}}
   </div>
+  {{/if}}
 
   <div class="mb-3">
     <label for="province" class="form-label">Provincia</label>

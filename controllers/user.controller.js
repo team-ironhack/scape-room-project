@@ -119,7 +119,7 @@ module.exports.doEditCompanyProfile = (req, res, next) => {
 
   const data = {
     ...req.body,
-    image: req.file ? req.file.path : undefined,
+    avatar: req.file ? req.file.path : undefined,
   };
 
   Company.findByIdAndUpdate(id, data, { new: true })
@@ -268,7 +268,7 @@ module.exports.doEditPlayerProfile = (req, res, next) => {
 
         const data = {
           ...req.body,
-          image: req.file ? req.file.path : undefined,
+          avatar: req.file ? req.file.path : undefined,
         };
 
         Player.findByIdAndUpdate(id, data, { new: true })

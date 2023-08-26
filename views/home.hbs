@@ -1,13 +1,13 @@
 <div class="search-section d-flex">
   <div class="container mx-auto">
     <div class="row mx-auto align-items-center h-100">
-  <div class="d-flex align-items-center justify-content-center flex-column">
-    <form action="/resultados" method="GET" class="d-flex align-items-center">
-      <input type="text" class="form-control me-3" id="rooms-search" name="search">
-      <button type="submit" id="search-button" class="btn btn-primary search-btn">Buscar</button>
-    </form>
-  </div>
-</div>
+      <div class="d-flex align-items-center justify-content-center flex-column">
+        <form action="/resultados" method="GET" class="d-flex align-items-center">
+          <input type="text" class="form-control me-3" id="rooms-search" name="search">
+          <button type="submit" id="search-button" class="btn btn-primary search-btn">Buscar</button>
+        </form>
+      </div>
+    </div>
 
   </div>
 </div>
@@ -19,17 +19,17 @@
     <h1>Los juegos que más gustan: </h1>
   </div>
   <div class="d-flex flex-column align-content-center">
-  {{#if mostLiked}}
+    {{#if mostLiked}}
 
-  <div class="room-card flex-sm-row">
-    {{#each mostLiked as |room|}}
-    {{>roomCards room=room currentUser=../currentUser likes=../likes marks=../marks dones=../dones}}
-    {{/each}}
-  </div>
-  <div class="d-flex mb-4 justify-content-center">
-    <a class="btn see-all-btn" href="/scape-rooms">Ver todos</a>
-  </div>
-  {{/if}}
+    <div class="room-card flex-sm-row">
+      {{#each mostLiked as |room|}}
+      {{>roomCards room=room currentUser=../currentUser likes=../likes marks=../marks dones=../dones}}
+      {{/each}}
+    </div>
+    <div class="d-flex mb-4 justify-content-center">
+      <a class="btn see-all-btn" href="/scape-rooms">Ver todos</a>
+    </div>
+    {{/if}}
   </div>
 </div>
 
@@ -48,12 +48,12 @@
       <div class="card-body">
         <h5 class="card-title fw-semibold">{{this.name}}</h5>
         <div class="d-flex align-items-center">
-        <i class="bi bi-check-circle-fill me-3" style="color: rgb(114, 206, 134)"></i>
-        <h6 class="card-text">{{this.doneCount}} juegos</h6>
+          <i class="bi bi-check-circle-fill me-3" style="color: rgb(114, 206, 134)"></i>
+          <h6 class="card-text">{{this.doneCount}} juegos hechos</h6>
         </div>
         <p class="card-text">{{this.city}}</p>
-  
-            <a href="/player/{{this._id}}" class="btn see-more-btn">Ver perfil</a> 
+
+        <a href="/player/{{this._id}}" class="btn see-more-btn">Ver perfil</a>
 
       </div>
     </div>
@@ -97,27 +97,38 @@
 
 </div>
 
-<div class="container home-container w-75 section-body">
-  <div class="d-flex align-items-center mt-4 mb-4">
+<div class="container home-container w-75 mt-5 section-body ">
+  <div class="d-flex align-items-center mb-4">
     <i class="me-2 bi bi-bell-fill" style="color: rgb(237, 198, 70)"></i>
     <h1>Nuevas empresas: </h1>
   </div>
-  {{#if lastCompanies}}
-  <div class="room-card mb-4 flex-sm-row">
-    {{#each lastCompanies}}
-    <div class="card" style="width: 18rem;">
-      <img src="{{this.avatar}}" class=" company-img-cards" alt="...">
-      <div class="card-body">
-        <h5 class="card-title fw-semibold">{{this.companyName}}</h5>
-        <p class="card-text">{{this.city}}</p>
-        <p class="card-text">{{this.phone}}</p>
-        <p class="card-text">{{this.website}}</p>
-        <a href="/company/{{this._id}}" class="btn see-more-btn">Ver más</a>
+    <div class="d-flex flex-column align-content-center">
+      {{#if lastCompanies}}
+      <div class="room-card mb-4 flex-sm-row">
+        {{#each lastCompanies}}
+        <div class="card mb-3 company-card">
+          <a href="/company/{{this._id}}"></a><img src="{{this.avatar}}"
+            class="company-img-cards card-img-top img-cards" alt="{{this.companyName}}"></a>
+          <div class="card-body">
+            <h5 class="card-title fw-semibold">{{this.companyName}}</h5>
+            <p class="card-text"><i class="bi bi-geo-alt"></i>{{this.city}}</p>
+            <p class="card-text"><i class="bi bi-telephone"></i>{{this.phone}}</p>
+            <a href="{{this.website}}" class="card-text company-web">
+              <p><i class="bi bi-globe"></i>{{this.website}}</p>
+            </a>
+            <a href="/company/{{this._id}}" class="btn see-more-btn">Ver más</a>
+          </div>
+        </div>
+        {{/each}}
       </div>
+      <div class="d-flex mb-4 justify-content-center">
+        <a class="btn see-all-btn" href="/scape-rooms">Ver todos</a>
+      </div>
+      {{/if}}
     </div>
-    {{/each}}
   </div>
-  {{/if}}
+  </div>
+
 
 </div>
 

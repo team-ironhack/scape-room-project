@@ -1,5 +1,5 @@
 <div class="card mb-3">
-      <img src="{{room.image}}" class="card-img-top img-cards" alt="{{room.name}}">
+      <a href="/room/{{room._id}}"><img src="{{room.image}}" class="card-img-top img-cards" alt="{{room.name}}"></a>
       <div class="card-body">
       {{#unless currentUser.isCompany}}
        <div class="pb-2"><button data-user="{{currentUser._id}}" data-name="{{room.name}}" data-id="{{room._id}}" type="submit"
@@ -22,6 +22,11 @@
           <p class="card-text">{{room.company.companyName}}</p>
         </a>
         <p class="card-text">{{room.company.city}}</p>
+        <div class="room-card-detail d-flex flex-row  justify-content-around">
+          <p class="card-text"><i class="bi bi-people"></i>{{room.players}}</p>
+          <p class="card-text"><i class="bi bi-person"></i>{{room.minAge}}</p>
+          <p class="card-text"><i class="bi bi-alarm"></i>{{room.duration}}</p>
+        </div>
         <a href="/room/{{room._id}}" class="btn see-more-btn">Ver más</a>
       </div>
     </div>

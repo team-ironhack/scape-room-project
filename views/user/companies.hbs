@@ -6,15 +6,15 @@
 
 {{#if company}}
 
-  <div class="room-card mb-3 flex-sm-row">
+  <div class="room-card flex-sm-row">
     {{#each company}}
-    <div class="card mb-5">
-      <img src="{{this.avatar}}" class=" company-img-cards card-img-top img-cards" alt="...">
+    <div class="card mb-3 company-card">
+      <a href="/company/{{this._id}}"><img src="{{this.avatar}}" class=" company-img-cards card-img-top img-cards" alt="{{this.companyName}}"></a>
       <div class="card-body">
         <h5 class="card-title fw-semibold">{{this.companyName}}</h5>
-        <p class="card-text">{{this.city}}</p>
-        <p class="card-text">{{this.phone}}</p>
-        <p class="card-text">{{this.website}}</p>
+        <p class="card-text"><i class="bi bi-geo-alt"></i>{{this.city}}</p>
+        <p class="card-text"><i class="bi bi-telephone"></i>{{this.phone}}</p>
+        <a href="{{this.website}}" class="card-text company-web"><p ><i class="bi bi-globe"></i>{{this.website}}</p></a>
         <a href="/company/{{this._id}}" class="btn see-more-btn">Ver más</a>
       </div>
     </div>

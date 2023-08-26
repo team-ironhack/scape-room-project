@@ -11,13 +11,13 @@
       <h1>Empresas:</h1>
       <div class="room-card mb-4 flex-sm-row">
       {{#each companies }}
-      <div class="card mb-5">
-        <img src="{{this.avatar}}" class=" company-img-cards card-img-top img-cards" alt="...">
+      <div class="card mb-5 company-card">
+        <a href="/company/{{this._id}}"><img src="{{this.avatar}}" class=" company-img-cards card-img-top img-cards" alt="{{this.companyName}}"></a>
         <div class="card-body">
-          <h5 class="card-title fw-semibold">{{this.companyName}}</h5>
-          <p class="card-text">{{this.city}}</p>
-          <p class="card-text">{{this.phone}}</p>
-          <p class="card-text">{{this.website}}</p>
+         <h5 class="card-title fw-semibold">{{this.companyName}}</h5>
+        <p class="card-text"><i class="bi bi-geo-alt"></i>{{this.city}}</p>
+        <p class="card-text"><i class="bi bi-telephone"></i>{{this.phone}}</p>
+        <a href="{{this.website}}" class="card-text company-web"><p ><i class="bi bi-globe"></i>{{this.website}}</p></a>
           <a href="/company/{{this._id}}" class="btn see-more-btn">Ver más</a>
         </div>
       </div>
@@ -57,14 +57,14 @@
     <h1>Empresas:</h1>
     <div class="room-card mb-4 mt-3 flex-sm-row">
     {{#each rooms}}
-    <div class="card mt-4 mb-5">
-      <img src="{{this.company.avatar}}" class=" company-img-cards card-img-top img-cards" alt="...">
+    <div class="card mt-4 mb-5 company-card">
+       <a href="/company/{{this._id}}"><img src="{{this.company.avatar}}" class=" company-img-cards card-img-top img-cards" alt="{{this.company.companyName}}"></a>
       <div class="card-body">
         <h5 class="card-title fw-semibold">{{this.company.companyName}}</h5>
-        <p class="card-text">{{this.company.city}}</p>
-        <p class="card-text">{{this.company.phone}}</p>
-        <p class="card-text">{{this.company.website}}</p>
-        <a href="/company/{{this._id}}" class="btn see-more-btn">Ver más</a>
+        <p class="card-text"><i class="bi bi-geo-alt"></i>{{this.company.city}}</p>
+        <p class="card-text"><i class="bi bi-telephone"></i>{{this.company.phone}}</p>
+        <a href="{{this.company.website}}" class="card-text company-web"><p ><i class="bi bi-globe"></i>{{this.company.website}}</p></a>
+        <a href="/company/{{this.company._id}}" class="btn see-more-btn">Ver más</a>
       </div>
     </div>
     {{/each}}

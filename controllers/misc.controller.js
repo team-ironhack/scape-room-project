@@ -14,9 +14,8 @@ module.exports.index = (req, res, next) => {
 
 module.exports.puzzle = (req, res, next) => {
   const options = {
-    maxAge: 10 * 365 * 24 * 60 * 60 * 1000, // 10 years in milliseconds
+    maxAge: 10 * 365 * 24 * 60 * 60 * 1000, 
     httpOnly: true,
-    // You can also set other options here, like secure: true if using HTTPS
   };
   res.cookie('puzzle', 'true', options);
   res.render('onBoarding', { hiddenNav: true })
@@ -42,7 +41,7 @@ module.exports.list = (req, res, next) => {
     Room.aggregate([
       {
         $lookup: {
-          from: 'likes', // Use the actual collection name for likes
+          from: 'likes', 
           localField: '_id',
           foreignField: 'room',
           as: 'likes',
@@ -54,16 +53,16 @@ module.exports.list = (req, res, next) => {
         },
       },
       {
-        $sort: { likeCount: -1 }, // Sort in descending order of like count
+        $sort: { likeCount: -1 }, 
       },
       {
-        $limit: 3, // Sort in descending order of like count
+        $limit: 3, 
       },
     ]),
     Player.aggregate([
       {
         $lookup: {
-          from: 'dones', // Use the actual collection name for likes
+          from: 'dones', 
           localField: '_id',
           foreignField: 'player',
           as: 'dones',
@@ -75,10 +74,10 @@ module.exports.list = (req, res, next) => {
         },
       },
       {
-        $sort: { doneCount: -1 }, // Sort in descending order of like count
+        $sort: { doneCount: -1 }, 
       },
       {
-        $limit: 3, // Sort in descending order of like count
+        $limit: 3, 
       },
     ]),
     Room.find().populate("company").populate("likes").populate("marks").populate("dones").limit(3).sort({ createdAt: 'descending' }),
@@ -293,11 +292,6 @@ module.exports.doneCreate = (req, res, next) => {
     })
 }
 
-// MOSTRAR PARA COMENTAR
-
-/*module.exports.comment = (req, res, next) => {
-  res.render('room/room-detail')
-}*/
 
 // HACER COMENTARIO
 

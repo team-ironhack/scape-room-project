@@ -1,18 +1,20 @@
-<div class="puzzle-container"> 
+<div class="puzzle-container ">
   <img class="p-3" src="/images/IRONSCAPES-HORIZONTAL.png" alt="Logo" width="200">
-<form action="/onboarding" method="POST">
-      <div class="mb-3">
-        <label for="puzzle" class="form-label">Pon contraseña y entra</label>
-        <input class="form-control {{#if errors.puzzle}}is-invalid{{/if}}" name="puzzle" type="text" id="puzzle"
-          placeholder="Escribe tu respuesta" value="{{comment.puzzle}}" required>
-        {{#if errors.puzzle}}
-        <div class="invalid-feedback">
-          {{errors.puzzle}}
-        </div>
-        {{/if}}
+  <form action="/onboarding" method="POST">
+    <div class="mb-3">
+      <label for="puzzle" class="form-label">Pon contraseña y entra</label>
+      <input class="form-control {{#if errors.puzzle}}is-invalid{{/if}}" name="puzzle" type="text" id="puzzle"
+        placeholder="Escribe tu respuesta" value="{{comment.puzzle}}" required>
+      {{#if errors.puzzle}}
+      <div class="invalid-feedback">
+        {{errors.puzzle}}
       </div>
-      <div class="login-btn-container">
-      <button class="btn login-btn" type="submit">Enviar</button>
-      </div>
-    </form>
+      {{/if}}
     </div>
+    <div class="login-btn-container d-flex flex-column justify-content-center align-items-center">
+      <button class="btn login-btn" type="submit">Enviar</button>
+        <img class="mt-2"src="../images/qr-home.jpg" alt="" width="85">
+    </div>
+    
+  </form>
+</div>

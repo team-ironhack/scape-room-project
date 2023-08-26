@@ -7,6 +7,7 @@ const path = require('path');
 const passport = require('passport');
 const hbs = require('hbs');
 const cookieParser = require('cookie-parser');
+const favicon = require('serve-favicon');
 const { PLAYERS, DIFFICULTY, TERROR } = require('./misc/enum');
 
 /** Configurations */
@@ -16,6 +17,8 @@ require('./config/passport.config');
 const session = require('./config/session.config');
 
 const app = express();
+
+app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
 
 /** View engine setup */
 app.set('views', path.join(__dirname, 'views'));

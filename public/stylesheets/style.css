@@ -628,7 +628,7 @@ footer i {
 /* MOBILE */
 @media (max-width: 768px) {
     .login-container {
-        top: 35px;
+        top: 10px;
     }
 
     .role-btns-container {

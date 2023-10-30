@@ -1,4 +1,3 @@
-
 <script id="search-js" src="https://api.mapbox.com/search-js/v1.0.0-beta.17/web.js" defer></script>
 
 
@@ -18,11 +17,12 @@
       </div>
       <div class="d-flex flex-row g-3">
         <i class="bi bi-geo-alt" style="color: #FFD321"></i>
-        <p class="footer-address ms-2">Dirección:</br> {{currentUser.address}},</br>{{currentUser.province}},</br>{{currentUser.city}}</p>
+        <p class="footer-address ms-2">Dirección:</br>
+          {{currentUser.address}},</br>{{currentUser.province}},</br>{{currentUser.city}}</p>
       </div>
-      
+
       {{#if currentUser.website}}
-        <div class="d-flex flex-row g-3">
+      <div class="d-flex flex-row g-3">
         <i class="bi bi-globe" style="color: #FFD321"></i>
         <p class="footer-address ms-2">{{currentUser.website}}</p>
       </div>
@@ -37,8 +37,7 @@
     </div>
     <div class="row">
       <mapbox-address-minimap satellite-toggle="true" can-adjust-marker="true" id="map"
-        location="{{currentUser.locationData}}"
-        style="mapbox://styles/mapbox/dark-v11">
+        location="{{currentUser.locationData}}" style="mapbox://styles/mapbox/dark-v11">
       </mapbox-address-minimap>
     </div>
   </div>
@@ -48,24 +47,27 @@
   <p>No hay empresa</p>
   {{/if}}
   <div class="mt-5">
-    <h1 class="mb-3">Tus salas</h1>
+    <h1 class="mb-3 mt-5">Tus salas</h1>
     {{#if company.rooms}}
     <div class="mb-4">
       {{#each roomsWithAverage}}
       <div class="rooms-rows mb-4 flex-sm-row g-3">
-        <div class="w-25">
-          <h6>{{this.name}}</h6>
+        <div class="room-row-info">
+          <h6 class="mb-0">{{this.name}}</h6>
         </div>
 
-        <p><i class="bi bi-heart-fill" style="color: rgb(250, 93, 93)"></i> {{likes.length}}</p>
-        <p><i class="bi bi-bookmark-fill" style="color: rgb(144, 144, 233)"></i> {{marks.length}}</p>
-        <p><i class="bi bi-check-circle-fill" style="color: rgb(114, 206, 134)"></i> {{dones.length}}</p>
-        <p><i class="bi bi-star-fill" style="color: rgb(237, 198, 70)"></i> {{ averageScore }}</p>
-        <div class="w-25 btns-row">
-          <a class="btn edit-btn" href="/edit/room/{{this._id}}">
+        <div class="room-row-info d-flex justify-content-between">
+          <p class="mb-0"><i class="bi bi-heart-fill" style="color: rgb(250, 93, 93)"></i> {{likes.length}}</p>
+          <p class="mb-0"><i class="bi bi-bookmark-fill" style="color: rgb(144, 144, 233)"></i> {{marks.length}}</p>
+          <p class="mb-0"><i class="bi bi-check-circle-fill" style="color: rgb(114, 206, 134)"></i> {{dones.length}}</p>
+          <p class="mb-0"><i class="bi bi-star-fill" style="color: rgb(237, 198, 70)"></i> {{ averageScore }}</p>
+        </div>
+
+        <div class="room-row-info btns-row d-flex justify-content-end">
+          <a class="btn mx-2 edit-btn" href="/edit/room/{{this._id}}">
             <i class="bi bi-pencil-square"></i> Editar</a>
           <form action="/delete/room/{{this._id}}" method="POST">
-            <button class="btn delete-btn"><i class="bi bi-trash"></i> Borrar</button>
+            <button class="btn delete-btn mx-2"><i class="bi bi-trash"></i> Borrar</button>
           </form>
         </div>
 

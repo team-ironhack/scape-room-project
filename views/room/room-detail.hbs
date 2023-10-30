@@ -1,13 +1,13 @@
 <div class="container w-75">
 
-  <h1 class="ms-5 mt-3">{{room.name}}</h1>
+  <h1 class="mt-4">{{room.name}}</h1>
 
-  <div class="d-flex ms-5 mt-3 flex-column flex-sm-row">
+  <div class="d-flex mt-3 flex-column flex-sm-row">
     <div class="me-3">
       <img width='300' class="scape-image" src="{{room.image}}" alt="{{room.name}}" referrerpolicy="no-referrer" />
 
     </div>
-    <div class="room-detail ms-3 container w-100 w-sm-75">
+    <div class="room-detail container w-150 w-sm-75">
       <p>Sala perteneciente a: <a class="company-link"
           href="/company/{{room.company._id}}">{{room.company.companyName}}</a></p>
       <p><i class="bi bi-people"></i> Número de jugadores: {{room.players}}</p>
@@ -16,7 +16,7 @@
       <p><i class="bi bi-bar-chart"></i> Dificultad de la sala: {{room.difficulty}}.</p>
       <p><i class="bi bi-alarm"></i> Duración del juego: {{room.duration}} minutos.</p>
       <p><i class="bi bi-emoji-dizzy"></i> Nivel de terror: {{room.terrorLevel}}.</p>
-      <p><i class="bi bi-star"></i> Puntuación de los usuarios: {{ averageScore }}.</p>
+      {{showAverageScore averageScore}}
       <p>
         <span>Niveles de terror:</span><br>
         <span style="color: rgb(107, 248, 128);">No</span> -
@@ -26,7 +26,7 @@
         <span style="color: rgb(229, 34, 34);">Terror</span> -
         <span style="color: rgb(171, 9, 9);">Pánico</span>
       </p>
-      <div class="room-buttons mb-4 flex-row justify-content-start g-3">
+      <div class="room-buttons flex-row justify-content-start g-3">
         {{#unless currentUser.isCompany}}
         <button data-user="{{currentUser._id}}" data-name="{{room.name}}" data-id="{{room._id}}" type="submit"
           class="like-button me-3"><i

@@ -53,7 +53,7 @@
         </div>
         <p class="card-text">{{this.city}}</p>
 
-        <a href="/player/{{this._id}}" class="btn see-more-btn">Ver perfil</a>
+        <a href="{{#isCurrentUserPlayer this.currentUser._id this._id}}/player/profile/{{this.currentUser.id}}{{else}}/player/{{this._id}}{{/isCurrentUserPlayer}}" class="btn see-more-btn">Ver perfil</a>
 
       </div>
     </div>

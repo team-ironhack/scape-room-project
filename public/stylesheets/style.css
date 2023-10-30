@@ -39,10 +39,6 @@ h1 {
     color: #cdcdca !important;
 }
 
-.navbar-toggler-icon {
-    background-color: #FFD321 !important;
-}
-
 .nav-btn:hover {
     color: #FFD321 !important;
 }
@@ -624,6 +620,10 @@ footer i {
     color: #cdcdca
 }
 
+.room-row-info {
+    width: 33%;
+}
+
 /*MEDIA QUERY*/
 /* MOBILE */
 @media (max-width: 768px) {
@@ -644,6 +644,39 @@ footer i {
 
     .google-btn {
         font-size: 15px;
+    }
+
+    .room-detail {
+        margin-left: 0px !important;
+        margin-top: 30px;
+    }
+
+    .delete-btn {
+        outline: solid 1px #e57e95;
+        color: #e57e95;
+        background-color: rgba(255, 255, 255, 0);
+    }
+
+    .edit-btn {
+        outline: solid 1px #2ebca0;
+        color: #2ebca0;
+        background-color: rgba(255, 255, 255, 0);
+    }
+
+    .room-row-info {
+        width: 100%;
+        margin: 10px 0px;
+    }
+
+    .room-row-info h6 {
+        text-align: center !important;
+    }
+
+    .rooms-row {
+        display: flex;
+        flex-direction: column;
+        align-items: center !important;
+        text-align: center !important;
     }
         
 }

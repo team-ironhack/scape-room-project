@@ -138,9 +138,13 @@ module.exports.doEditCompanyProfile = (req, res, next) => {
 
 // Mostrar todas las empresas
 module.exports.showCompanies = (req, res, next) => {
+  
   Company.find()
-    .then(company => {
-      res.render('user/companies', { company })
+    .then(companies => {
+      companies.forEach(company => {
+        company.currentUser = req.user;
+      });
+      res.render('user/companies', { companies, isCurrentUser: true })
     })
     .catch(err => {
       next(err)

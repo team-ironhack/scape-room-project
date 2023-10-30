@@ -2,20 +2,21 @@
 
 <div class="mb-4">
   <h1>Todas las empresas:</h1>
-</div> 
+</div>
 
-{{#if company}}
-
+{{#if companies}}
   <div class="room-card flex-sm-row">
-    {{#each company}}
+    {{#each companies as |company|}}
     <div class="card mb-3 company-card">
+      {{company}}
+     
       <a href="/company/{{this._id}}"><img src="{{this.avatar}}" class=" company-img-cards card-img-top img-cards" alt="{{this.companyName}}"></a>
       <div class="card-body">
         <h5 class="card-title fw-semibold">{{this.companyName}}</h5>
         <p class="card-text"><i class="bi bi-geo-alt"></i>{{this.city}}</p>
         <p class="card-text"><i class="bi bi-telephone"></i>{{this.phone}}</p>
         <a href="{{this.website}}" class="card-text company-web"><p ><i class="bi bi-globe"></i>{{this.website}}</p></a>
-        <a href="/company/{{this._id}}" class="btn see-more-btn">Ver más</a>
+        <a href="{{#isCurrentUserCompany this.currentUser._id this._id}}/company/profile/{{this.currentUser.id}}{{else}}/company/{{this._id}}{{/isCurrentUserCompany}}" class="btn see-more-btn">Ver más</a>
       </div>
     </div>
     {{/each}}

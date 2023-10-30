@@ -3,9 +3,9 @@
 <h1 class="mt-3">Tu perfil de jugador</h1>
 
 {{#if currentUser}}
-<div class="d-flex align-items-center mt-3 flex-column flex-sm-row">
+<div class="d-flex align-items-center mt-3 flex-column flex-sm-row profile-player-info">
   <div class="me-5">
-    <img width='300' src="{{currentUser.avatar}}" alt="" class="player-avatar" referrerpolicy="no-referrer" />
+    <img src="{{currentUser.avatar}}" alt="" class="player-avatar" referrerpolicy="no-referrer" />
   </div>
   <div class="info-player-container">
     <h5 class="fw-semibold mt-3">{{currentUser.name}}</h5>

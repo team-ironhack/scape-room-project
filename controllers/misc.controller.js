@@ -102,6 +102,9 @@ module.exports.list = (req, res, next) => {
     .then(([likedRooms, jugadores, añadidas, cityRoomsResult, empresas]) => {
       const roomIds = likedRooms.map(room => room._id);
       const cityRooms = cityRoomsResult ? cityRoomsResult.rooms : [];
+      jugadores.forEach(jugador => {
+        jugador.currentUser = req.user;
+      });
       return Room.find({ _id: { $in: roomIds } })
         .populate('company likes marks dones')
         .then((populatedRooms) => {

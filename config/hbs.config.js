@@ -33,6 +33,33 @@ hbs.registerHelper("playerDoneRoom", function (options) {
   }
 });
 
+hbs.registerHelper('showAverageScore', function(averageScore) {
+    if (!isNaN(averageScore) && averageScore !== null) {
+        return new hbs.SafeString('<p><i class="bi bi-star"></i> Puntuación de los usuarios: ' + averageScore + '.</p>');
+    } else {
+        return new hbs.SafeString('<p><i class="bi bi-star"></i> Puntuación de los usuarios: No hay puntuaciones todavía.</p>');
+    }
+});
+
+hbs.registerHelper('isCurrentUserCompany', function(currentUser, companyId) {
+    if (currentUser && companyId && currentUser.toString() === companyId.toString()) {
+        return `/company/profile/` + currentUser;
+    } else {
+        return '/company/' + companyId;
+    }
+});
+
+hbs.registerHelper('isCurrentUserPlayer', function(currentUser, playerId) {
+  if (currentUser && playerId && currentUser.toString() === playerId.toString()) {
+      return `/player/profile/` + currentUser;
+  } else {
+      return '/player/' + playerId;
+  }
+});
+
+
+
+
 
 
 

@@ -17,7 +17,7 @@ module.exports.sendValidationEmailPlayer = (user) => {
     const source = fs.readFileSync('misc/bienvenida.hbs', 'utf8');
     const template = handlebars.compile(source);
 
-    const activationLink = `${process.env.APP_HOST}/player/${user.id}/activate`;
+    const activationLink = `${process.env.APP_DEPLOYED}/player/${user.id}/activate`;
 
     const userData = {
         name: user.name 
@@ -43,7 +43,7 @@ module.exports.sendValidationEmailCompany = (user) => {
     const source = fs.readFileSync('misc/bienvenida.hbs', 'utf8');
     const template = handlebars.compile(source);
 
-    const activationLink = `${process.env.APP_HOST}/player/${user.id}/activate`;
+    const activationLink = `${process.env.APP_DEPLOYED}/player/${user.id}/activate`;
 
     const userData = {
         name: user.companyName 

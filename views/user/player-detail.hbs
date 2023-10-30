@@ -83,7 +83,7 @@
 
 <script>
   const swiper = new Swiper('.swiper', {
-    slidesPerView: 3, // Mostrar tres slides por vista
+    slidesPerView: 1, // Mostrar tres slides por vista
     spaceBetween: 20, // Espacio entre los slides
     direction: 'horizontal',
     //loop: true,
@@ -93,6 +93,12 @@
       prevEl: '.swiper-button-prev',
     },
 
-  });
+    breakpoints: {
+      // Cuando el ancho de la ventana es menor que 768px (dispositivos móviles)
+      768: {
+        slidesPerView: 3, // Mostrar solo un slide por vista en dispositivos móviles
+      }
+    }
 
+  });
 </script>

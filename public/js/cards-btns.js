@@ -11,7 +11,7 @@ const commentContainers = document.querySelectorAll('.comment');
 likeButtons.forEach((btn) => {
   btn.addEventListener('click', () => {
     const heartBtn = btn.querySelector('i')
-    axios.post(`https://scape-room-project-64rc-dev.fl0.io/likes/${btn.dataset.user}/${btn.dataset.id}`)
+    axios.post(`http://localhost:3000/likes/${btn.dataset.user}/${btn.dataset.id}`)
       .then(response => {
         if (response.data === 'DELETED') {
           heartBtn.classList.remove('bi-heart-fill')

@@ -608,7 +608,12 @@ footer i {
 /*comments*/
 
 .comment-date {
+    color: #cdcdca;
     font-size: 12px;
+}
+
+.comment {
+    color: #cdcdca !important;
 }
 
 .comment-img {

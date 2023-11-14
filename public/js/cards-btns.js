@@ -11,7 +11,7 @@ const commentContainers = document.querySelectorAll('.comment');
 likeButtons.forEach((btn) => {
   btn.addEventListener('click', () => {
     const heartBtn = btn.querySelector('i')
-    axios.post(`https://scape-room-project-64rc-dev.fl0.io/likes/${btn.dataset.user}/${btn.dataset.id}`)
+    axios.post(`https://scape-room-project-dev-rpmf.1.ie-1.fl0.io/likes/${btn.dataset.user}/${btn.dataset.id}`)
       .then(response => {
         if (response.data === 'DELETED') {
           heartBtn.classList.remove('bi-heart-fill')
@@ -32,7 +32,7 @@ likeButtons.forEach((btn) => {
 markButtons.forEach((btn) => {
   btn.addEventListener('click', () => {
     const markBtn = btn.querySelector('i')
-    axios.post(`https://scape-room-project-64rc-dev.fl0.io/marks/${btn.dataset.user}/${btn.dataset.id}`)
+    axios.post(`https://scape-room-project-dev-rpmf.1.ie-1.fl0.io/marks/${btn.dataset.user}/${btn.dataset.id}`)
       .then(response => {
         if (response.data === 'DELETED') {
           markBtn.classList.remove('bi-bookmark-fill')
@@ -52,7 +52,7 @@ markButtons.forEach((btn) => {
 doneButtons.forEach((btn) => {
   btn.addEventListener('click', () => {
     const doneBtn = btn.querySelector('i')
-    axios.post(`https://scape-room-project-64rc-dev.fl0.io/dones/${btn.dataset.user}/${btn.dataset.id}`)
+    axios.post(`https://scape-room-project-dev-rpmf.1.ie-1.fl0.io/dones/${btn.dataset.user}/${btn.dataset.id}`)
       .then(response => {
         if (response.data === 'DELETED') {
           doneBtn.classList.remove('bi-check-circle-fill')
